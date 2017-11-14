@@ -1,0 +1,9 @@
+please don't delete benji
+
+px babel client --watch --out-dir public --presets=es2015,react
+npx babel client --watch --out-dir public --presets=es2015,react
+npm install -g npx
+
+
+npm build to run build in package.json
+nodemon --inspect server.js
