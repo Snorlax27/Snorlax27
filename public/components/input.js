@@ -8,49 +8,59 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DiaryEntry = function (_React$Component) {
-  _inherits(DiaryEntry, _React$Component);
+var Input = function (_React$Component) {
+  _inherits(Input, _React$Component);
 
-  function DiaryEntry(props) {
-    _classCallCheck(this, DiaryEntry);
+  function Input(props) {
+    _classCallCheck(this, Input);
 
-    var _this = _possibleConstructorReturn(this, (DiaryEntry.__proto__ || Object.getPrototypeOf(DiaryEntry)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
 
     _this.state = {
-      entries: []
+      entries: [],
+      newestPost: {}
     };
-    _this.diaryText = _this.diaryText.bind(_this);
+    _this.handlePost = _this.handlePost.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
     return _this;
   }
 
-  _createClass(DiaryEntry, [{
-    key: "diaryText",
-    value: function diaryText(event) {
-      this.setState({ entries: event.target.value });
-      console.log('Line 12 DiaryEntry.jsx was run');
+  _createClass(Input, [{
+    key: "handlePost",
+    value: function handlePost(event) {
+      this.setState({ newestPost: event.target.value });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      console.log('User hit submit line 16 input.jsx =', this.state.newestPost);
+      event.preventDefault();
     }
   }, {
     key: "render",
     value: function render() {
       return React.createElement(
-        "div",
-        null,
+        "form",
+        { id: "input", onSubmit: this.handleSubmit },
         React.createElement(
-          "form",
+          "h4",
           null,
           React.createElement(
-            "label",
-            null,
-            "Diary:",
-            React.createElement("input", { type: "text", name: "textEntry" })
+            "span",
+            { id: "enter" },
+            "Write"
           ),
-          React.createElement("input", { type: "submit", value: "Enter" })
+          " a diary entry:"
+        ),
+        React.createElement("textarea", { type: "text", value: this.state.value, onChange: this.handlePost }),
+        React.createElement(
+          "button",
+          { type: "submit", value: "Submit", onClick: this.handleSubmit },
+          "FIN"
         )
       );
     }
   }]);
 
-  return DiaryEntry;
+  return Input;
 }(React.Component);
-
-window.DiaryEntry = DiaryEntry;
