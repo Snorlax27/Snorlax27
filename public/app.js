@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -16,17 +16,32 @@ var App = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-    _this.state = {};
+    _this.state = {
+      entries: []
+    };
     return _this;
   }
 
   _createClass(App, [{
-    key: "render",
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var scope = this;
+      $.ajax({
+        type: 'GET',
+        url: '/entries',
+        success: function success(data) {
+          scope.setState({ entries: data });
+        }
+      });
+    }
+  }, {
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
+        'div',
         null,
-        React.createElement("img", { src: "https://static.comicvine.com/uploads/scale_small/11/114183/5198871-143snorlax.png" })
+        React.createElement('img', { src: 'https://static.comicvine.com/uploads/scale_small/11/114183/5198871-143snorlax.png' }),
+        React.createElement(DiaryList, { list: this.state.entries })
       );
     }
   }]);
