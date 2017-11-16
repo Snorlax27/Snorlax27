@@ -8,6 +8,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
+
+
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -18,13 +21,21 @@ var App = function (_React$Component) {
 
     _this.state = {
       entries: [],
-      newestPost: {} //ADDED
+      newestPost: {},
+      userLoggedIn: false
     };
-    _this.postDiary = _this.postDiary.bind(_this); //added
+    _this.handleLogin = _this.handleLogin.bind(_this);
+    _this.postDiary = _this.postDiary.bind(_this);
+    _this.render = _this.render.bind(_this);
     return _this;
   }
 
   _createClass(App, [{
+    key: 'handleLogin',
+    value: function handleLogin() {
+      this.setState({ userLoggedIn: true });
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var scope = this;
@@ -61,24 +72,39 @@ var App = function (_React$Component) {
       });
     }
   }, {
+    key: 'filterComponents',
+    value: function filterComponents() {
+      if (this.state.userLoggedIn) {
+        return React.createElement(
+          'div',
+          null,
+          React.createElement(Input, null)
+        );
+      } else {
+        return React.createElement(
+          'div',
+          null,
+          React.createElement(Login, { handleLogin: this.handleLogin }),
+          React.createElement(NewAccount, null)
+        );
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return React.createElement(
-        'div',
-        null,
-        React.createElement(Input, null)
-      );
+      return this.filterComponents();
     }
   }]);
 
   return App;
 }(React.Component);
 
+//----------------------------------------
+//<Router>
+//<Route path='/' component={App}/>
+//<Route  path='/login' component={Login}/>
+//<Route path='/signup' component={Signup}/>
+//</Router>
+//----------------------------------------
+
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
-
-// <DiaryList list={this.state.entries}/>
-//<img src="https://avatars2.githubusercontent.com/u/27251873?s=460&v=4"></img>
-//<img src="https://avatars1.githubusercontent.com/u/29010046?s=460&v=4"></img>
-//<img src="https://i.pinimg.com/736x/65/50/a7/6550a7592bdba229c7f95ff37f2b708d--rock-lee-naruto-naruto-.jpg"></img>
-
-// <img onClick={this.playAudio} src="../../Sun"></img>

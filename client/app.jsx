@@ -1,11 +1,21 @@
+// var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       entries: [],
-      newestPost: {} //ADDED
+      newestPost: {},
+      userLoggedIn: false
     }
-    this.postDiary = this.postDiary.bind(this); //added
+    this.handleLogin = this.handleLogin.bind(this);
+    this.postDiary = this.postDiary.bind(this);
+    this.render = this.render.bind(this);
+  }
+
+  handleLogin() {
+    this.setState({userLoggedIn: true})
   }
 
   componentDidMount() {
@@ -41,20 +51,33 @@ class App extends React.Component {
     })
   }
 
+  filterComponents() {
+    if (this.state.userLoggedIn) {
+      return <div><Input /></div>
+    } else {
+      return (
+        <div>
+          <Login handleLogin={this.handleLogin}/>
+          <NewAccount />
+        </div>
+      )
+    }
+  }
+
   render() {
     return(
-      <div>
-      <Input />
-      </div>
+      this.filterComponents()
     )
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+//----------------------------------------
+//<Router>
+//<Route path='/' component={App}/>
+//<Route  path='/login' component={Login}/>
+//<Route path='/signup' component={Signup}/>
+//</Router>
+//----------------------------------------
 
-// <DiaryList list={this.state.entries}/>
-//<img src="https://avatars2.githubusercontent.com/u/27251873?s=460&v=4"></img>
-//<img src="https://avatars1.githubusercontent.com/u/29010046?s=460&v=4"></img>
-//<img src="https://i.pinimg.com/736x/65/50/a7/6550a7592bdba229c7f95ff37f2b708d--rock-lee-naruto-naruto-.jpg"></img>
+ReactDOM.render(<App/>, document.getElementById('app'));
 
-// <img onClick={this.playAudio} src="../../Sun"></img>

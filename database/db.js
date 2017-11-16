@@ -17,6 +17,7 @@ var User = mongoose.model('User', UserSchema);
 
 var DiarySchema = mongoose.Schema({
   username: String,
+  title: String,
   text: String,
   sentiment: String,
 });

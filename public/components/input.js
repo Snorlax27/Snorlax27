@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -18,45 +18,68 @@ var Input = function (_React$Component) {
 
     _this.state = {
       entries: [],
+      newestTitle: {},
       newestPost: {}
     };
+    _this.handleTitle = _this.handleTitle.bind(_this);
     _this.handlePost = _this.handlePost.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     return _this;
   }
 
   _createClass(Input, [{
-    key: "handlePost",
+    key: 'handlePost',
     value: function handlePost(event) {
       this.setState({ newestPost: event.target.value });
     }
   }, {
-    key: "handleSubmit",
-    value: function handleSubmit(event) {
-      console.log('User hit submit line 16 input.jsx =', this.state.newestPost);
-      event.preventDefault();
+    key: 'handleTitle',
+    value: function handleTitle(event) {
+      this.setState({ newestTitle: event.target.value });
     }
   }, {
-    key: "render",
+    key: 'handleSubmit',
+    value: function handleSubmit(event) {
+      console.log('User hit submit line 16 input.jsx =', this.state.newestPost);
+
+      event.preventDefault();
+
+      $.ajax({
+        type: 'POST',
+        url: '/entries',
+        data: {
+          title: this.state.newestTitle,
+          text: this.state.newestPost
+        },
+        success: function success() {
+          console.log('line 37 input.jsx post success');
+        }
+      });
+    }
+  }, {
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "form",
-        { id: "input", onSubmit: this.handleSubmit },
+        'form',
+        { id: 'input', onSubmit: this.handleSubmit },
         React.createElement(
-          "h4",
+          'h4',
           null,
           React.createElement(
-            "span",
-            { id: "enter" },
-            "Write"
+            'span',
+            { id: 'enter' },
+            'Write'
           ),
-          " a diary entry:"
+          ' a diary entry:'
         ),
-        React.createElement("textarea", { type: "text", value: this.state.value, onChange: this.handlePost }),
+        'Title: ',
+        React.createElement('input', { name: 'title', onChange: this.handleTitle }),
+        React.createElement('br', null),
+        React.createElement('textarea', { type: 'text', name: 'entry', value: this.state.value, onChange: this.handlePost }),
         React.createElement(
-          "button",
-          { type: "submit", value: "Submit", onClick: this.handleSubmit },
-          "FIN"
+          'button',
+          { type: 'submit', value: 'Submit', onClick: this.handleSubmit },
+          'FIN'
         )
       );
     }

@@ -1,31 +1,54 @@
-import React from 'react';
-
 class Login extends React.Component {
   constructor(props) {
     super(props)
-  
+
     this.state = {
       username: "",
       password: ""
     }
-    
-    this.login = this.login.bind(this);
+    this.handleUsername = this.handleUsername.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
-  inputChange(e) {
-        
+
+  handleSubmit(event) {
+    var scope = this;
+    event.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/login',
+      data: {
+        username: this.state.username,
+        password: this.state.password
+      },
+      success: function(data) {
+        console.log('data login.jsx line 24', data)
+        if (data === 'true') {
+          scope.props.handleLogin();
+        }
+      }
+    });
   }
-  
-  login() {
-    // todo: API call here
+
+  handleUsername(e) {
+    this.setState({username: e.target.value})
   }
-  
+
+  handlePassword(e) {
+    this.setState({password: e.target.value})
+  }
+
+
   render() {
+    return (
     <div className="login__wrapper">
-      <form onSubmit={this.login}>
-        <input type="text" name="username" value={this.state.username}/> 
-        <input type="password" name="username" value={this.state.password}/> 
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" placeholder='Enter username' onChange={this.handleUsername}/>
+        <input type="text" placeholder='Enter password' onChange={this.handlePassword}/>
+        <button type="submit" onClick={this.handleSubmit}>Login</button>
       </form>
     </div>
+    )
   }
 }
+
