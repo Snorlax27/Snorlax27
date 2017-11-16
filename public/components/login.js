@@ -79,3 +79,5 @@ var Login = function (_React$Component) {
 
   return Login;
 }(React.Component);
+
+"use strict";

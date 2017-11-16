@@ -54,3 +54,4 @@ var DiaryEntry = function (_React$Component) {
 }(React.Component);
 
 window.DiaryEntry = DiaryEntry;
+"use strict";
