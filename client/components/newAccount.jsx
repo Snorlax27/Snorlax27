@@ -1,6 +1,7 @@
-class Login extends React.Component {
+class NewAccount extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
       username: "",
       password: ""
@@ -11,20 +12,16 @@ class Login extends React.Component {
   }
 
   handleSubmit(event) {
-    var scope = this;
     event.preventDefault();
     $.ajax({
       type: 'POST',
-      url: '/login',
+      url: '/newAccount',
       data: {
         username: this.state.username,
         password: this.state.password
       },
-      success: function(data) {
-        console.log('data login.jsx line 24', data)
-        if (data === 'true') {
-          scope.props.handleLogin(scope.state.username);
-        }
+      success: function() {
+        console.log('line 23 input.jsx post success')
       }
     });
   }
@@ -37,17 +34,16 @@ class Login extends React.Component {
     this.setState({password: e.target.value})
   }
 
+
   render() {
     return (
     <div className="login__wrapper">
       <form onSubmit={this.handleSubmit}>
-        <input type="text" placeholder='Enter username' onChange={this.handleUsername}/>
-        <input type="text" placeholder='Enter password' onChange={this.handlePassword}/>
-
-        <button class="btn btn-info" type="submit" onClick={this.handleSubmit}>Login</button>
+        Create Username: <input type="text" placeholder='Enter username' onChange={this.handleUsername}/>
+        Create Password: <input type="text" placeholder='Enter password' onChange={this.handlePassword}/>
+        <button class="btn btn-info" type="submit" onClick={this.handleSubmit}>Make</button>
       </form>
     </div>
     )
   }
 }
-

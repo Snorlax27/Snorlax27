@@ -5,13 +5,8 @@ var DiaryList = function DiaryList(_ref) {
   return React.createElement(
     "div",
     null,
-    list.map(function (item) {
-      return React.createElement(
-        "li",
-        null,
-        React.createElement(DiaryEntry, { item: item })
-      );
-    }),
-    ">"
+    list.map(function (item, key) {
+      return React.createElement(DiaryEntry, { item: item });
+    })
   );
 };
