@@ -41,7 +41,7 @@ var Login = function (_React$Component) {
         success: function success(data) {
           console.log('data login.jsx line 24', data);
           if (data === 'true') {
-            scope.props.handleLogin();
+            scope.props.handleLogin(scope.state.username);
           }
         }
       });
@@ -69,7 +69,7 @@ var Login = function (_React$Component) {
           React.createElement("input", { type: "text", placeholder: "Enter password", onChange: this.handlePassword }),
           React.createElement(
             "button",
-            { type: "submit", onClick: this.handleSubmit },
+            { "class": "btn btn-info", type: "submit", onClick: this.handleSubmit },
             "Login"
           )
         )

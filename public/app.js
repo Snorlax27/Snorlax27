@@ -8,8 +8,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
-
+var _MuiThemeProvider;
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -22,22 +21,22 @@ var App = function (_React$Component) {
     _this.state = {
       entries: [],
       newestPost: {},
-      userLoggedIn: false
+      userLoggedIn: false,
+      username: '',
+      backgroundUrl: ''
     };
     _this.handleLogin = _this.handleLogin.bind(_this);
-    _this.postDiary = _this.postDiary.bind(_this);
     _this.render = _this.render.bind(_this);
+    _this.handleLogout = _this.handleLogout.bind(_this);
     return _this;
   }
 
   _createClass(App, [{
     key: 'handleLogin',
-    value: function handleLogin() {
-      this.setState({ userLoggedIn: true });
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
+    value: function handleLogin(user) {
+      this.setState({
+        userLoggedIn: true
+      });
       var scope = this;
       $.ajax({
         type: 'GET',
@@ -48,29 +47,35 @@ var App = function (_React$Component) {
       });
     }
   }, {
-    key: 'playAudio',
-    value: function playAudio() {
-      var audio = document.getElementById('benji');
-      audio.play();
-    }
-  }, {
-    key: 'postDiary',
-    value: function postDiary() {
+    key: 'handleLogout',
+    value: function handleLogout() {
+      var scope = this;
       $.ajax({
         type: 'POST',
-        url: '/entries',
-        headers: { //might not be needed?
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          text: this.state.newestPost
-        }),
-        success: function success() {
-          console.log('line 37 app.jsx did the post really work?! :0');
+        url: '/logout',
+        success: function success(data) {
+          scope.setState({ userLoggedIn: false });
         }
       });
     }
+
+    //   componentDidMount() {
+    // // https://source.unsplash.com/random
+    //     $.ajax({
+    //       type: 'GET',
+    //       url: 'https://pixabay.com/api/docs/',
+    //       key: '7076402-4116e9d08cde36d3ab5e67074',
+    //       category: 'nature',
+    //       editors_choice: true,
+    //       success: function(data) {
+    //         console.log('DATTAAAAA app.jsx', data);
+    //         scope.setState({backgroundUrl: ''});
+    //       }
+    //     });
+    //     // document.body.style.setBackground(url());
+    //   }
+
+
   }, {
     key: 'filterComponents',
     value: function filterComponents() {
@@ -78,7 +83,13 @@ var App = function (_React$Component) {
         return React.createElement(
           'div',
           null,
-          React.createElement(Input, null)
+          React.createElement(Input, null),
+          React.createElement(
+            'button',
+            { 'class': 'btn btn-info', onClick: this.handleLogout },
+            'Logout'
+          ),
+          React.createElement(DiaryList, { list: this.state.entries })
         );
       } else {
         return React.createElement(

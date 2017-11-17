@@ -1,7 +1,6 @@
 class Login extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {
       username: "",
       password: ""
@@ -24,7 +23,7 @@ class Login extends React.Component {
       success: function(data) {
         console.log('data login.jsx line 24', data)
         if (data === 'true') {
-          scope.props.handleLogin();
+          scope.props.handleLogin(scope.state.username);
         }
       }
     });
@@ -38,14 +37,14 @@ class Login extends React.Component {
     this.setState({password: e.target.value})
   }
 
-
   render() {
     return (
     <div className="login__wrapper">
       <form onSubmit={this.handleSubmit}>
         <input type="text" placeholder='Enter username' onChange={this.handleUsername}/>
         <input type="text" placeholder='Enter password' onChange={this.handlePassword}/>
-        <button type="submit" onClick={this.handleSubmit}>Login</button>
+
+        <button class="btn btn-info" type="submit" onClick={this.handleSubmit}>Login</button>
       </form>
     </div>
     )

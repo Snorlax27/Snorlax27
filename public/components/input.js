@@ -19,7 +19,8 @@ var Input = function (_React$Component) {
     _this.state = {
       entries: [],
       newestTitle: {},
-      newestPost: {}
+      newestPost: {},
+      username: ''
     };
     _this.handleTitle = _this.handleTitle.bind(_this);
     _this.handlePost = _this.handlePost.bind(_this);
@@ -40,7 +41,7 @@ var Input = function (_React$Component) {
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
-      console.log('User hit submit line 16 input.jsx =', this.state.newestPost);
+      console.log('User submit diary, 25 input.jsx =', this.state.newestPost);
 
       event.preventDefault();
 
@@ -49,7 +50,8 @@ var Input = function (_React$Component) {
         url: '/entries',
         data: {
           title: this.state.newestTitle,
-          text: this.state.newestPost
+          text: this.state.newestPost,
+          username: this.state.username
         },
         success: function success() {
           console.log('line 37 input.jsx post success');
@@ -78,7 +80,7 @@ var Input = function (_React$Component) {
         React.createElement('textarea', { type: 'text', name: 'entry', value: this.state.value, onChange: this.handlePost }),
         React.createElement(
           'button',
-          { type: 'submit', value: 'Submit', onClick: this.handleSubmit },
+          { type: 'submit', 'class': 'btn btn-info', value: 'Submit', onClick: this.handleSubmit },
           'FIN'
         )
       );

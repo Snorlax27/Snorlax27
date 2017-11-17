@@ -67,7 +67,7 @@ var NewAccount = function (_React$Component) {
           React.createElement("input", { type: "text", placeholder: "Enter password", onChange: this.handlePassword }),
           React.createElement(
             "button",
-            { type: "submit", onClick: this.handleSubmit },
+            { "class": "btn btn-info", type: "submit", onClick: this.handleSubmit },
             "Make"
           )
         )

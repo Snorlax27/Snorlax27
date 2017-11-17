@@ -1,4 +1,5 @@
-// var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
+var _MuiThemeProvider
+
 
 
 class App extends React.Component {
@@ -7,18 +8,19 @@ class App extends React.Component {
     this.state = {
       entries: [],
       newestPost: {},
-      userLoggedIn: false
+      userLoggedIn: false,
+      username: '',
+      backgroundUrl: ''
     }
     this.handleLogin = this.handleLogin.bind(this);
-    this.postDiary = this.postDiary.bind(this);
     this.render = this.render.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
-  handleLogin() {
-    this.setState({userLoggedIn: true})
-  }
-
-  componentDidMount() {
+  handleLogin(user) {
+    this.setState({
+      userLoggedIn: true,
+    })
     var scope = this;
     $.ajax({
       type: 'GET',
@@ -26,34 +28,47 @@ class App extends React.Component {
       success: function(data) {
         scope.setState({ entries: data })
       }
-    })
+    });
   }
 
-  playAudio() {
-    var audio = document.getElementById('benji');
-    audio.play();
-  }
 
-  postDiary() {
+  handleLogout() {
+    var scope = this;
     $.ajax({
       type: 'POST',
-      url: '/entries',
-      headers: { //might not be needed?
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        text: this.state.newestPost
-      }),
-      success: function() {
-        console.log('line 37 app.jsx did the post really work?! :0')
+      url: '/logout',
+      success: function(data) {
+        scope.setState({userLoggedIn: false});
       }
     })
   }
 
+//   componentDidMount() {
+// // https://source.unsplash.com/random
+//     $.ajax({
+//       type: 'GET',
+//       url: 'https://pixabay.com/api/docs/',
+//       key: '7076402-4116e9d08cde36d3ab5e67074',
+//       category: 'nature',
+//       editors_choice: true,
+//       success: function(data) {
+//         console.log('DATTAAAAA app.jsx', data);
+//         scope.setState({backgroundUrl: ''});
+//       }
+//     });
+//     // document.body.style.setBackground(url());
+//   }
+
+
   filterComponents() {
     if (this.state.userLoggedIn) {
-      return <div><Input /></div>
+      return (
+          <div>
+            <Input />
+            <button class="btn btn-info" onClick={this.handleLogout}>Logout</button>
+            <DiaryList list={this.state.entries} />
+          </div>
+        )
     } else {
       return (
         <div>

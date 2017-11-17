@@ -4,7 +4,8 @@ class Input extends React.Component {
     this.state = {
       entries: [],
       newestTitle: {},
-      newestPost: {}
+      newestPost: {},
+      username: ''
     }
     this.handleTitle = this.handleTitle.bind(this);
     this.handlePost = this.handlePost.bind(this);
@@ -19,9 +20,8 @@ class Input extends React.Component {
     this.setState({newestTitle: event.target.value})
   }
 
-
   handleSubmit(event) {
-    console.log('User hit submit line 16 input.jsx =', this.state.newestPost);
+    console.log('User submit diary, 25 input.jsx =', this.state.newestPost);
 
     event.preventDefault();
 
@@ -30,7 +30,8 @@ class Input extends React.Component {
       url: '/entries',
       data: {
         title: this.state.newestTitle,
-        text: this.state.newestPost
+        text: this.state.newestPost,
+        username: this.state.username
       },
       success: function() {
         console.log('line 37 input.jsx post success')
@@ -38,13 +39,16 @@ class Input extends React.Component {
     });
   }
 
+
+
+
   render() {
     return(
       <form id="input" onSubmit={this.handleSubmit}>
         <h4><span id="enter">Write</span> a diary entry:</h4>
         Title: <input name="title" onChange={this.handleTitle}></input><br></br>
         <textarea type='text' name="entry" value={this.state.value} onChange={this.handlePost} />
-        <button type="submit" value="Submit" onClick={this.handleSubmit}>FIN</button>
+        <button type="submit" class="btn btn-info" value="Submit" onClick={this.handleSubmit}>FIN</button>
       </form>
     )
   }

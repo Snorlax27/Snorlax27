@@ -3,18 +3,6 @@ img {
   height: 77px;
 }
 
-button,
-select {
-  text-transform: none;
-}
-
-button,
-html input[type="button"],  1
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;  2
-  cursor: pointer;  3
-}
 
 button,
 input,
@@ -55,7 +43,7 @@ form {
   font-weight: bold;
 }
 
-button {
+/*button {
   border-radius: 50%;
   height: 50px;
   width: 50px;
@@ -64,7 +52,7 @@ button {
   font-weight: bold;
   border-style: normal;
   padding: none;
-}
+}*/
 
 #enter {
   color: darkblue;
@@ -75,6 +63,13 @@ h4 {
   font-family: sans-serif;
   color: lightblue;
 }
+
+#background {
+  background-image:url('https://source.unsplash.com/1600x900/?nature');
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+
 /*#input {
   background-color: lightblue;
 }
