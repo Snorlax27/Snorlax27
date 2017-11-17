@@ -1,4 +1,5 @@
 'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -27,7 +28,11 @@ var App = function (_React$Component) {
     };
     _this.handleLogin = _this.handleLogin.bind(_this);
     _this.render = _this.render.bind(_this);
+<<<<<<< HEAD
     _this.handleLogout = _this.handleLogout.bind(_this);
+=======
+    _this.state = {};
+>>>>>>> 9ce3ba4655ca8a87914e8cb116554ecf01f3d1ed
     return _this;
   }
 
@@ -104,6 +109,13 @@ var App = function (_React$Component) {
     key: 'render',
     value: function render() {
       return this.filterComponents();
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        null,
+        React.createElement("img", { src: "https://static.comicvine.com/uploads/scale_small/11/114183/5198871-143snorlax.png" })
+      );
     }
   }]);
 
@@ -117,5 +129,6 @@ var App = function (_React$Component) {
 //<Route path='/signup' component={Signup}/>
 //</Router>
 //----------------------------------------
+
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
