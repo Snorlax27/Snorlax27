@@ -1,0 +1,10 @@
+App Design
+
+Basic:
+1. text box to type diary
+2. submit button(re-render all posts)
+   - post to server
+     - server post to db
+   -get posts from server
+     -server get posts from db
+3.
