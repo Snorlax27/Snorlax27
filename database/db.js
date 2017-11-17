@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var mongoClient = require('mongodb').MongoClient;
 
+
 mongoose.connect('mongodb://localhost/diaries', {useMongoClient: true});
 console.log('connection successful')
 
@@ -8,6 +9,9 @@ console.log('connection successful')
 var UserSchema = mongoose.Schema({
 
 mongoose.connect('mongodb://localhost/test', {useMongoClient: true}); //TODO: update test once working
+
+mongoose.connect('mongodb://localhost/diaries', {useMongoClient: true}); //TODO: update test once working
+
 console.log('connection successful')
 
 // https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
@@ -15,7 +19,11 @@ console.log('connection successful')
 // db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
+
 var userSchema = mongoose.Schema({
+
+
+var UserSchema = mongoose.Schema({
 
   username: String,
   password: String,
@@ -24,11 +32,15 @@ var userSchema = mongoose.Schema({
 var User = mongoose.model('User', UserSchema);
 
 
+
 var DiarySchema = mongoose.Schema({
   username: String,
   title: String,
 
 var diarySchema = mongoose.Schema({
+
+var DiarySchema = mongoose.Schema({
+
   username: String,
 
   text: String,
@@ -51,6 +63,11 @@ module.exports.Diary = Diary;
 // })
 
 
+
 module.exports.UserDoc = UserDoc;
 module.exports.DiaryDoc = DiaryDoc;
+
+
+module.exports.User = User;
+module.exports.Diary = Diary;
 
