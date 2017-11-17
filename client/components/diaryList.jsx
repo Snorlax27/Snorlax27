@@ -5,3 +5,9 @@ const DiaryList = ({list}) => (
     )})}
   </div>
 )
+
+  <div>{list.map((item)=> {
+    return <li>
+        <DiaryEntry item={item} />
+      </li>})}>
+  </div>)

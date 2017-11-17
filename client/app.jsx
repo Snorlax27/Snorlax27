@@ -1,3 +1,4 @@
+
 var _MuiThemeProvider
 
 
@@ -6,6 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
       entries: [],
       newestPost: {},
       userLoggedIn: false,
@@ -21,6 +23,12 @@ class App extends React.Component {
     this.setState({
       userLoggedIn: true,
     })
+      entries: []
+    }
+  }
+
+  componentDidMount() {
+
     var scope = this;
     $.ajax({
       type: 'GET',
@@ -82,9 +90,20 @@ class App extends React.Component {
   render() {
     return(
       this.filterComponents()
+    })
+  }
+
+  render() {
+    return(
+      <div>
+      <img src="https://static.comicvine.com/uploads/scale_small/11/114183/5198871-143snorlax.png"></img>
+
+      <DiaryList list={this.state.entries}/>
+      </div>
     )
   }
 }
+
 
 //----------------------------------------
 //<Router>
@@ -96,3 +115,5 @@ class App extends React.Component {
 
 ReactDOM.render(<App/>, document.getElementById('app'));
 
+
+ReactDOM.render(<App />, document.getElementById('app'));
