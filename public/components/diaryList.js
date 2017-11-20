@@ -10,4 +10,3 @@ var DiaryList = function DiaryList(_ref) {
     })
   );
 };
-"use strict";

@@ -73,11 +73,4 @@ var DiaryEntry = function (_React$Component) {
   }]);
 
   return DiaryEntry;
-<<<<<<< HEAD
 }(React.Component);
-=======
-}(React.Component);
-
-window.DiaryEntry = DiaryEntry;
-"use strict";
->>>>>>> 9ce3ba4655ca8a87914e8cb116554ecf01f3d1ed
