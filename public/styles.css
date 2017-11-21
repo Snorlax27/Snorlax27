@@ -4,8 +4,16 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color:  #fff;
+  color:  #555;
+  font-family: 'Spectral SC', 'Noto Serif' ;
+  text-rendering:  optimizeLegibility;
+}
+
 header {
   height: 100vh;
+  margin: 0 auto;
   background-attachment: fixed;
   background-color: #1abc9c;
   background-size: cover;
@@ -63,10 +71,10 @@ h1 {
 
 .hero-text-box {
   position: absolute;
-  width: 1140px;
+  width: 100%;
   top:  50%;
   left:  50%;
-  transform:  translate(-50%, -50%);
+  transform:  translate(-40%, -50%);
   color: white;
 }
 
@@ -76,13 +84,6 @@ h1 {
   padding: 10px 30px;
   font-weight: 300;
   text-decoration: none;
-}
-
-html {
-  background-color:  #fff;
-  color:  #555;
-  font-family: 'Spectral SC', 'Noto Serif' ;
-  text-rendering:  optimizeLegibility;
 }
 
 .row {
@@ -108,11 +109,22 @@ navbar {
   position:  fixed;
 }
 
-textarea {
-  display: inline-block;
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXPIaltcAVQDXk6rqeUm_Rt_OVPCEK8gAjBphtHLjAGrC2DI3d');
+/* .loginwrapper {
+  float: left;
+  position: relative;
   height: 300px;
   width: 300px;
+  border-style: solid;
+  border-width: 1px;
+  right: -30%;
+  margin: 5px;
+} */
+
+textarea {
+  display: inline-block;
+  background-image: url('https://i.pinimg.com/564x/6f/a6/61/6fa6616ba2cdc63d1f4f34ae06006bd0.jpg');
+  height: 470px;
+  width: 470px;
   background-size: 100%;
   background-position: center;
   background-color: lightblue;
@@ -168,3 +180,5 @@ h4 {
 font-family: 'Volkhov', serif;
 font-family: 'Spectral SC', serif;
 font-family: 'Noto Serif', serif; */
+
+

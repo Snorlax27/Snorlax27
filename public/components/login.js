@@ -61,7 +61,7 @@ var Login = function (_React$Component) {
     value: function render() {
       return React.createElement(
         "div",
-        { className: "login__wrapper" },
+        { className: "loginwrapper" },
         React.createElement(
           "form",
           { onSubmit: this.handleSubmit },

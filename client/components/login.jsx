@@ -39,7 +39,7 @@ class Login extends React.Component {
 
   render() {
     return (
-    <div className="login__wrapper">
+    <div className="loginwrapper">
       <form onSubmit={this.handleSubmit}>
         <input type="text" placeholder='Enter username' onChange={this.handleUsername}/>
         <input type="text" placeholder='Enter password' onChange={this.handlePassword}/>

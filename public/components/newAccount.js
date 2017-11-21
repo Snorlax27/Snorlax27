@@ -57,13 +57,11 @@ var NewAccount = function (_React$Component) {
     value: function render() {
       return React.createElement(
         "div",
-        { className: "login__wrapper" },
+        { className: "loginwrapper" },
         React.createElement(
           "form",
           { onSubmit: this.handleSubmit },
-          "Create Username: ",
           React.createElement("input", { type: "text", placeholder: "Enter username", onChange: this.handleUsername }),
-          "Create Password: ",
           React.createElement("input", { type: "text", placeholder: "Enter password", onChange: this.handlePassword }),
           React.createElement(
             "button",
