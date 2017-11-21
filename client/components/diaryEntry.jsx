@@ -44,19 +44,6 @@ class DiaryEntry extends React.Component {
   }
 }
 
-  render() {
-    return(<div>
-      <form>
-        <label>
-          Diary:
-          <input type="text" name="textEntry" />
-        </label>
-        <input type="submit" value="Enter" />
-      </form>
-    </div>)
-  }
-}
-
 
 window.DiaryEntry = DiaryEntry;
 

@@ -41,10 +41,7 @@ var Input = function (_React$Component) {
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
-      console.log('User submit diary, 25 input.jsx =', this.state.newestPost);
-
       event.preventDefault();
-
       $.ajax({
         type: 'POST',
         url: '/entries',

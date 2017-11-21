@@ -42,6 +42,73 @@ class App extends React.Component {
     })
   }
 
+//   componentDidMount() {
+// // https://source.unsplash.com/random
+//     $.ajax({
+//       type: 'GET',
+//       url: 'https://pixabay.com/api/docs/',
+//       key: '7076402-4116e9d08cde36d3ab5e67074',
+//       category: 'nature',
+//       editors_choice: true,
+//       success: function(data) {
+//         console.log('DATTAAAAA app.jsx', data);
+//         scope.setState({backgroundUrl: ''});
+//       }
+//     });
+//     // document.body.style.setBackground(url());
+//   }
+
+
+  filterComponents() {
+    if (this.state.userLoggedIn) {
+      return (
+          <div>
+            <Input />
+            <button class="btn btn-info" onClick={this.handleLogout}>Logout</button>
+            <DiaryList list={this.state.entries} />
+          </div>
+        )
+    } else {
+      return (
+        <div>
+          <Login handleLogin={this.handleLogin}/>
+          <NewAccount />
+        </div>
+      )
+    }
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  handleLogin(user) {
+    this.setState({
+      userLoggedIn: true,
+    })
+  }
+
+  componentDidMount() {
+    var scope = this;
+    $.ajax({
+      type: 'GET',
+      url: '/entries',
+      success: function(data) {
+        scope.setState({ entries: data })
+      }
+    });
+  }
+
+
+  handleLogout() {
+    var scope = this;
+    $.ajax({
+      type: 'POST',
+      url: '/logout',
+      success: function(data) {
+        scope.setState({userLoggedIn: false});
+      }
+    })
+  }
+
   componentDidMount() {
     var scope = this;
 // https://source.unsplash.com/random
@@ -117,6 +184,7 @@ class App extends React.Component {
       </div>
     )
   }
+
 }
 
 
@@ -127,4 +195,6 @@ class App extends React.Component {
 //<Route path='/signup' component={Signup}/>
 //</Router>
 //----------------------------------------
-ReactDOM.render(<App />, document.getElementById('app'));
+
+
+ReactDOM.render(<App/>, document.getElementById('app'));

@@ -1,18 +1,16 @@
-var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var db = require('../database/db.js');
 var bcrypt = require('bcrypt');
 var path = require('path');
-
-
+var express = require('express');
 var app = express();
 var port = 8080;
 app.use(express.static(__dirname + '/../public'));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser());
 
 app.use(session({secret:"fdghjikllhgytrd345678", resave:false, saveUninitialized:true}))
+
 
 app.post('/logout', function(req, res) {
   // console.log(currentUsername);
@@ -118,12 +116,6 @@ var lanuageAPI = function(text) {
   });
 }
 // POST https://language.googleapis.com/v1/documents:analyzeSentiment?key={YOUR_API_KEY}
-
-
-// app.get('/', function(req, res) {
-//   res.send('Hello Wuuurld');
-// });
-
 
 app.listen(port, function() {
   console.log('Yayy Server is listening on ' + port);

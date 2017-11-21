@@ -39,6 +39,7 @@ var Login = function (_React$Component) {
           password: this.state.password
         },
         success: function success(data) {
+          console.log('data login.jsx line 24', data);
           if (data === 'true') {
             scope.props.handleLogin(scope.state.username);
           }

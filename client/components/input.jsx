@@ -21,10 +21,7 @@ class Input extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('User submit diary, 25 input.jsx =', this.state.newestPost);
-
     event.preventDefault();
-
     $.ajax({
       type: 'POST',
       url: '/entries',
@@ -38,7 +35,6 @@ class Input extends React.Component {
       }
     });
   }
-
 
   render() {
     return(

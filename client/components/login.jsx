@@ -21,6 +21,7 @@ class Login extends React.Component {
         password: this.state.password
       },
       success: function(data) {
+        console.log('data login.jsx line 24', data)
         if (data === 'true') {
           scope.props.handleLogin(scope.state.username);
         }

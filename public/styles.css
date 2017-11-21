@@ -1,12 +1,16 @@
 
 header {
-  height: 30vh;
+  height: 25vh;
   background-attachment: fixed;
   background-color: #ecf0f1;
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('https://images.unsplash.com/photo-1437422061949-f6efbde0a471?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('https://images.unsplash.com/photo-1501807814154-302db029acbd?auto=format&fit=crop&w=1401&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
-  background-size: cover;
-  background-position: -80px 450px;
+  background-size: inherit;
+  background-position: -70px 570px;
+}
+
+.image {
+  text-align: center;
 }
 
 img {
