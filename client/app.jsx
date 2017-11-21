@@ -64,7 +64,7 @@ class App extends React.Component {
       return (
           <div>
             <Input />
-            <button class="btn btn-info" onClick={this.handleLogout}>Logout</button>
+            <button className="btn btn-info" onClick={this.handleLogout}>Logout</button>
             <DiaryList list={this.state.entries} />
           </div>
         )
@@ -187,14 +187,3 @@ class App extends React.Component {
 
 }
 
-
-//----------------------------------------
-//<Router>
-//<Route path='/' component={App}/>
-//<Route  path='/login' component={Login}/>
-//<Route path='/signup' component={Signup}/>
-//</Router>
-//----------------------------------------
-
-
-ReactDOM.render(<App/>, document.getElementById('app'));

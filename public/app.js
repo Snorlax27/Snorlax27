@@ -88,7 +88,7 @@ var App = function (_React$Component) {
           React.createElement(Input, null),
           React.createElement(
             'button',
-            { 'class': 'btn btn-info', onClick: this.handleLogout },
+            { className: 'btn btn-info', onClick: this.handleLogout },
             'Logout'
           ),
           React.createElement(DiaryList, { list: this.state.entries })
