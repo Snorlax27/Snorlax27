@@ -3,16 +3,11 @@ var mongoClient = require('mongodb').MongoClient;
 mongoose.connect('mongodb://localhost/diaries', {useMongoClient: true}); //TODO: update test once working
 
 
-
-
 // https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
 // var db = mongoose.connection;
 // db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // mongoose.connect('mongodb://localhost/diaries', {useMongoClient: true}); //TODO: update test once working
-
-
-
 
 
 var UserSchema = mongoose.Schema({

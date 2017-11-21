@@ -17,7 +17,6 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-
       entries: [],
       newestPost: {},
       userLoggedIn: false,
@@ -45,6 +44,7 @@ var App = function (_React$Component) {
         url: '/entries',
         success: function success(data) {
           scope.setState({ entries: data });
+          console.log('hello world');
         }
       });
     }
@@ -135,22 +135,83 @@ var App = function (_React$Component) {
         }
       });
     }
+
+    //   componentDidMount() {
+    //     var scope = this;
+    // // https://source.unsplash.com/random
+    //     $.ajax({
+    //       type: 'GET',
+    //       url: 'https://pixabay.com/api/docs/',
+    //       key: '7076402-4116e9d08cde36d3ab5e67074',
+    //       category: 'nature',
+    //       editors_choice: true,
+    //       success: function(data) {
+    //         scope.setState({backgroundUrl: ''});
+    //       }
+    //     });
+    //     // document.body.style.setBackground(url());
+    //   }
+
   }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var scope = this;
-      // https://source.unsplash.com/random
-      $.ajax({
-        type: 'GET',
-        url: 'https://pixabay.com/api/docs/',
-        key: '7076402-4116e9d08cde36d3ab5e67074',
-        category: 'nature',
-        editors_choice: true,
-        success: function success(data) {
-          scope.setState({ backgroundUrl: '' });
-        }
-      });
-      // document.body.style.setBackground(url());
+    key: 'headerRender',
+    value: function headerRender() {
+      return React.createElement(
+        'header',
+        null,
+        React.createElement(
+          'nav',
+          null,
+          React.createElement(
+            'div',
+            { 'class': 'row' },
+            React.createElement('img', { src: 'https://lh3.googleusercontent.com/AYDbUNsXtVmIKdwTDEgZpLh4gXGbLRs3tSXL_lw33y6KnOMWzKVY2NkyN0oTnut9oXBbI0ZlcTti_cmqssYlB_FM26SbUNSkFwsDJ6QvAZAOcThDZu5MPkxSsjBwJ-sTdREkB-kU0ts7sCsteBa57oqeaS9FahPf0o3--jafJHDR7RMnS3oJ7f-Eea1-eWwB4sP3To0NCsEi9YWBteA_CT84jt_5CupiYzuGDRtlzDp3xQFY34k_N0J-UPDzpRC25r5MV7133oV3e-Ui1e11ahqsx0_CRrFzxzxiC-9goAHywdZxWSrL2YFBKUtk5kOgWLfJBIjcdQsqMzg08AEPsrCvsFz2U-K_3tO0KF4k1flXrKQdpZPKv8JMXSQ-L06SjuMd1cac_s14BCiPCQYQRoGoN13sJsvrGf_rbOk_rieIzksnldzfW5uYb6G0pVy44JD1MkexZIN9_8slOOTG5H3FWgtP_q9pLKk8gwwA2uo6stv1D45HkYuqv8EJgw2r9ovQhWo6etHMlhTl9v_1pztqeMQFNv4CJJnQ0h4HvApxcEuIK85i3G_IFHyXXU32BVaGN3gH6bg7MtF5fTrIv05d6dpSybPJsVneaEHKmA=s200-no' }),
+            React.createElement(
+              'ul',
+              { 'class': 'main-nav' },
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  'a',
+                  { href: '#' },
+                  'Sign In'
+                )
+              ),
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  'a',
+                  { href: '#' },
+                  'Create Account'
+                )
+              )
+            )
+          ),
+          React.createElement(
+            'div',
+            { 'class': 'hero-text-box' },
+            React.createElement(
+              'h1',
+              null,
+              'Goodbye solitary.',
+              React.createElement('br', null),
+              'Hello together.'
+            ),
+            React.createElement(
+              'a',
+              { 'class': 'btn btn-info', href: '#' },
+              'I\'m bored'
+            ),
+            React.createElement('div', { 'class': 'space' }),
+            React.createElement(
+              'a',
+              { 'class': 'btn btn-warning', href: '#' },
+              'Show me more'
+            )
+          )
+        )
+      );
     }
   }, {
     key: 'filterNavbar',
@@ -172,7 +233,28 @@ var App = function (_React$Component) {
                 'Emotisphere'
               )
             ),
-            React.createElement('ul', { className: 'nav navbar-nav' }),
+            React.createElement(
+              'ul',
+              { className: 'nav navbar-nav' },
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  'a',
+                  null,
+                  'Motivation'
+                )
+              ),
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  'a',
+                  null,
+                  'About Us'
+                )
+              )
+            ),
             React.createElement(
               'button',
               { onClick: this.handleLogout, className: 'btn btn-danger navbar-btn' },
@@ -247,6 +329,7 @@ var App = function (_React$Component) {
       return React.createElement(
         'div',
         null,
+        this.headerRender(),
         this.filterNavbar(),
         this.filterComponents()
       );

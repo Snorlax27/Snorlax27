@@ -69,7 +69,7 @@ var Login = function (_React$Component) {
           React.createElement("input", { type: "text", placeholder: "Enter password", onChange: this.handlePassword }),
           React.createElement(
             "button",
-            { className: "btn btn-info", type: "submit", onClick: this.handleSubmit },
+            { type: "submit", onClick: this.handleSubmit },
             "Login"
           )
         )
