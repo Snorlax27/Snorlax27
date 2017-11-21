@@ -8,8 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _MuiThemeProvider;
-
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -19,6 +17,7 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
+
       entries: [],
       newestPost: {},
       userLoggedIn: false,
@@ -26,7 +25,6 @@ var App = function (_React$Component) {
       backgroundUrl: ''
     };
     _this.handleLogin = _this.handleLogin.bind(_this);
-    _this.render = _this.render.bind(_this);
     _this.handleLogout = _this.handleLogout.bind(_this);
     return _this;
   }
@@ -37,6 +35,10 @@ var App = function (_React$Component) {
       this.setState({
         userLoggedIn: true
       });
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
       var scope = this;
       $.ajax({
         type: 'GET',
@@ -58,24 +60,93 @@ var App = function (_React$Component) {
         }
       });
     }
-
-    //   componentDidMount() {
-    // // https://source.unsplash.com/random
-    //     $.ajax({
-    //       type: 'GET',
-    //       url: 'https://pixabay.com/api/docs/',
-    //       key: '7076402-4116e9d08cde36d3ab5e67074',
-    //       category: 'nature',
-    //       editors_choice: true,
-    //       success: function(data) {
-    //         console.log('DATTAAAAA app.jsx', data);
-    //         scope.setState({backgroundUrl: ''});
-    //       }
-    //     });
-    //     // document.body.style.setBackground(url());
-    //   }
-
-
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var scope = this;
+      // https://source.unsplash.com/random
+      $.ajax({
+        type: 'GET',
+        url: 'https://pixabay.com/api/docs/',
+        key: '7076402-4116e9d08cde36d3ab5e67074',
+        category: 'nature',
+        editors_choice: true,
+        success: function success(data) {
+          scope.setState({ backgroundUrl: '' });
+        }
+      });
+      // document.body.style.setBackground(url());
+    }
+  }, {
+    key: 'filterNavbar',
+    value: function filterNavbar() {
+      var scope = this;
+      if (this.state.userLoggedIn) {
+        return React.createElement(
+          'nav',
+          { className: 'navbar navbar-default' },
+          React.createElement(
+            'div',
+            { className: 'container-fluid' },
+            React.createElement(
+              'div',
+              { className: 'navbar-header' },
+              React.createElement(
+                'a',
+                { className: 'navbar-brand', href: '#' },
+                'Emotisphere'
+              )
+            ),
+            React.createElement('ul', { className: 'nav navbar-nav' }),
+            React.createElement(
+              'button',
+              { onClick: this.handleLogout, className: 'btn btn-danger navbar-btn' },
+              'Logout'
+            )
+          )
+        );
+      } else {
+        return React.createElement(
+          'nav',
+          { className: 'navbar navbar-default' },
+          React.createElement(
+            'div',
+            { className: 'container-fluid' },
+            React.createElement(
+              'div',
+              { className: 'navbar-header' },
+              React.createElement(
+                'a',
+                { className: 'navbar-brand', href: '#' },
+                'Emotisphere'
+              )
+            ),
+            React.createElement(
+              'ul',
+              { className: 'nav navbar-nav' },
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  'a',
+                  null,
+                  'Motivation'
+                )
+              ),
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  'a',
+                  null,
+                  'About Us'
+                )
+              )
+            )
+          )
+        );
+      }
+    }
   }, {
     key: 'filterComponents',
     value: function filterComponents() {
@@ -84,11 +155,6 @@ var App = function (_React$Component) {
           'div',
           null,
           React.createElement(Input, null),
-          React.createElement(
-            'button',
-            { 'class': 'btn btn-info', onClick: this.handleLogout },
-            'Logout'
-          ),
           React.createElement(DiaryList, { list: this.state.entries })
         );
       } else {
@@ -103,7 +169,12 @@ var App = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return this.filterComponents();
+      return React.createElement(
+        'div',
+        null,
+        this.filterNavbar(),
+        this.filterComponents()
+      );
     }
   }]);
 
@@ -117,5 +188,6 @@ var App = function (_React$Component) {
 //<Route path='/signup' component={Signup}/>
 //</Router>
 //----------------------------------------
+
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));

@@ -1,8 +1,3 @@
-
-var _MuiThemeProvider
-
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +10,6 @@ class App extends React.Component {
       backgroundUrl: ''
     }
     this.handleLogin = this.handleLogin.bind(this);
-    this.render = this.render.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
 
@@ -23,12 +17,9 @@ class App extends React.Component {
     this.setState({
       userLoggedIn: true,
     })
-      entries: []
-    }
   }
 
   componentDidMount() {
-
     var scope = this;
     $.ajax({
       type: 'GET',
@@ -51,21 +42,53 @@ class App extends React.Component {
     })
   }
 
-//   componentDidMount() {
-// // https://source.unsplash.com/random
-//     $.ajax({
-//       type: 'GET',
-//       url: 'https://pixabay.com/api/docs/',
-//       key: '7076402-4116e9d08cde36d3ab5e67074',
-//       category: 'nature',
-//       editors_choice: true,
-//       success: function(data) {
-//         console.log('DATTAAAAA app.jsx', data);
-//         scope.setState({backgroundUrl: ''});
-//       }
-//     });
-//     // document.body.style.setBackground(url());
-//   }
+  componentDidMount() {
+    var scope = this;
+// https://source.unsplash.com/random
+    $.ajax({
+      type: 'GET',
+      url: 'https://pixabay.com/api/docs/',
+      key: '7076402-4116e9d08cde36d3ab5e67074',
+      category: 'nature',
+      editors_choice: true,
+      success: function(data) {
+        scope.setState({backgroundUrl: ''});
+      }
+    });
+    // document.body.style.setBackground(url());
+  }
+
+  filterNavbar() {
+    var scope = this;
+    if (this.state.userLoggedIn) {
+      return (
+        <nav className= "navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <a className="navbar-brand" href="#">Emotisphere</a>
+            </div>
+            <ul className="nav navbar-nav">
+            </ul>
+            <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
+          </div>
+        </nav>
+      )
+    } else {
+      return (
+        <nav className = "navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <a className="navbar-brand" href="#">Emotisphere</a>
+            </div>
+            <ul className="nav navbar-nav">
+              <li><a>Motivation</a></li>
+              <li><a>About Us</a></li>
+            </ul>
+          </div>
+        </nav>
+      )
+    }
+  }
 
 
   filterComponents() {
@@ -73,7 +96,6 @@ class App extends React.Component {
       return (
           <div>
             <Input />
-            <button class="btn btn-info" onClick={this.handleLogout}>Logout</button>
             <DiaryList list={this.state.entries} />
           </div>
         )
@@ -89,16 +111,9 @@ class App extends React.Component {
 
   render() {
     return(
-      this.filterComponents()
-    })
-  }
-
-  render() {
-    return(
       <div>
-      <img src="https://static.comicvine.com/uploads/scale_small/11/114183/5198871-143snorlax.png"></img>
-
-      <DiaryList list={this.state.entries}/>
+      {this.filterNavbar()}
+      {this.filterComponents()}
       </div>
     )
   }
@@ -112,8 +127,4 @@ class App extends React.Component {
 //<Route path='/signup' component={Signup}/>
 //</Router>
 //----------------------------------------
-
-ReactDOM.render(<App/>, document.getElementById('app'));
-
-
 ReactDOM.render(<App />, document.getElementById('app'));

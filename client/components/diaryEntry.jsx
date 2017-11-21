@@ -8,9 +8,6 @@ class DiaryEntry extends React.Component {
     this.diaryText = this.diaryText.bind(this);
     this.filterComponents = this.filterComponents.bind(this);
     this.changeState = this.changeState.bind(this);
-      entries: []
-    }
-    this.diaryText = this.diaryText.bind(this);
   }
 
   diaryText(event) {

@@ -1,14 +1,12 @@
 var mongoose = require('mongoose');
 var mongoClient = require('mongodb').MongoClient;
 mongoose.connect('mongodb://localhost/diaries', {useMongoClient: true}); //TODO: update test once working
-console.log('connection successful')
 
 // https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
 // var db = mongoose.connection;
 // db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // mongoose.connect('mongodb://localhost/diaries', {useMongoClient: true}); //TODO: update test once working
-console.log('connection successful')
 
 
 var UserSchema = mongoose.Schema({

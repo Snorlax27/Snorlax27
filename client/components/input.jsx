@@ -40,8 +40,6 @@ class Input extends React.Component {
   }
 
 
-
-
   render() {
     return(
       <form id="input" onSubmit={this.handleSubmit}>

@@ -21,7 +21,6 @@ class Login extends React.Component {
         password: this.state.password
       },
       success: function(data) {
-        console.log('data login.jsx line 24', data)
         if (data === 'true') {
           scope.props.handleLogin(scope.state.username);
         }
@@ -43,8 +42,7 @@ class Login extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <input type="text" placeholder='Enter username' onChange={this.handleUsername}/>
         <input type="text" placeholder='Enter password' onChange={this.handlePassword}/>
-
-        <button class="btn btn-info" type="submit" onClick={this.handleSubmit}>Login</button>
+        <button className="btn btn-info" type="submit" onClick={this.handleSubmit}>Login</button>
       </form>
     </div>
     )
