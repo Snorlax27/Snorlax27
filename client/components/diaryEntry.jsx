@@ -8,9 +8,6 @@ class DiaryEntry extends React.Component {
     this.diaryText = this.diaryText.bind(this);
     this.filterComponents = this.filterComponents.bind(this);
     this.changeState = this.changeState.bind(this);
-      entries: []
-    }
-    this.diaryText = this.diaryText.bind(this);
   }
 
   diaryText(event) {
@@ -47,20 +44,6 @@ class DiaryEntry extends React.Component {
   }
 }
 
-  render() {
-    return(<div>
-      <form>
-        <label>
-          Diary:
-          <input type="text" name="textEntry" />
-        </label>
-        <input type="submit" value="Enter" />
-      </form>
-    </div>)
-  }
-}
-
 
 window.DiaryEntry = DiaryEntry;
-
 

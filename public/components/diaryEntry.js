@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -17,36 +17,58 @@ var DiaryEntry = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (DiaryEntry.__proto__ || Object.getPrototypeOf(DiaryEntry)).call(this, props));
 
     _this.state = {
-      entries: []
+      entries: [],
+      clicked: false
     };
     _this.diaryText = _this.diaryText.bind(_this);
+    _this.filterComponents = _this.filterComponents.bind(_this);
+    _this.changeState = _this.changeState.bind(_this);
     return _this;
   }
 
   _createClass(DiaryEntry, [{
-    key: "diaryText",
+    key: 'diaryText',
     value: function diaryText(event) {
       this.setState({ entries: event.target.value });
       console.log('Line 12 DiaryEntry.jsx was run');
     }
   }, {
-    key: "render",
-    value: function render() {
-      return React.createElement(
-        "div",
-        null,
-        React.createElement(
-          "form",
+    key: 'filterComponents',
+    value: function filterComponents() {
+      if (this.state.clicked) {
+        return React.createElement(
+          'div',
           null,
           React.createElement(
-            "label",
-            null,
-            "Diary:",
-            React.createElement("input", { type: "text", name: "textEntry" })
+            'h5',
+            { onClick: this.changeState },
+            'Title: ',
+            this.props.item.title
           ),
-          React.createElement("input", { type: "submit", value: "Enter" })
-        )
-      );
+          this.props.item.text
+        );
+      } else {
+        return React.createElement(
+          'div',
+          null,
+          React.createElement(
+            'h5',
+            { onClick: this.changeState },
+            'Title: ',
+            this.props.item.title
+          )
+        );
+      }
+    }
+  }, {
+    key: 'changeState',
+    value: function changeState() {
+      this.setState({ clicked: !this.state.clicked });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return this.filterComponents();
     }
   }]);
 
