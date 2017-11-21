@@ -74,5 +74,3 @@ var DiaryEntry = function (_React$Component) {
 
   return DiaryEntry;
 }(React.Component);
-
-window.DiaryEntry = DiaryEntry;

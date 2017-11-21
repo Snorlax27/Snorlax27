@@ -9,12 +9,15 @@ var port = 8080;
 app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser());
 
-app.use(session({secret:"fdghjikllhgytrd345678", resave:false, saveUninitialized:true}))
+app.use(session({secret:"snorlax snore", resave:false, saveUninitialized:true}))
 
 
 app.post('/logout', function(req, res) {
-  // console.log(currentUsername);
+  // console.log(currentUsername)
   currentUsername = '';
+  // req.session.destroy(function(err) {
+  //   if (err) throw err;
+  // })
   res.send();
   res.end();
 })
@@ -35,6 +38,12 @@ var addAccount = function(user, password) {
   });
 }
 
+var createSession = function(req, res, newUser) {
+  return req.session.regenerate(function() {
+    req.session.user = newUser;
+  })
+}
+
 var currentUsername;
 
 //HANDLE LOGIN
@@ -47,7 +56,7 @@ app.post('/login', function(req, res) {
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
         currentUsername = user.username;
-        req.session.user = user.username;
+        // createSession(req, res, user.username);
         res.send('true');
         res.end();
       } else {
@@ -66,9 +75,10 @@ app.get('/entries', function(req, res) {
       console.log('error line 12 server.js', error);
     } else {
       console.log('success 14 get request');
+      data.reverse();
+      res.send(data);
+      res.end();
     }
-    data.reverse();
-    res.send(data);
   })
 });
 

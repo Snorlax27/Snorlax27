@@ -17,7 +17,6 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-
       entries: [],
       newestPost: {},
       userLoggedIn: false,
@@ -45,6 +44,7 @@ var App = function (_React$Component) {
         url: '/entries',
         success: function success(data) {
           scope.setState({ entries: data });
+          console.log('hello world');
         }
       });
     }
@@ -88,7 +88,7 @@ var App = function (_React$Component) {
           React.createElement(Input, null),
           React.createElement(
             'button',
-            { 'class': 'btn btn-info', onClick: this.handleLogout },
+            { className: 'btn btn-info', onClick: this.handleLogout },
             'Logout'
           ),
           React.createElement(DiaryList, { list: this.state.entries })
@@ -135,23 +135,23 @@ var App = function (_React$Component) {
         }
       });
     }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var scope = this;
-      // https://source.unsplash.com/random
-      $.ajax({
-        type: 'GET',
-        url: 'https://pixabay.com/api/docs/',
-        key: '7076402-4116e9d08cde36d3ab5e67074',
-        category: 'nature',
-        editors_choice: true,
-        success: function success(data) {
-          scope.setState({ backgroundUrl: '' });
-        }
-      });
-      // document.body.style.setBackground(url());
-    }
+
+    //   componentDidMount() {
+    //     var scope = this;
+    // // https://source.unsplash.com/random
+    //     $.ajax({
+    //       type: 'GET',
+    //       url: 'https://pixabay.com/api/docs/',
+    //       key: '7076402-4116e9d08cde36d3ab5e67074',
+    //       category: 'nature',
+    //       editors_choice: true,
+    //       success: function(data) {
+    //         scope.setState({backgroundUrl: ''});
+    //       }
+    //     });
+    //     // document.body.style.setBackground(url());
+    //   }
+
   }, {
     key: 'filterNavbar',
     value: function filterNavbar() {
@@ -172,7 +172,28 @@ var App = function (_React$Component) {
                 'Emotisphere'
               )
             ),
-            React.createElement('ul', { className: 'nav navbar-nav' }),
+            React.createElement(
+              'ul',
+              { className: 'nav navbar-nav' },
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  'a',
+                  null,
+                  'Motivation'
+                )
+              ),
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  'a',
+                  null,
+                  'About Us'
+                )
+              )
+            ),
             React.createElement(
               'button',
               { onClick: this.handleLogout, className: 'btn btn-danger navbar-btn' },

@@ -2,7 +2,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
       entries: [],
       newestPost: {},
       userLoggedIn: false,
@@ -26,6 +25,7 @@ class App extends React.Component {
       url: '/entries',
       success: function(data) {
         scope.setState({ entries: data })
+        console.log('hello world')
       }
     });
   }
@@ -64,7 +64,7 @@ class App extends React.Component {
       return (
           <div>
             <Input />
-            <button class="btn btn-info" onClick={this.handleLogout}>Logout</button>
+            <button className="btn btn-info" onClick={this.handleLogout}>Logout</button>
             <DiaryList list={this.state.entries} />
           </div>
         )
@@ -109,21 +109,21 @@ class App extends React.Component {
     })
   }
 
-  componentDidMount() {
-    var scope = this;
-// https://source.unsplash.com/random
-    $.ajax({
-      type: 'GET',
-      url: 'https://pixabay.com/api/docs/',
-      key: '7076402-4116e9d08cde36d3ab5e67074',
-      category: 'nature',
-      editors_choice: true,
-      success: function(data) {
-        scope.setState({backgroundUrl: ''});
-      }
-    });
-    // document.body.style.setBackground(url());
-  }
+//   componentDidMount() {
+//     var scope = this;
+// // https://source.unsplash.com/random
+//     $.ajax({
+//       type: 'GET',
+//       url: 'https://pixabay.com/api/docs/',
+//       key: '7076402-4116e9d08cde36d3ab5e67074',
+//       category: 'nature',
+//       editors_choice: true,
+//       success: function(data) {
+//         scope.setState({backgroundUrl: ''});
+//       }
+//     });
+//     // document.body.style.setBackground(url());
+//   }
 
   filterNavbar() {
     var scope = this;
@@ -135,6 +135,8 @@ class App extends React.Component {
               <a className="navbar-brand" href="#">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
+              <li><a>Motivation</a></li>
+              <li><a>About Us</a></li>
             </ul>
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
           </div>

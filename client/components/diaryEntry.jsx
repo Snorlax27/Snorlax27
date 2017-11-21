@@ -45,6 +45,5 @@ class DiaryEntry extends React.Component {
 }
 
 
-window.DiaryEntry = DiaryEntry;
 
 

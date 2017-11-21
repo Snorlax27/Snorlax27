@@ -77,7 +77,7 @@ var Input = function (_React$Component) {
         React.createElement('textarea', { type: 'text', name: 'entry', value: this.state.value, onChange: this.handlePost }),
         React.createElement(
           'button',
-          { type: 'submit', 'class': 'btn btn-info', value: 'Submit', onClick: this.handleSubmit },
+          { type: 'submit', className: 'btn btn-info', value: 'Submit', onClick: this.handleSubmit },
           'FIN'
         )
       );
