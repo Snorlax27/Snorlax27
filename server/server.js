@@ -14,10 +14,9 @@ app.use(session({secret:"snorlax snore", resave:false, saveUninitialized:true}))
 
 app.post('/logout', function(req, res) {
   // console.log(currentUsername)
-  currentUsername = '';
-  // req.session.destroy(function(err) {
-  //   if (err) throw err;
-  // })
+  req.session.destroy(function(err) {
+    if (err) throw err;
+  })
   res.send();
   res.end();
 })
@@ -44,7 +43,6 @@ var createSession = function(req, res, newUser) {
   })
 }
 
-var currentUsername;
 
 //HANDLE LOGIN
 app.post('/login', function(req, res) {
@@ -55,8 +53,7 @@ app.post('/login', function(req, res) {
     }
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
-        currentUsername = user.username;
-        // createSession(req, res, user.username);
+        createSession(req, res, user.username);
         res.send('true');
         res.end();
       } else {
@@ -70,7 +67,7 @@ app.post('/login', function(req, res) {
 
 //INITIAL POST GET
 app.get('/entries', function(req, res) {
-  db.Diary.find({username: currentUsername}, function(error, data) {
+  db.Diary.find({username: req.session.user}, function(error, data) {
     if (error) {
       console.log('error line 12 server.js', error);
     } else {
