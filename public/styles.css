@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+.clearfix {zoom: 1;}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
 html {
   background-color:  #fff;
   color:  #555;
@@ -37,8 +46,9 @@ header {
 }
 
 .main-nav li {
+  margin-left: -10px;
   display:  inline-block;
-  margin-left:  40px;
+  margin-right: 50px;
   text-decoration: none;
   margin-top: 35px;
 }
@@ -86,6 +96,7 @@ h1 {
   text-decoration: none;
 }
 
+
 .row {
   max-width:  1140px;
   margin: 0 auto;
@@ -109,16 +120,23 @@ navbar {
   position:  fixed;
 }
 
-/* .loginwrapper {
+.loginwrapper {
   float: left;
   position: relative;
   height: 300px;
   width: 300px;
   border-style: solid;
   border-width: 1px;
-  right: -30%;
   margin: 5px;
-} */
+}
+
+i {
+  padding-left: 25%;
+}
+
+#input {
+  display: inline-block;
+}
 
 textarea {
   display: inline-block;
@@ -135,14 +153,23 @@ textarea {
 }
 
 input {
-  font-size: 12.7 px;
+  font-size: 12.7px;
   font-weight: bold;
   color: orange;
+  display: block;
 }
 
 form {
   color: green;
   font-weight: bold;
+}
+
+h2 {
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  word-spacing: 2px;
+  text-align: center;
 }
 
 /*button {
@@ -180,5 +207,26 @@ h4 {
 font-family: 'Volkhov', serif;
 font-family: 'Spectral SC', serif;
 font-family: 'Noto Serif', serif; */
+
+.icon-big {
+    font-size: 350%;
+    display: block;
+    color: #e67e22;
+    margin-bottom: 10px;
+}
+
+.icon-small {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    color: #e67e22;
+    font-size: 120%;
+    margin-right: 10px;
+
+    /*secrets to align text and icons*/
+    line-height: 120%;
+    vertical-align: middle;
+    margin-top: -5px;
+}
 
 
