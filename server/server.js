@@ -6,6 +6,16 @@ var path = require('path');
 var express = require('express');
 var app = express();
 
+var request = require('request');
+var $ = require('jquery');
+var AYLIENTextAPI = require('aylien_textapi');
+var textapi = new AYLIENTextAPI({
+  application_id: "3df60bff",
+  application_key: "deb73f8e34c8cb3a933c133c1e9c27f6"
+});
+
+
+
 //natural language API
 // const language = require('@google-cloud/language');
 // const client = new language.LanguageServiceClient();
@@ -31,6 +41,7 @@ app.post('/newAccount', function(req, res) {
   addAccount(req.body.username, req.body.password);
   res.status(200).end();
 });
+
 var addAccount = function(user, password) {
   var hash = bcrypt.hashSync(password, 10);
   var newAccount = new db.User({
@@ -51,6 +62,7 @@ var createSession = function(req, res, newUser) {
 
 //HANDLE LOGIN
 app.post('/login', function(req, res) {
+
   db.User.findOne({
     username: req.body.username
   }, function(error, user) {
@@ -82,6 +94,9 @@ app.get('/entries', function(req, res) {
       res.end();
     }
   })
+
+});
+
 });
 
 //HANDLE DIARY POSTS
@@ -102,6 +117,20 @@ var addDiaryPost = function(title, text) {
   })
 }
 
+
+//HANDLE DIARY POSTS
+app.post('/entries', function(req, res) {
+  addDiaryPost(res, req, req.body.title, req.body.text);
+});
+
+
+var addDiaryPost = function(res, req, title, text) {
+  var emotionalState = textapi.sentiment({
+    'text': text
+  }, function(error, response) {
+    if (error) throw error;
+    if (error === null) {
+      console.log(response);
 
 
 let getPokemonsEmotions = (name, callback) => {
@@ -124,10 +153,21 @@ var lanuageAPI = function(text) {
 
       //TODO send to client side... figure out how to display
       console.log('SUCCESS GET line 59 server.js', response);
+
     }
+    var newDiary = new db.Diary({
+      title: title,
+      text: text,
+      sentiment: emotionalState,
+      username: req.session.user
+    });
+    newDiary.save(function(error) {
+      if (error) throw error;
+      res.status(200).end();
+    });
   });
 }
-// POST https://language.googleapis.com/v1/documents:analyzeSentiment?key={YOUR_API_KEY}
+
 
 app.listen(port, function() {
   console.log('Yayy Server is listening on ' + port);
