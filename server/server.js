@@ -1,73 +1,33 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var port = 8080;
-var bcrypt = require('bcrypt');
-var db = require('../database/db.js');
 var session = require('express-session');
+var bodyParser = require('body-parser');
+var db = require('../database/db.js');
+var bcrypt = require('bcrypt');
 var path = require('path');
+var express = require('express');
+var app = express();
+
+//natural language API
+// const language = require('@google-cloud/language');
+// const client = new language.LanguageServiceClient();
+
+var port = 8080;
 app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser());
-// var Login = require('../public/components/login.js')
 
-// mike: what the...?
-app.use(session({secret:"fdghjikllhgytrd345678",resave:false,saveUninitialized:true}))
+app.use(session({secret:"snorlax snore", resave:false, saveUninitialized:true}))
 
-app.get('/entries', function(req, res) {
-  // if (!req.session.user) {
-  //   res.redirect('/login');
-  // }
-  db.Diary.find(function(error, data) {
-    if (error) {
-      console.log('error line 12 server.js', error);
-    } else {
-      console.log('success 14 get request');
-    }
-    res.send(data);
+
+app.post('/logout', function(req, res) {
+  // console.log(currentUsername)
+  req.session.destroy(function(err) {
+    if (err) throw err;
   })
-});
-
-//HANDLE DIARY POSTS
-app.post('/entries', function(req, res) {
-  console.log('REQ BODY -----', req.body);
-  addDiaryPost(req.body.title, req.body.text);
-  res.status(200).end();
-});
-
-var addDiaryPost = function(title, text) {
-  var newDiary = new db.Diary({
-    title: title,
-    text: text
-  });
-  newDiary.save(function(error) {
-    if (error) throw error;
-  })
-}
-
-//HANDLE LOGIN
-app.post('/login', function(req, res) {
-  db.User.findOne({
-    username: req.body.username
-  }, function(error, user) {
-    if (error) {
-    }
-    if (user) {
-      if (bcrypt.compareSync(req.body.password, user.password)) {
-        req.session.user = user.username;
-        res.send('true');
-        res.end();
-      } else {
-        console.log('Wrong password');
-        res.send();
-        res.end();
-      }
-    }
-  });
-});
+  res.send();
+  res.end();
+})
 
 //NEW ACOUNT:
 app.post('/newAccount', function(req, res) {
-  console.log('REQ BODY -----', req.body);
   addAccount(req.body.username, req.body.password);
   res.status(200).end();
 });
@@ -82,7 +42,75 @@ var addAccount = function(user, password) {
   });
 }
 
+var createSession = function(req, res, newUser) {
+  return req.session.regenerate(function() {
+    req.session.user = newUser;
+  })
+}
 
+
+//HANDLE LOGIN
+app.post('/login', function(req, res) {
+  db.User.findOne({
+    username: req.body.username
+  }, function(error, user) {
+    if (error) {
+    }
+    if (user) {
+      if (bcrypt.compareSync(req.body.password, user.password)) {
+        createSession(req, res, user.username);
+        res.send('true');
+        res.end();
+      } else {
+        console.log('Wrong password');
+        res.send();
+        res.end();
+      }
+    }
+  });
+});
+
+//INITIAL POST GET
+app.get('/entries', function(req, res) {
+  db.Diary.find({username: req.session.user}, function(error, data) {
+    if (error) {
+      console.log('error line 12 server.js', error);
+    } else {
+      console.log('success 14 get request');
+      data.reverse();
+      res.send(data);
+      res.end();
+    }
+  })
+});
+
+//HANDLE DIARY POSTS
+app.post('/entries', function(req, res) {
+  // console.log('REQ BODY -----', req.body);
+  addDiaryPost(req.body.title, req.body.text);
+  res.status(200).end();
+});
+
+var addDiaryPost = function(title, text) {
+  var newDiary = new db.Diary({
+    title: title,
+    text: text,
+    username: currentUsername
+  });
+  newDiary.save(function(error) {
+    if (error) throw error;
+  })
+}
+
+
+
+let getPokemonsEmotions = (name, callback) => {
+  var result = request.get({
+    url: `https://language.googleapis.com/v1/documents:analyzeSentiment?wkey=${name}`
+  }, function(err, response, body) {
+    callback(err, body);
+  })
+}
 
 //**NATURAL LANGUAGE API***
 //how do we link HTTP?
@@ -100,8 +128,6 @@ var lanuageAPI = function(text) {
   });
 }
 // POST https://language.googleapis.com/v1/documents:analyzeSentiment?key={YOUR_API_KEY}
-
-
 
 app.listen(port, function() {
   console.log('Yayy Server is listening on ' + port);
