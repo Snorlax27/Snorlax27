@@ -61,7 +61,7 @@ var Login = function (_React$Component) {
     value: function render() {
       return React.createElement(
         "div",
-        { className: "login__wrapper" },
+        { className: "loginwrapper", id: "signin" },
         React.createElement(
           "form",
           { onSubmit: this.handleSubmit },
@@ -69,7 +69,7 @@ var Login = function (_React$Component) {
           React.createElement("input", { type: "text", placeholder: "Enter password", onChange: this.handlePassword }),
           React.createElement(
             "button",
-            { "class": "btn btn-info", type: "submit", onClick: this.handleSubmit },
+            { type: "submit", onClick: this.handleSubmit },
             "Login"
           )
         )
