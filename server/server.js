@@ -7,8 +7,8 @@ var express = require('express');
 var app = express();
 
 //natural language API
-const language = require('@google-cloud/language');
-const client = new language.LanguageServiceClient();
+// const language = require('@google-cloud/language');
+// const client = new language.LanguageServiceClient();
 
 var port = 8080;
 app.use(express.static(__dirname + '/../public'));

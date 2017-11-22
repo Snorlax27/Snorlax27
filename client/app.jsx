@@ -125,21 +125,62 @@ class App extends React.Component {
 //     // document.body.style.setBackground(url());
 //   }
 
+  icons() {
+    return (
+      <section>
+            <div>
+                <h2>Write your diary &mdash; and let an AI read it for you.</h2>
+            </div>
+
+            <div className="js--wp-1">
+                <div className="col span-1-of-4 box">
+                    <i className="ion-social-google icon-big"></i>
+                    <h3>Google's Natural Language API</h3>
+                    <p>
+                       Google's algorithm will analyze the sentiment of your text - so you get a better understanding of your daily feelings!
+                    </p>
+                </div>
+                <div className="col span-1-of-4 box">
+                    <i className="ion-android-sunny icon-big"></i>
+                    <h3>Interactive Background</h3>
+                    <p>
+                        Background image will change according to your sentiment! Be happy.
+                    </p>
+                </div>
+                <div className="col span-1-of-4 box">
+                    <i className="ion-android-options icon-big"></i>
+                    <h3>Sentiment Bars</h3>
+                    <p>
+                        Sentiments can be seen in an organized manner using progress bars! Take a glance at how you feel throughout the week.
+                    </p>
+                </div>
+                <div className="col span-1-of-4 box">
+                    <i className="ion-android-settings icon-big"></i>
+                    <h3>Configure Your Life</h3>
+                    <p>
+                        Customize your life according to what makes you feel good, and what doesn't!
+                    </p>
+                </div>
+            </div>
+        </section>
+    )
+  }
+
   headerRender() {
     return (
       <header>
         <nav>
-          <div class="row">
+          <div className="row">
             <img src="https://lh3.googleusercontent.com/AYDbUNsXtVmIKdwTDEgZpLh4gXGbLRs3tSXL_lw33y6KnOMWzKVY2NkyN0oTnut9oXBbI0ZlcTti_cmqssYlB_FM26SbUNSkFwsDJ6QvAZAOcThDZu5MPkxSsjBwJ-sTdREkB-kU0ts7sCsteBa57oqeaS9FahPf0o3--jafJHDR7RMnS3oJ7f-Eea1-eWwB4sP3To0NCsEi9YWBteA_CT84jt_5CupiYzuGDRtlzDp3xQFY34k_N0J-UPDzpRC25r5MV7133oV3e-Ui1e11ahqsx0_CRrFzxzxiC-9goAHywdZxWSrL2YFBKUtk5kOgWLfJBIjcdQsqMzg08AEPsrCvsFz2U-K_3tO0KF4k1flXrKQdpZPKv8JMXSQ-L06SjuMd1cac_s14BCiPCQYQRoGoN13sJsvrGf_rbOk_rieIzksnldzfW5uYb6G0pVy44JD1MkexZIN9_8slOOTG5H3FWgtP_q9pLKk8gwwA2uo6stv1D45HkYuqv8EJgw2r9ovQhWo6etHMlhTl9v_1pztqeMQFNv4CJJnQ0h4HvApxcEuIK85i3G_IFHyXXU32BVaGN3gH6bg7MtF5fTrIv05d6dpSybPJsVneaEHKmA=s200-no"></img>
-            <ul class="main-nav">
-              <li><a href="#">Sign In</a></li>
-              <li><a href="#">Create Account</a></li>
+            <ul className="main-nav">
+              <li><a href="#signin">Sign In</a></li>
+              <li><a href="#signin">Create Account</a></li>
             </ul>
           </div>
-          <div class="hero-text-box">
+          <div className="hero-text-box">
             <h1>Goodbye solitary.<br></br>Hello together.</h1>
-            <a class="btn btn-info" href="#">I'm bored</a><div class="space"></div>
-            <a class="btn btn-warning" href="#">Show me more</a>
+            <a className="btn btn-info" href="#">I'm bored</a><div className="space"></div>
+            <a className="btn btn-warning" href="#">Show me more</a>
           </div>
         </nav>
       </header>
@@ -201,9 +242,10 @@ class App extends React.Component {
   render() {
     return(
       <div>
-      {this.headerRender()}
-      {this.filterNavbar()}
-      {this.filterComponents()}
+        {this.headerRender()}
+        {this.filterNavbar()}
+        {this.icons()}
+        {this.filterComponents()}
       </div>
     )
   }

@@ -153,6 +153,87 @@ var App = function (_React$Component) {
     //   }
 
   }, {
+    key: 'icons',
+    value: function icons() {
+      return React.createElement(
+        'section',
+        null,
+        React.createElement(
+          'div',
+          null,
+          React.createElement(
+            'h2',
+            null,
+            'Write your diary \u2014 and let an AI read it for you.'
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'js--wp-1' },
+          React.createElement(
+            'div',
+            { className: 'col span-1-of-4 box' },
+            React.createElement('i', { className: 'ion-social-google icon-big' }),
+            React.createElement(
+              'h3',
+              null,
+              'Google\'s Natural Language API'
+            ),
+            React.createElement(
+              'p',
+              null,
+              'Google\'s algorithm will analyze the sentiment of your text - so you get a better understanding of your daily feelings!'
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: 'col span-1-of-4 box' },
+            React.createElement('i', { className: 'ion-android-sunny icon-big' }),
+            React.createElement(
+              'h3',
+              null,
+              'Interactive Background'
+            ),
+            React.createElement(
+              'p',
+              null,
+              'Background image will change according to your sentiment! Be happy.'
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: 'col span-1-of-4 box' },
+            React.createElement('i', { className: 'ion-android-options icon-big' }),
+            React.createElement(
+              'h3',
+              null,
+              'Sentiment Bars'
+            ),
+            React.createElement(
+              'p',
+              null,
+              'Sentiments can be seen in an organized manner using progress bars! Take a glance at how you feel throughout the week.'
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: 'col span-1-of-4 box' },
+            React.createElement('i', { className: 'ion-android-settings icon-big' }),
+            React.createElement(
+              'h3',
+              null,
+              'Configure Your Life'
+            ),
+            React.createElement(
+              'p',
+              null,
+              'Customize your life according to what makes you feel good, and what doesn\'t!'
+            )
+          )
+        )
+      );
+    }
+  }, {
     key: 'headerRender',
     value: function headerRender() {
       return React.createElement(
@@ -163,17 +244,17 @@ var App = function (_React$Component) {
           null,
           React.createElement(
             'div',
-            { 'class': 'row' },
+            { className: 'row' },
             React.createElement('img', { src: 'https://lh3.googleusercontent.com/AYDbUNsXtVmIKdwTDEgZpLh4gXGbLRs3tSXL_lw33y6KnOMWzKVY2NkyN0oTnut9oXBbI0ZlcTti_cmqssYlB_FM26SbUNSkFwsDJ6QvAZAOcThDZu5MPkxSsjBwJ-sTdREkB-kU0ts7sCsteBa57oqeaS9FahPf0o3--jafJHDR7RMnS3oJ7f-Eea1-eWwB4sP3To0NCsEi9YWBteA_CT84jt_5CupiYzuGDRtlzDp3xQFY34k_N0J-UPDzpRC25r5MV7133oV3e-Ui1e11ahqsx0_CRrFzxzxiC-9goAHywdZxWSrL2YFBKUtk5kOgWLfJBIjcdQsqMzg08AEPsrCvsFz2U-K_3tO0KF4k1flXrKQdpZPKv8JMXSQ-L06SjuMd1cac_s14BCiPCQYQRoGoN13sJsvrGf_rbOk_rieIzksnldzfW5uYb6G0pVy44JD1MkexZIN9_8slOOTG5H3FWgtP_q9pLKk8gwwA2uo6stv1D45HkYuqv8EJgw2r9ovQhWo6etHMlhTl9v_1pztqeMQFNv4CJJnQ0h4HvApxcEuIK85i3G_IFHyXXU32BVaGN3gH6bg7MtF5fTrIv05d6dpSybPJsVneaEHKmA=s200-no' }),
             React.createElement(
               'ul',
-              { 'class': 'main-nav' },
+              { className: 'main-nav' },
               React.createElement(
                 'li',
                 null,
                 React.createElement(
                   'a',
-                  { href: '#' },
+                  { href: '#signin' },
                   'Sign In'
                 )
               ),
@@ -182,7 +263,7 @@ var App = function (_React$Component) {
                 null,
                 React.createElement(
                   'a',
-                  { href: '#' },
+                  { href: '#signin' },
                   'Create Account'
                 )
               )
@@ -190,7 +271,7 @@ var App = function (_React$Component) {
           ),
           React.createElement(
             'div',
-            { 'class': 'hero-text-box' },
+            { className: 'hero-text-box' },
             React.createElement(
               'h1',
               null,
@@ -200,13 +281,13 @@ var App = function (_React$Component) {
             ),
             React.createElement(
               'a',
-              { 'class': 'btn btn-info', href: '#' },
+              { className: 'btn btn-info', href: '#' },
               'I\'m bored'
             ),
-            React.createElement('div', { 'class': 'space' }),
+            React.createElement('div', { className: 'space' }),
             React.createElement(
               'a',
-              { 'class': 'btn btn-warning', href: '#' },
+              { className: 'btn btn-warning', href: '#' },
               'Show me more'
             )
           )
@@ -331,6 +412,7 @@ var App = function (_React$Component) {
         null,
         this.headerRender(),
         this.filterNavbar(),
+        this.icons(),
         this.filterComponents()
       );
     }
