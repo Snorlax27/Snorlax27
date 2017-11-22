@@ -134,6 +134,10 @@ i {
   padding-left: 25%;
 }
 
+#input {
+  display: inline-block;
+}
+
 textarea {
   display: inline-block;
   background-image: url('https://i.pinimg.com/564x/6f/a6/61/6fa6616ba2cdc63d1f4f34ae06006bd0.jpg');
@@ -149,7 +153,7 @@ textarea {
 }
 
 input {
-  font-size: 12.7 px;
+  font-size: 12.7px;
   font-weight: bold;
   color: orange;
   display: block;
