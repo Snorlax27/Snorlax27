@@ -41,10 +41,7 @@ var Input = function (_React$Component) {
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
-      console.log('User submit diary, 25 input.jsx =', this.state.newestPost);
-
       event.preventDefault();
-
       $.ajax({
         type: 'POST',
         url: '/entries',
@@ -77,10 +74,10 @@ var Input = function (_React$Component) {
         'Title: ',
         React.createElement('input', { name: 'title', onChange: this.handleTitle }),
         React.createElement('br', null),
-        React.createElement('textarea', { type: 'text', name: 'entry', value: this.state.value, onChange: this.handlePost }),
+        React.createElement('textarea', { type: 'text', name: 'entry', onChange: this.handlePost }),
         React.createElement(
           'button',
-          { type: 'submit', 'class': 'btn btn-info', value: 'Submit', onClick: this.handleSubmit },
+          { type: 'submit', className: 'btn btn-info', value: 'Submit', onClick: this.handleSubmit },
           'FIN'
         )
       );
