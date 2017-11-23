@@ -37,11 +37,11 @@ class NewAccount extends React.Component {
 
   render() {
     return (
-    <div className="login__wrapper">
+    <div className="loginwrapper">
       <form onSubmit={this.handleSubmit}>
-        Create Username: <input type="text" placeholder='Enter username' onChange={this.handleUsername}/>
-        Create Password: <input type="text" placeholder='Enter password' onChange={this.handlePassword}/>
-        <button class="btn btn-info" type="submit" onClick={this.handleSubmit}>Make</button>
+        <input type="text" placeholder='Enter username' onChange={this.handleUsername}/>
+        <input type="text" placeholder='Enter password' onChange={this.handlePassword}/>
+        <button type="submit" onClick={this.handleSubmit}>Make</button>
       </form>
     </div>
     )

@@ -21,10 +21,8 @@ class Input extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('User submit diary, 25 input.jsx =', this.state.newestPost);
-
+    var context = this;
     event.preventDefault();
-
     $.ajax({
       type: 'POST',
       url: '/entries',
@@ -36,19 +34,18 @@ class Input extends React.Component {
       success: function() {
         console.log('line 37 input.jsx post success')
       }
+    }).then(function() {
+      context.props.rerender();
     });
   }
-
-
-
 
   render() {
     return(
       <form id="input" onSubmit={this.handleSubmit}>
         <h4><span id="enter">Write</span> a diary entry:</h4>
         Title: <input name="title" onChange={this.handleTitle}></input><br></br>
-        <textarea type='text' name="entry" value={this.state.value} onChange={this.handlePost} />
-        <button type="submit" class="btn btn-info" value="Submit" onClick={this.handleSubmit}>FIN</button>
+        <textarea type='text' name="entry" onChange={this.handlePost} />
+        <button type="submit" className="btn btn-info" value="Submit" onClick={this.handleSubmit}>FIN</button>
       </form>
     )
   }

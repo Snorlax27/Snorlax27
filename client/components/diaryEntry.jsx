@@ -15,6 +15,7 @@ class DiaryEntry extends React.Component {
     console.log('Line 12 DiaryEntry.jsx was run');
   }
 
+
   filterComponents() {
     if (this.state.clicked) {
       return (
@@ -42,4 +43,7 @@ class DiaryEntry extends React.Component {
     )
   }
 }
+
+
+
 

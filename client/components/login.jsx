@@ -39,12 +39,11 @@ class Login extends React.Component {
 
   render() {
     return (
-    <div className="login__wrapper">
+    <div className="loginwrapper" id='signin'>
       <form onSubmit={this.handleSubmit}>
-        <input type="text" placeholder='Enter username' onChange={this.handleUsername}/>
-        <input type="text" placeholder='Enter password' onChange={this.handlePassword}/>
-
-        <button class="btn btn-info" type="submit" onClick={this.handleSubmit}>Login</button>
+        Enter a username: <input id='input' type="text" onChange={this.handleUsername}/>
+        Enter a password: <input id='input' type="text" onChange={this.handlePassword}/>
+        <button id="submit" type="submit" onClick={this.handleSubmit}>Login</button>
       </form>
     </div>
     )
