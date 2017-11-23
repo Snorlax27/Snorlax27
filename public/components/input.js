@@ -74,11 +74,7 @@ var Input = function (_React$Component) {
         'Title: ',
         React.createElement('input', { name: 'title', onChange: this.handleTitle }),
         React.createElement('br', null),
-
-        React.createElement('textarea', { type: 'text', name: 'entry', value: this.state.value, onChange: this.handlePost }),
-
         React.createElement('textarea', { type: 'text', name: 'entry', onChange: this.handlePost }),
-
         React.createElement(
           'button',
           { type: 'submit', className: 'btn btn-info', value: 'Submit', onClick: this.handleSubmit },
@@ -89,8 +85,4 @@ var Input = function (_React$Component) {
   }]);
 
   return Input;
-
 }(React.Component);
-
-}(React.Component);
-
