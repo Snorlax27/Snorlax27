@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 .clearfix {zoom: 1;}
 .clearfix:after {
     content: '.';
@@ -13,6 +14,7 @@
     visibility: hidden;
 }
 
+
 html {
   background-color:  #fff;
   color:  #555;
@@ -20,15 +22,42 @@ html {
   text-rendering:  optimizeLegibility;
 }
 
+
 header {
   height: 100vh;
   margin: 0 auto;
+
+
+progress{
+  background-color:red;
+  color:red;
+  }
+progress[value] {color:red} /* IE10 */
+progress::-webkit-progress-bar-value {background-color:red}
+progress::-webkit-progress-value {background-color:red}
+progress::-moz-progress-bar {background-color:red}
+
+header {
+  height: 100vh;
+
   background-attachment: fixed;
   background-color: #1abc9c;
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("https://images.unsplash.com/photo-1501868984184-76121ed6a6e2?auto=format&fit=crop&w=1650&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
 }
+
+
+.seemless {
+  height: 70vh;
+  margin: 0 auto;
+  background-attachment: fixed;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=2250&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+}
+
 
 .logo {
   width: auto;
@@ -84,7 +113,11 @@ h1 {
   width: 100%;
   top:  50%;
   left:  50%;
+
   transform:  translate(-40%, -50%);
+
+  transform:  translate(-40%, -40%);
+
   color: white;
 }
 
@@ -120,7 +153,11 @@ navbar {
   position:  fixed;
 }
 
+
 .loginwrapper {
+
+/* .loginwrapper {
+
   float: left;
   position: relative;
   height: 300px;
@@ -128,6 +165,7 @@ navbar {
   border-style: solid;
   border-width: 1px;
   margin: 5px;
+
 }
 
 i {
@@ -136,6 +174,35 @@ i {
 
 #input {
   display: inline-block;
+
+} */
+
+
+#signin  {
+  border-width: 5px;
+  border-style: solid;
+  border-color: white;
+  width: 300px;
+  height: 100px;
+  padding: 50px;
+  margin-top: 5%;
+  margin-left: 5%;
+  display: inline-block;
+}
+
+i {
+  margin-left: 48%;
+}
+
+h3 {
+  display: block;
+  text-align: center;
+}
+
+#input {
+  color: darkorange;
+  margin-bottom: 10px;
+
 }
 
 textarea {
@@ -155,13 +222,23 @@ textarea {
 input {
   font-size: 12.7px;
   font-weight: bold;
+
   color: orange;
+
+  color: black;
+
   display: block;
 }
 
 form {
+
   color: green;
   font-weight: bold;
+
+  color: white;
+  font-weight: bold;
+  margin: 15%;
+
 }
 
 h2 {
@@ -171,6 +248,23 @@ h2 {
   word-spacing: 2px;
   text-align: center;
 }
+
+
+h3 {
+  display: block;
+}
+
+.ionicon p {
+  margin-bottom: 10px;
+  position: relative;
+  text-align: center;
+  display: block;
+  width: 500px;
+  margin-left: 50%;
+  transform:  translate(-50%, -50%);
+  font-size: 16px;
+}
+
 
 /*button {
   border-radius: 50%;

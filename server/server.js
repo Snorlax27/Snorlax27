@@ -6,6 +6,8 @@ var path = require('path');
 var express = require('express');
 var app = express();
 
+
+
 var request = require('request');
 var $ = require('jquery');
 var AYLIENTextAPI = require('aylien_textapi');
@@ -13,6 +15,8 @@ var textapi = new AYLIENTextAPI({
   application_id: "3df60bff",
   application_key: "deb73f8e34c8cb3a933c133c1e9c27f6"
 });
+
+
 
 
 
@@ -101,19 +105,15 @@ app.get('/entries', function(req, res) {
 
 //HANDLE DIARY POSTS
 app.post('/entries', function(req, res) {
-  // console.log('REQ BODY -----', req.body);
-  addDiaryPost(req.body.title, req.body.text);
-  res.status(200).end();
+  addDiaryPost(res, req, req.body.title, req.body.text);
 });
 
-var addDiaryPost = function(title, text) {
-  var newDiary = new db.Diary({
-    title: title,
-    text: text,
-    username: currentUsername
-  });
-  newDiary.save(function(error) {
+var addDiaryPost = function(res, req, title, text) {
+  var emotionalState = textapi.sentiment({
+    'text': text
+  }, function(error, response) {
     if (error) throw error;
+
   })
 }
 
@@ -154,6 +154,10 @@ var lanuageAPI = function(text) {
       //TODO send to client side... figure out how to display
       console.log('SUCCESS GET line 59 server.js', response);
 
+
+    if (error === null) {
+      console.log(response);
+
     }
     var newDiary = new db.Diary({
       title: title,
@@ -167,6 +171,10 @@ var lanuageAPI = function(text) {
     });
   });
 }
+
+
+
+
 
 
 app.listen(port, function() {
