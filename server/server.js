@@ -5,9 +5,6 @@ var bcrypt = require('bcrypt');
 var path = require('path');
 var express = require('express');
 var app = express();
-
-
-
 var request = require('request');
 var $ = require('jquery');
 var AYLIENTextAPI = require('aylien_textapi');
@@ -15,10 +12,6 @@ var textapi = new AYLIENTextAPI({
   application_id: "3df60bff",
   application_key: "deb73f8e34c8cb3a933c133c1e9c27f6"
 });
-
-
-
-
 
 //natural language API
 // const language = require('@google-cloud/language');
@@ -98,9 +91,6 @@ app.get('/entries', function(req, res) {
       res.end();
     }
   })
-
-});
-
 });
 
 //HANDLE DIARY POSTS
@@ -113,51 +103,8 @@ var addDiaryPost = function(res, req, title, text) {
     'text': text
   }, function(error, response) {
     if (error) throw error;
-
-  })
-}
-
-
-//HANDLE DIARY POSTS
-app.post('/entries', function(req, res) {
-  addDiaryPost(res, req, req.body.title, req.body.text);
-});
-
-
-var addDiaryPost = function(res, req, title, text) {
-  var emotionalState = textapi.sentiment({
-    'text': text
-  }, function(error, response) {
-    if (error) throw error;
     if (error === null) {
       console.log(response);
-
-
-let getPokemonsEmotions = (name, callback) => {
-  var result = request.get({
-    url: `https://language.googleapis.com/v1/documents:analyzeSentiment?wkey=${name}`
-  }, function(err, response, body) {
-    callback(err, body);
-  })
-}
-
-//**NATURAL LANGUAGE API***
-//how do we link HTTP?
-var resultsFromAPI = {};
-var lanuageAPI = function(text) {
-  $http.post('https://language.googleapis.com/v1/documents:analyzeSentiment?key={YOUR_API_KEY}').then(function(response, error){
-    if (error) {
-      console.log('error GET line 54 server.js', error)
-    } else if (response) {
-      resultsFromAPI = response; //narrow down
-
-      //TODO send to client side... figure out how to display
-      console.log('SUCCESS GET line 59 server.js', response);
-
-
-    if (error === null) {
-      console.log(response);
-
     }
     var newDiary = new db.Diary({
       title: title,
@@ -171,8 +118,6 @@ var lanuageAPI = function(text) {
     });
   });
 }
-
-
 
 
 
