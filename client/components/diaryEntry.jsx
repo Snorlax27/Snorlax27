@@ -16,6 +16,8 @@ class DiaryEntry extends React.Component {
   }
 
 
+
+
   filterComponents() {
     if (this.state.clicked) {
       return (
@@ -36,6 +38,39 @@ class DiaryEntry extends React.Component {
   changeState() {
     this.setState({clicked: !this.state.clicked})
   }
+
+  render() {
+    return(
+      this.filterComponents()
+    )
+  }
+}
+
+
+  filterComponents() {
+    if (this.state.clicked) {
+      return (
+        <div>
+          <h5 onClick={this.changeState}>Title: {this.props.item.title}</h5>
+          {this.props.item.text}
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h5 onClick={this.changeState}>Title: {this.props.item.title}</h5>
+        </div>
+      )
+    }
+  }
+
+
+  changeState() {
+    this.setState({clicked: !this.state.clicked})
+  }
+
+
+
 
   render() {
     return(
