@@ -21,17 +21,8 @@
     "react-bootstrap": "^0.31.5"
   },
   "dependencies": {
-
-
-    "aylien_textapi": "^0.6.0",
-
-    "@google-cloud/language": "^1.1.0",
-
-    "bcrypt": "^1.0.3",
-
     "aylien_textapi": "^0.6.0",
     "bcrypt": "^2.0.3",
-
     "body-parser": "^1.17.0",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
