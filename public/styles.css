@@ -4,28 +4,12 @@
   box-sizing: border-box;
 }
 
-
-.clearfix {zoom: 1;}
-.clearfix:after {
-    content: '.';
-    clear: both;
-    display: block;
-    height: 0;
-    visibility: hidden;
-}
-
-
 html {
   background-color:  #fff;
   color:  #555;
   font-family: 'Spectral SC', 'Noto Serif' ;
   text-rendering:  optimizeLegibility;
 }
-
-
-header {
-  height: 100vh;
-  margin: 0 auto;
 
 
 progress{
@@ -39,14 +23,12 @@ progress::-moz-progress-bar {background-color:red}
 
 header {
   height: 100vh;
-
   background-attachment: fixed;
   background-color: #1abc9c;
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("https://images.unsplash.com/photo-1501868984184-76121ed6a6e2?auto=format&fit=crop&w=1650&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
 }
-
 
 .seemless {
   height: 70vh;
@@ -57,7 +39,6 @@ header {
   background-position: center;
   background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=2250&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
 }
-
 
 .logo {
   width: auto;
@@ -113,11 +94,7 @@ h1 {
   width: 100%;
   top:  50%;
   left:  50%;
-
-  transform:  translate(-40%, -50%);
-
   transform:  translate(-40%, -40%);
-
   color: white;
 }
 
@@ -153,11 +130,7 @@ navbar {
   position:  fixed;
 }
 
-
-.loginwrapper {
-
 /* .loginwrapper {
-
   float: left;
   position: relative;
   height: 300px;
@@ -165,16 +138,6 @@ navbar {
   border-style: solid;
   border-width: 1px;
   margin: 5px;
-
-}
-
-i {
-  padding-left: 25%;
-}
-
-#input {
-  display: inline-block;
-
 } */
 
 
@@ -202,7 +165,6 @@ h3 {
 #input {
   color: darkorange;
   margin-bottom: 10px;
-
 }
 
 textarea {
@@ -222,23 +184,14 @@ textarea {
 input {
   font-size: 12.7px;
   font-weight: bold;
-
-  color: orange;
-
   color: black;
-
   display: block;
 }
 
 form {
-
-  color: green;
-  font-weight: bold;
-
   color: white;
   font-weight: bold;
   margin: 15%;
-
 }
 
 h2 {
@@ -248,7 +201,6 @@ h2 {
   word-spacing: 2px;
   text-align: center;
 }
-
 
 h3 {
   display: block;
@@ -264,7 +216,6 @@ h3 {
   transform:  translate(-50%, -50%);
   font-size: 16px;
 }
-
 
 /*button {
   border-radius: 50%;
