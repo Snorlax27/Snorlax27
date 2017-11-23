@@ -21,6 +21,7 @@ class Input extends React.Component {
   }
 
   handleSubmit(event) {
+    var context = this;
     event.preventDefault();
     $.ajax({
       type: 'POST',
@@ -33,6 +34,8 @@ class Input extends React.Component {
       success: function() {
         console.log('line 37 input.jsx post success')
       }
+    }).then(function() {
+      context.props.rerender();
     });
   }
 
