@@ -25,6 +25,9 @@ var App = function (_React$Component) {
     };
     _this.handleLogin = _this.handleLogin.bind(_this);
     _this.handleLogout = _this.handleLogout.bind(_this);
+    _this.componentDidMount = _this.componentDidMount.bind(_this);
+    _this.filterComponents = _this.filterComponents.bind(_this);
+    _this.rerender = _this.rerender.bind(_this);
     return _this;
   }
 
@@ -33,33 +36,6 @@ var App = function (_React$Component) {
     value: function handleLogin(user) {
       this.setState({
         userLoggedIn: true
-      });
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var scope = this;
-      $.ajax({
-        type: 'GET',
-        url: '/entries',
-        success: function success(data) {
-          scope.setState({ entries: data });
-          console.log('hello world');
-        }
-      });
-
-      $.ajax({
-        type: 'POST',
-        url: 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=${config.key}',
-        encodingType: 'UTF8',
-        document: {
-          type: 'PLAIN_TEXT',
-          content: 'This is a test'
-        },
-        success: function success(err, response, body) {
-          console.log(response);
-          console.log(body);
-        }
       });
     }
   }, {
@@ -93,32 +69,6 @@ var App = function (_React$Component) {
 
 
   }, {
-    key: 'filterComponents',
-    value: function filterComponents() {
-      if (this.state.userLoggedIn) {
-        return React.createElement(
-          'div',
-          null,
-          React.createElement(Input, null),
-          React.createElement(
-            'button',
-            { className: 'btn btn-info', onClick: this.handleLogout },
-            'Logout'
-          ),
-          React.createElement(DiaryList, { list: this.state.entries })
-        );
-      } else {
-        return React.createElement(
-          'div',
-          null,
-          React.createElement(Login, { handleLogin: this.handleLogin }),
-          React.createElement(NewAccount, null)
-        );
-      }
-      this.handleLogin = this.handleLogin.bind(this);
-      this.handleLogout = this.handleLogout.bind(this);
-    }
-  }, {
     key: 'handleLogin',
     value: function handleLogin(user) {
       this.setState({
@@ -135,6 +85,14 @@ var App = function (_React$Component) {
         success: function success(data) {
           scope.setState({ entries: data });
         }
+      });
+
+      $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+
+        $('html, body').animate({
+          scrollTop: $($.attr(this, 'href')).offset().top
+        }, 700);
       });
     }
   }, {
@@ -178,72 +136,24 @@ var App = function (_React$Component) {
           React.createElement(
             'h2',
             null,
-            'Write your diary \u2014 and let an AI read it for you.'
+            'Write your diary and let an AI analyze it for you.'
           )
         ),
         React.createElement(
           'div',
-          { className: 'js--wp-1' },
+          { 'class': 'ionicon' },
+          React.createElement('i', { className: 'ion-ios-glasses-outline icon-big' }),
           React.createElement(
-            'div',
-            { className: 'col span-1-of-4 box' },
-            React.createElement('i', { className: 'ion-social-google icon-big' }),
-            React.createElement(
-              'h3',
-              null,
-              'Google\'s Natural Language API'
-            ),
-            React.createElement(
-              'p',
-              null,
-              'Google\'s algorithm will analyze the sentiment of your text - so you get a better understanding of your daily feelings!'
-            )
+            'h3',
+            null,
+            'Natural Language API'
           ),
+          React.createElement('br', null),
+          React.createElement('br', null),
           React.createElement(
-            'div',
-            { className: 'col span-1-of-4 box' },
-            React.createElement('i', { className: 'ion-android-sunny icon-big' }),
-            React.createElement(
-              'h3',
-              null,
-              'Interactive Background'
-            ),
-            React.createElement(
-              'p',
-              null,
-              'Background image will change according to your sentiment! Be happy.'
-            )
-          ),
-          React.createElement(
-            'div',
-            { className: 'col span-1-of-4 box' },
-            React.createElement('i', { className: 'ion-android-options icon-big' }),
-            React.createElement(
-              'h3',
-              null,
-              'Sentiment Bars'
-            ),
-            React.createElement('progress', { value: '10', max: '100' }),
-            React.createElement(
-              'p',
-              null,
-              'Sentiments can be seen in an organized manner using progress bars! Take a glance at how you feel throughout the week.'
-            )
-          ),
-          React.createElement(
-            'div',
-            { className: 'col span-1-of-4 box' },
-            React.createElement('i', { className: 'ion-android-settings icon-big' }),
-            React.createElement(
-              'h3',
-              null,
-              'Configure Your Life'
-            ),
-            React.createElement(
-              'p',
-              null,
-              'Customize your life according to what makes you feel good, and what doesn\'t!'
-            )
+            'p',
+            null,
+            'Aylien TextAPI  will analyze the sentiment of your text (from negative to positive) - so you get a better understanding of your daily feelings!'
           )
         )
       );
@@ -349,6 +259,15 @@ var App = function (_React$Component) {
       }
     }
   }, {
+    key: 'seemlessBackground',
+    value: function seemlessBackground() {
+      return React.createElement(
+        'div',
+        { className: 'seemless' },
+        React.createElement(Login, { handleLogin: this.handleLogin })
+      );
+    }
+  }, {
     key: 'filterNavbar',
     value: function filterNavbar() {
       var scope = this;
@@ -440,13 +359,33 @@ var App = function (_React$Component) {
       }
     }
   }, {
+    key: 'rerender',
+    value: function rerender() {
+      var scope = this;
+      $.ajax({
+        type: 'GET',
+        url: '/entries',
+        success: function success(data) {
+          scope.setState({ entries: data });
+        },
+        error: function error(err) {
+          console.log('rerender error', err);
+        }
+      });
+    }
+  }, {
     key: 'filterComponents',
     value: function filterComponents() {
       if (this.state.userLoggedIn) {
         return React.createElement(
           'div',
           null,
-          React.createElement(Input, null),
+          React.createElement(Input, { rerender: this.rerender }),
+          React.createElement(
+            'button',
+            { className: 'btn btn-info', onClick: this.handleLogout },
+            'Logout'
+          ),
           React.createElement(DiaryList, { list: this.state.entries })
         );
       } else {
@@ -457,6 +396,8 @@ var App = function (_React$Component) {
           React.createElement(NewAccount, null)
         );
       }
+      this.handleLogin = this.handleLogin.bind(this);
+      this.handleLogout = this.handleLogout.bind(this);
     }
   }, {
     key: 'render',
@@ -467,6 +408,7 @@ var App = function (_React$Component) {
         this.headerRender(),
         this.filterNavbar(),
         this.icons(),
+        this.seemlessBackground(),
         this.filterComponents()
       );
     }
