@@ -65,15 +65,16 @@ var Input = function (_React$Component) {
         'form',
         { id: 'input', onSubmit: this.handleSubmit },
         React.createElement(
-          'h4',
+          'h2',
           null,
           React.createElement(
             'span',
             { id: 'enter' },
             'Write'
           ),
-          ' a diary entry:'
+          ' a diary entry'
         ),
+        React.createElement('br', null),
         'Title: ',
         React.createElement('input', { name: 'title', onChange: this.handleTitle }),
         React.createElement('br', null),
@@ -81,7 +82,7 @@ var Input = function (_React$Component) {
         React.createElement(
           'button',
           { type: 'submit', className: 'btn btn-primary', value: 'Submit', onClick: this.handleSubmit },
-          'FIN'
+          'Send'
         )
       );
     }

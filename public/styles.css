@@ -181,16 +181,17 @@ h3 {
 }
 
 #input {
-  color: darkorange;
+  color: black;
   margin-bottom: 10px;
 }
 
 textarea {
   display: inline-block;
+  position: relative;
   background-image: url('https://i.pinimg.com/564x/6f/a6/61/6fa6616ba2cdc63d1f4f34ae06006bd0.jpg');
   height: 470px;
   width: 470px;
-  background-size: 100%;
+  background-size: 120%;
   background-position: center;
   background-color: lightblue;
   resize: none;
@@ -220,10 +221,6 @@ h2 {
   text-align: center;
 }
 
-h3 {
-  display: block;
-}
-
 .ionicon p {
   padding-top: 15px;
   margin-bottom: 10px;
@@ -250,7 +247,8 @@ h3 {
 }*/
 
 #enter {
-  color: darkblue;
+  color: orange;
+  font-weight: bold;
   font-size: 17.7;
 }
 

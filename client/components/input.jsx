@@ -42,11 +42,11 @@ class Input extends React.Component {
   render() {
     return(
       <form id="input" onSubmit={this.handleSubmit}>
-        <h4><span id="enter">Write</span> a diary entry:</h4>
+        <h2><span id="enter">Write</span> a diary entry</h2><br></br>
         Title: <input name="title" onChange={this.handleTitle}></input><br></br>
         <textarea type='text' name="entry" onChange={this.handlePost} />
 
-        <button type="submit" className="btn btn-primary" value="Submit" onClick={this.handleSubmit}>FIN</button>
+        <button type="submit" className="btn btn-primary" value="Submit" onClick={this.handleSubmit}>Send</button>
       </form>
     )
   }
