@@ -132,6 +132,21 @@ navbar {
   position:  fixed;
 }
 
+.sticky {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(225, 225, 225, 0.97);
+}
+
+.navbar-image {
+  position: absolute;
+  top: 0px;
+  margin: 10px;
+  height: 33px;
+  width: auto;
+}
 /* .loginwrapper {
   float: left;
   position: relative;
@@ -148,7 +163,7 @@ navbar {
   border-width: 5px;
   border-style: solid;
   border-color: white;
-  width: 320px;
+  width: 340px;
   height: 320px;
   padding: 50px;
   margin-top: 5%;
@@ -220,7 +235,7 @@ h3 {
   transform:  translate(-50%, -50%);
   font-size: 16px;
   border-top: solid;
-  border-color: maroon;
+  border-color: lightblue;
 }
 
 /*button {
