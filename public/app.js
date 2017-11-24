@@ -25,26 +25,24 @@ var App = function (_React$Component) {
     };
     _this.handleLogin = _this.handleLogin.bind(_this);
     _this.handleLogout = _this.handleLogout.bind(_this);
+    _this.componentDidMount = _this.componentDidMount.bind(_this);
+    _this.filterComponents = _this.filterComponents.bind(_this);
+    _this.rerender = _this.rerender.bind(_this);
     return _this;
   }
 
   _createClass(App, [{
     key: 'handleLogin',
     value: function handleLogin(user) {
-      this.setState({
-        userLoggedIn: true
-      });
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
+      // this.setState({
+      //   userLoggedIn: true,
+      // })
       var scope = this;
       $.ajax({
         type: 'GET',
         url: '/entries',
         success: function success(data) {
-          scope.setState({ entries: data });
-          console.log('hello world');
+          scope.setState({ entries: data, userLoggedIn: true });
         }
       });
     }
@@ -79,32 +77,6 @@ var App = function (_React$Component) {
 
 
   }, {
-    key: 'filterComponents',
-    value: function filterComponents() {
-      if (this.state.userLoggedIn) {
-        return React.createElement(
-          'div',
-          null,
-          React.createElement(Input, null),
-          React.createElement(
-            'button',
-            { className: 'btn btn-info', onClick: this.handleLogout },
-            'Logout'
-          ),
-          React.createElement(DiaryList, { list: this.state.entries })
-        );
-      } else {
-        return React.createElement(
-          'div',
-          null,
-          React.createElement(Login, { handleLogin: this.handleLogin }),
-          React.createElement(NewAccount, null)
-        );
-      }
-      this.handleLogin = this.handleLogin.bind(this);
-      this.handleLogout = this.handleLogout.bind(this);
-    }
-  }, {
     key: 'handleLogin',
     value: function handleLogin(user) {
       this.setState({
@@ -114,6 +86,7 @@ var App = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
+      console.log('how many times does this hit?????');
       var scope = this;
       $.ajax({
         type: 'GET',
@@ -121,6 +94,14 @@ var App = function (_React$Component) {
         success: function success(data) {
           scope.setState({ entries: data });
         }
+      });
+
+      $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+
+        $('html, body').animate({
+          scrollTop: $($.attr(this, 'href')).offset().top
+        }, 700);
       });
     }
   }, {
@@ -164,71 +145,24 @@ var App = function (_React$Component) {
           React.createElement(
             'h2',
             null,
-            'Write your diary \u2014 and let an AI read it for you.'
+            'Write your diary and let an AI analyze it for you.'
           )
         ),
         React.createElement(
           'div',
-          { className: 'js--wp-1' },
+          { className: 'ionicon' },
+          React.createElement('i', { className: 'ion-ios-glasses-outline icon-big' }),
           React.createElement(
-            'div',
-            { className: 'col span-1-of-4 box' },
-            React.createElement('i', { className: 'ion-social-google icon-big' }),
-            React.createElement(
-              'h3',
-              null,
-              'Google\'s Natural Language API'
-            ),
-            React.createElement(
-              'p',
-              null,
-              'Google\'s algorithm will analyze the sentiment of your text - so you get a better understanding of your daily feelings!'
-            )
+            'h3',
+            null,
+            'Natural Language API'
           ),
+          React.createElement('br', null),
+          React.createElement('br', null),
           React.createElement(
-            'div',
-            { className: 'col span-1-of-4 box' },
-            React.createElement('i', { className: 'ion-android-sunny icon-big' }),
-            React.createElement(
-              'h3',
-              null,
-              'Interactive Background'
-            ),
-            React.createElement(
-              'p',
-              null,
-              'Background image will change according to your sentiment! Be happy.'
-            )
-          ),
-          React.createElement(
-            'div',
-            { className: 'col span-1-of-4 box' },
-            React.createElement('i', { className: 'ion-android-options icon-big' }),
-            React.createElement(
-              'h3',
-              null,
-              'Sentiment Bars'
-            ),
-            React.createElement(
-              'p',
-              null,
-              'Sentiments can be seen in an organized manner using progress bars! Take a glance at how you feel throughout the week.'
-            )
-          ),
-          React.createElement(
-            'div',
-            { className: 'col span-1-of-4 box' },
-            React.createElement('i', { className: 'ion-android-settings icon-big' }),
-            React.createElement(
-              'h3',
-              null,
-              'Configure Your Life'
-            ),
-            React.createElement(
-              'p',
-              null,
-              'Customize your life according to what makes you feel good, and what doesn\'t!'
-            )
+            'p',
+            null,
+            'Aylien TextAPI  will analyze the sentiment of your text (from negative to positive) - so you get a better understanding of your daily feelings!'
           )
         )
       );
@@ -246,7 +180,7 @@ var App = function (_React$Component) {
             React.createElement(
               'div',
               { className: 'row' },
-              React.createElement('img', { src: 'https://lh3.googleusercontent.com/AYDbUNsXtVmIKdwTDEgZpLh4gXGbLRs3tSXL_lw33y6KnOMWzKVY2NkyN0oTnut9oXBbI0ZlcTti_cmqssYlB_FM26SbUNSkFwsDJ6QvAZAOcThDZu5MPkxSsjBwJ-sTdREkB-kU0ts7sCsteBa57oqeaS9FahPf0o3--jafJHDR7RMnS3oJ7f-Eea1-eWwB4sP3To0NCsEi9YWBteA_CT84jt_5CupiYzuGDRtlzDp3xQFY34k_N0J-UPDzpRC25r5MV7133oV3e-Ui1e11ahqsx0_CRrFzxzxiC-9goAHywdZxWSrL2YFBKUtk5kOgWLfJBIjcdQsqMzg08AEPsrCvsFz2U-K_3tO0KF4k1flXrKQdpZPKv8JMXSQ-L06SjuMd1cac_s14BCiPCQYQRoGoN13sJsvrGf_rbOk_rieIzksnldzfW5uYb6G0pVy44JD1MkexZIN9_8slOOTG5H3FWgtP_q9pLKk8gwwA2uo6stv1D45HkYuqv8EJgw2r9ovQhWo6etHMlhTl9v_1pztqeMQFNv4CJJnQ0h4HvApxcEuIK85i3G_IFHyXXU32BVaGN3gH6bg7MtF5fTrIv05d6dpSybPJsVneaEHKmA=s200-no' }),
+              React.createElement('img', { src: 'https://lh3.googleusercontent.com/50zzav1vDtxxBM2qf2SB1VhVRcTrIJ2VTPRMrkWACX_fIbMG2LgjQa1VlPT8ARE02aM6ui_v1Pht1krItrtBLTT4G3mk01y51cBwk46lwfwoq8wvDJYo080wFRzP4qaGSR207eM2Yf9_isV03cVb4Rfeq2MMAq2mol1yMJXQjTTDPXxruSmZBDGmKdkA3k-b1afUY4923MKt7t0tnt7-WT8aA0fUH0_0Eq8Sebh1BONk3LJE74_0zSqkhT5mFSctgNWOlvgve6VaeqUXAR5YgeOa2nKhEa3sFPJ9ix5hXYHFg8AmtnzG7laNPgWr1-coAt37UU3fF6OcCSZcQPb77euBa3ZnSiJ5ArBOHY-9iQ-vaKiPIy3jEllaP7Aer3yMm0rLSvgbr2YdIAqUX0vhtrUcub3yOtRn-_QhbaoJXWGn8Q8I_8qvNQHiTZ51XWCPrLCF7NqdEQnEnz4O-qr1B23lq4LXHjLCalhKlYJ3rz80zXci3zCNhUHwe7e1foOslNAKSyc9D4qiuKZsNfBlF2PIyQYqODaHiEBzlG5h5JkWt0ayD2HD7R6oGX-YGjjS-K8n3Sm2CMAIjSk3pzFLdy13lEy_Ma0eLK97bEcKPw=s200-no' }),
               React.createElement(
                 'ul',
                 { className: 'main-nav' },
@@ -304,7 +238,7 @@ var App = function (_React$Component) {
             React.createElement(
               'div',
               { className: 'row' },
-              React.createElement('img', { src: 'https://lh3.googleusercontent.com/AYDbUNsXtVmIKdwTDEgZpLh4gXGbLRs3tSXL_lw33y6KnOMWzKVY2NkyN0oTnut9oXBbI0ZlcTti_cmqssYlB_FM26SbUNSkFwsDJ6QvAZAOcThDZu5MPkxSsjBwJ-sTdREkB-kU0ts7sCsteBa57oqeaS9FahPf0o3--jafJHDR7RMnS3oJ7f-Eea1-eWwB4sP3To0NCsEi9YWBteA_CT84jt_5CupiYzuGDRtlzDp3xQFY34k_N0J-UPDzpRC25r5MV7133oV3e-Ui1e11ahqsx0_CRrFzxzxiC-9goAHywdZxWSrL2YFBKUtk5kOgWLfJBIjcdQsqMzg08AEPsrCvsFz2U-K_3tO0KF4k1flXrKQdpZPKv8JMXSQ-L06SjuMd1cac_s14BCiPCQYQRoGoN13sJsvrGf_rbOk_rieIzksnldzfW5uYb6G0pVy44JD1MkexZIN9_8slOOTG5H3FWgtP_q9pLKk8gwwA2uo6stv1D45HkYuqv8EJgw2r9ovQhWo6etHMlhTl9v_1pztqeMQFNv4CJJnQ0h4HvApxcEuIK85i3G_IFHyXXU32BVaGN3gH6bg7MtF5fTrIv05d6dpSybPJsVneaEHKmA=s200-no' }),
+              React.createElement('img', { src: 'https://lh3.googleusercontent.com/50zzav1vDtxxBM2qf2SB1VhVRcTrIJ2VTPRMrkWACX_fIbMG2LgjQa1VlPT8ARE02aM6ui_v1Pht1krItrtBLTT4G3mk01y51cBwk46lwfwoq8wvDJYo080wFRzP4qaGSR207eM2Yf9_isV03cVb4Rfeq2MMAq2mol1yMJXQjTTDPXxruSmZBDGmKdkA3k-b1afUY4923MKt7t0tnt7-WT8aA0fUH0_0Eq8Sebh1BONk3LJE74_0zSqkhT5mFSctgNWOlvgve6VaeqUXAR5YgeOa2nKhEa3sFPJ9ix5hXYHFg8AmtnzG7laNPgWr1-coAt37UU3fF6OcCSZcQPb77euBa3ZnSiJ5ArBOHY-9iQ-vaKiPIy3jEllaP7Aer3yMm0rLSvgbr2YdIAqUX0vhtrUcub3yOtRn-_QhbaoJXWGn8Q8I_8qvNQHiTZ51XWCPrLCF7NqdEQnEnz4O-qr1B23lq4LXHjLCalhKlYJ3rz80zXci3zCNhUHwe7e1foOslNAKSyc9D4qiuKZsNfBlF2PIyQYqODaHiEBzlG5h5JkWt0ayD2HD7R6oGX-YGjjS-K8n3Sm2CMAIjSk3pzFLdy13lEy_Ma0eLK97bEcKPw=s200-no' }),
               React.createElement('ul', { className: 'main-nav' })
             ),
             React.createElement(
@@ -332,6 +266,15 @@ var App = function (_React$Component) {
           )
         );
       }
+    }
+  }, {
+    key: 'seemlessBackground',
+    value: function seemlessBackground() {
+      return React.createElement(
+        'div',
+        { className: 'seemless' },
+        React.createElement(Login, { handleLogin: this.handleLogin })
+      );
     }
   }, {
     key: 'filterNavbar',
@@ -425,13 +368,33 @@ var App = function (_React$Component) {
       }
     }
   }, {
+    key: 'rerender',
+    value: function rerender() {
+      var scope = this;
+      $.ajax({
+        type: 'GET',
+        url: '/entries',
+        success: function success(data) {
+          scope.setState({ entries: data });
+        },
+        error: function error(err) {
+          console.log('rerender error', err);
+        }
+      });
+    }
+  }, {
     key: 'filterComponents',
     value: function filterComponents() {
       if (this.state.userLoggedIn) {
         return React.createElement(
           'div',
           null,
-          React.createElement(Input, null),
+          React.createElement(Input, { rerender: this.rerender }),
+          React.createElement(
+            'button',
+            { className: 'btn btn-info', onClick: this.handleLogout },
+            'Logout'
+          ),
           React.createElement(DiaryList, { list: this.state.entries })
         );
       } else {
@@ -442,6 +405,8 @@ var App = function (_React$Component) {
           React.createElement(NewAccount, null)
         );
       }
+      this.handleLogin = this.handleLogin.bind(this);
+      this.handleLogout = this.handleLogout.bind(this);
     }
   }, {
     key: 'render',
@@ -452,6 +417,7 @@ var App = function (_React$Component) {
         this.headerRender(),
         this.filterNavbar(),
         this.icons(),
+        this.seemlessBackground(),
         this.filterComponents()
       );
     }

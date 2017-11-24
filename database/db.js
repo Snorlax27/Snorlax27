@@ -22,6 +22,7 @@ var DiarySchema = mongoose.Schema({
   username: String,
   title: String,
   sentiment: String,
+  text: String
 });
 
 var Diary = mongoose.model('Diary', DiarySchema);

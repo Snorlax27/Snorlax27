@@ -21,12 +21,13 @@
     "react-bootstrap": "^0.31.5"
   },
   "dependencies": {
-    "@google-cloud/language": "^1.1.0",
-    "bcrypt": "^1.0.3",
+    "aylien_textapi": "^0.6.0",
+    "bcrypt": "^2.0.3",
     "body-parser": "^1.17.0",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "express-sessions": "^1.0.6",
+    "jquery": "^3.2.1",
     "mongodb": "^2.2.33",
     "mongoose": "^4.9.6",
     "normalize.css": "^7.0.0",
