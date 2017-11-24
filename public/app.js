@@ -262,6 +262,11 @@ var App = function (_React$Component) {
                   { href: '#' },
                   'About Us'
                 )
+              ),
+              React.createElement(
+                'li',
+                null,
+                React.createElement('i', { className: 'ion-android-favorite icon-medium' })
               )
             ),
             React.createElement(
@@ -307,6 +312,11 @@ var App = function (_React$Component) {
                   { href: '#' },
                   'About Us'
                 )
+              ),
+              React.createElement(
+                'li',
+                null,
+                React.createElement('i', { className: 'ion-android-favorite icon-medium' })
               )
             )
           )

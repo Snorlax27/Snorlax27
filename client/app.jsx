@@ -142,6 +142,8 @@ class App extends React.Component {
             <ul className="nav navbar-nav">
               <li><a href="#">Motivation</a></li>
               <li><a href="#">About Us</a></li>
+              <li><i className="ion-android-favorite icon-medium"></i></li>
+
             </ul>
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
           </div>
@@ -157,6 +159,7 @@ class App extends React.Component {
             <ul className="nav navbar-nav">
               <li><a href="#">Motivation</a></li>
               <li><a href="#">About Us</a></li>
+              <li><i className="ion-android-favorite icon-medium"></i></li>
             </ul>
           </div>
         </nav>

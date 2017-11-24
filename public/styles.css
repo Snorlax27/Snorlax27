@@ -291,6 +291,13 @@ font-family: 'Noto Serif', serif; */
     margin-bottom: 10px;
 }
 
+.icon-medium {
+  font-size: 230%;
+  display: block;
+  color: red;
+  margin-top: 2px;
+}
+
 .icon-small {
     display: inline-block;
     width: 30px;
