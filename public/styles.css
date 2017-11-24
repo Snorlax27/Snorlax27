@@ -12,6 +12,8 @@ html {
 }
 
 
+body { padding-bottom: 50px; }
+
 progress{
   background-color:red;
   color:red;

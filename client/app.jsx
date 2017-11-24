@@ -15,6 +15,27 @@ class App extends React.Component {
     this.rerender = this.rerender.bind(this);
   }
 
+  componentDidMount() {
+    var scope = this;
+    $.ajax({
+      type: 'GET',
+      url: '/entries',
+      success: function(data) {
+        scope.setState({ entries: data })
+      }
+    });
+
+
+
+    $(document).on('click', 'a[href^="#"]', function (event) {
+      event.preventDefault();
+
+      $('html, body').animate({
+          scrollTop: $($.attr(this, 'href')).offset().top
+      }, 700);
+    });
+  }
+
   handleLogin(user) {
     var scope = this;
     $.ajax({
@@ -36,41 +57,6 @@ class App extends React.Component {
         scope.setState({userLoggedIn: false});
       }
     })
-  }
-
-//   componentDidMount() {
-// // https://source.unsplash.com/random
-//     $.ajax({
-//       type: 'GET',
-//       url: 'https://pixabay.com/api/docs/',
-//       key: '7076402-4116e9d08cde36d3ab5e67074',
-//       category: 'nature',
-//       editors_choice: true,
-//       success: function(data) {
-//         console.log('DATTAAAAA app.jsx', data);
-//         scope.setState({backgroundUrl: ''});
-//       }
-//     });
-//     // document.body.style.setBackground(url());
-//   }
-
-  componentDidMount() {
-    var scope = this;
-    $.ajax({
-      type: 'GET',
-      url: '/entries',
-      success: function(data) {
-        scope.setState({ entries: data })
-      }
-    });
-
-    $(document).on('click', 'a[href^="#"]', function (event) {
-      event.preventDefault();
-
-      $('html, body').animate({
-          scrollTop: $($.attr(this, 'href')).offset().top
-      }, 700);
-    });
   }
 
   icons() {
@@ -148,14 +134,14 @@ class App extends React.Component {
     var scope = this;
     if (this.state.userLoggedIn) {
       return (
-        <nav className= "navbar navbar-inverse">
+        <nav className= "navbar navbar-default navbar-fixed-bottom">
           <div className="container-fluid">
             <div className="navbar-header">
               <a className="navbar-brand" href="#">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
-              <li><a>Motivation</a></li>
-              <li><a>About Us</a></li>
+              <li><a href="#">Motivation</a></li>
+              <li><a href="#">About Us</a></li>
             </ul>
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
           </div>
@@ -163,14 +149,14 @@ class App extends React.Component {
       )
     } else {
       return (
-        <nav className = "navbar navbar-inverse">
+        <nav className = "navbar navbar-default navbar-fixed-bottom">
           <div className="container-fluid">
             <div className="navbar-header">
               <a className="navbar-brand" href="#">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
-              <li><a>Motivation</a></li>
-              <li><a>About Us</a></li>
+              <li><a href="#">Motivation</a></li>
+              <li><a href="#">About Us</a></li>
             </ul>
           </div>
         </nav>
