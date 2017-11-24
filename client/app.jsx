@@ -73,22 +73,6 @@ class App extends React.Component {
     });
   }
 
-//   componentDidMount() {
-//     var scope = this;
-// // https://source.unsplash.com/random
-//     $.ajax({
-//       type: 'GET',
-//       url: 'https://pixabay.com/api/docs/',
-//       key: '7076402-4116e9d08cde36d3ab5e67074',
-//       category: 'nature',
-//       editors_choice: true,
-//       success: function(data) {
-//         scope.setState({backgroundUrl: ''});
-//       }
-//     });
-//     // document.body.style.setBackground(url());
-//   }
-
   icons() {
     return (
       <section>
@@ -215,13 +199,6 @@ class App extends React.Component {
           <Input rerender={this.rerender} />
           <button className="btn btn-info" onClick={this.handleLogout}>Logout</button>
           <DiaryList list={this.state.entries} />
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <Login handleLogin={this.handleLogin}/>
-          <NewAccount />
         </div>
       )
     }

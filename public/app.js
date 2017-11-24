@@ -92,23 +92,6 @@ var App = function (_React$Component) {
         }, 700);
       });
     }
-
-    //   componentDidMount() {
-    //     var scope = this;
-    // // https://source.unsplash.com/random
-    //     $.ajax({
-    //       type: 'GET',
-    //       url: 'https://pixabay.com/api/docs/',
-    //       key: '7076402-4116e9d08cde36d3ab5e67074',
-    //       category: 'nature',
-    //       editors_choice: true,
-    //       success: function(data) {
-    //         scope.setState({backgroundUrl: ''});
-    //       }
-    //     });
-    //     // document.body.style.setBackground(url());
-    //   }
-
   }, {
     key: 'icons',
     value: function icons() {
@@ -376,13 +359,6 @@ var App = function (_React$Component) {
             'Logout'
           ),
           React.createElement(DiaryList, { list: this.state.entries })
-        );
-      } else {
-        return React.createElement(
-          'div',
-          null,
-          React.createElement(Login, { handleLogin: this.handleLogin }),
-          React.createElement(NewAccount, null)
         );
       }
       this.handleLogin = this.handleLogin.bind(this);
