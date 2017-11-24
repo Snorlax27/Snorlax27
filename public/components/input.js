@@ -63,10 +63,10 @@ var Input = function (_React$Component) {
     value: function render() {
       return React.createElement(
         'form',
-        { id: 'input', onSubmit: this.handleSubmit },
+        { id: 'text', onSubmit: this.handleSubmit },
         React.createElement(
           'h2',
-          null,
+          { id: 'hello' },
           React.createElement(
             'span',
             { id: 'enter' },

@@ -186,11 +186,10 @@ h3 {
 }
 
 textarea {
-  display: inline-block;
   position: relative;
   background-image: url('https://i.pinimg.com/564x/6f/a6/61/6fa6616ba2cdc63d1f4f34ae06006bd0.jpg');
   height: 470px;
-  width: 470px;
+  width: 500px;
   background-size: 120%;
   background-position: center;
   background-color: lightblue;
@@ -210,11 +209,22 @@ input {
 form {
   color: white;
   font-weight: bold;
-  margin: 15%;
+  margin: 7%;
+}
+
+/* #hello {
+  margin-left: 30%;
+} */
+
+#text {
+  color: black;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 h2 {
   width: 100%;
+  padding-top: 3%;
   padding-left: 10%;
   padding-right: 10%;
   word-spacing: 2px;
@@ -247,7 +257,7 @@ h2 {
 }*/
 
 #enter {
-  color: orange;
+  color: maroon;
   font-weight: bold;
   font-size: 17.7;
 }

@@ -22,7 +22,12 @@ var DiarySchema = mongoose.Schema({
   username: String,
   title: String,
   sentiment: String,
-  text: String
+  text: String,
+  time: {
+    type: Date,
+    default: Date.now
+  },
+  happyCounter: Number
 });
 
 var Diary = mongoose.model('Diary', DiarySchema);

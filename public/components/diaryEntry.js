@@ -45,7 +45,8 @@ var DiaryEntry = function (_React$Component) {
             'Title: ',
             this.props.item.title
           ),
-          this.props.item.text
+          this.props.item.text,
+          this.props.item.time
         );
       } else {
         return React.createElement(
