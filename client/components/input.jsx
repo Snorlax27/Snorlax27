@@ -46,7 +46,7 @@ class Input extends React.Component {
         Title: <input name="title" onChange={this.handleTitle}></input><br></br>
         <textarea type='text' name="entry" onChange={this.handlePost} />
 
-        <button type="submit" className="btn btn-info" value="Submit" onClick={this.handleSubmit}>FIN</button>
+        <button type="submit" className="btn btn-primary" value="Submit" onClick={this.handleSubmit}>FIN</button>
       </form>
     )
   }

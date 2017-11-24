@@ -80,7 +80,7 @@ var Input = function (_React$Component) {
         React.createElement('textarea', { type: 'text', name: 'entry', onChange: this.handlePost }),
         React.createElement(
           'button',
-          { type: 'submit', className: 'btn btn-info', value: 'Submit', onClick: this.handleSubmit },
+          { type: 'submit', className: 'btn btn-primary', value: 'Submit', onClick: this.handleSubmit },
           'FIN'
         )
       );
