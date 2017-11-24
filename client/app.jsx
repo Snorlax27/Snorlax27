@@ -145,7 +145,8 @@ class App extends React.Component {
               <li><i className="ion-android-favorite icon-medium"></i></li>
 
             </ul>
-            <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
+            <div id="space"></div>
+            <button onClick={this.handleLogout} className="btn btn-info navbar-btn">Logout</button>
           </div>
         </nav>
       )

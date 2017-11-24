@@ -269,9 +269,10 @@ var App = function (_React$Component) {
                 React.createElement('i', { className: 'ion-android-favorite icon-medium' })
               )
             ),
+            React.createElement('div', { id: 'space' }),
             React.createElement(
               'button',
-              { onClick: this.handleLogout, className: 'btn btn-danger navbar-btn' },
+              { onClick: this.handleLogout, className: 'btn btn-info navbar-btn' },
               'Logout'
             )
           )
