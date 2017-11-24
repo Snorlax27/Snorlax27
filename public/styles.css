@@ -165,7 +165,7 @@ navbar {
   border-color: white;
   width: 340px;
   height: 320px;
-  padding: 50px;
+  padding: 70px;
   margin-top: 5%;
   margin-left: 5%;
   display: inline-block;
@@ -189,7 +189,7 @@ textarea {
   position: relative;
   background-image: url('https://i.pinimg.com/564x/6f/a6/61/6fa6616ba2cdc63d1f4f34ae06006bd0.jpg');
   height: 470px;
-  width: 500px;
+  width: 480px;
   background-size: 120%;
   background-position: center;
   background-color: lightblue;
@@ -257,7 +257,7 @@ h2 {
 }*/
 
 #enter {
-  color: maroon;
+  color: orange;
   font-weight: bold;
   font-size: 17.7;
 }
