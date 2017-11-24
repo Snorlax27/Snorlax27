@@ -16,9 +16,6 @@ class App extends React.Component {
   }
 
   handleLogin(user) {
-    // this.setState({
-    //   userLoggedIn: true,
-    // })
     var scope = this;
     $.ajax({
       type: 'GET',
@@ -57,16 +54,7 @@ class App extends React.Component {
 //     // document.body.style.setBackground(url());
 //   }
 
-
-
-  handleLogin(user) {
-    this.setState({
-      userLoggedIn: true,
-    })
-  }
-
   componentDidMount() {
-    console.log('how many times does this hit?????')
     var scope = this;
     $.ajax({
       type: 'GET',
@@ -83,18 +71,6 @@ class App extends React.Component {
           scrollTop: $($.attr(this, 'href')).offset().top
       }, 700);
     });
-  }
-
-
-  handleLogout() {
-    var scope = this;
-    $.ajax({
-      type: 'POST',
-      url: '/logout',
-      success: function(data) {
-        scope.setState({userLoggedIn: false});
-      }
-    })
   }
 
 //   componentDidMount() {
@@ -171,11 +147,17 @@ class App extends React.Component {
   }
 
   seemlessBackground() {
-    return (
-      <div className="seemless">
-        <Login handleLogin={this.handleLogin}/>
-      </div>
-    )
+    if (this.state.userLoggedIn) {
+      return (
+        <div className="seemless"></div>
+      )
+    } else {
+      return (
+        <div className="seemless">
+          <Login handleLogin={this.handleLogin}/>
+        </div>
+      )
+    }
   }
 
   filterNavbar() {

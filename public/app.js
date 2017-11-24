@@ -34,9 +34,6 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'handleLogin',
     value: function handleLogin(user) {
-      // this.setState({
-      //   userLoggedIn: true,
-      // })
       var scope = this;
       $.ajax({
         type: 'GET',
@@ -75,18 +72,9 @@ var App = function (_React$Component) {
     //     // document.body.style.setBackground(url());
     //   }
 
-
-  }, {
-    key: 'handleLogin',
-    value: function handleLogin(user) {
-      this.setState({
-        userLoggedIn: true
-      });
-    }
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      console.log('how many times does this hit?????');
       var scope = this;
       $.ajax({
         type: 'GET',
@@ -102,18 +90,6 @@ var App = function (_React$Component) {
         $('html, body').animate({
           scrollTop: $($.attr(this, 'href')).offset().top
         }, 700);
-      });
-    }
-  }, {
-    key: 'handleLogout',
-    value: function handleLogout() {
-      var scope = this;
-      $.ajax({
-        type: 'POST',
-        url: '/logout',
-        success: function success(data) {
-          scope.setState({ userLoggedIn: false });
-        }
       });
     }
 
@@ -270,11 +246,15 @@ var App = function (_React$Component) {
   }, {
     key: 'seemlessBackground',
     value: function seemlessBackground() {
-      return React.createElement(
-        'div',
-        { className: 'seemless' },
-        React.createElement(Login, { handleLogin: this.handleLogin })
-      );
+      if (this.state.userLoggedIn) {
+        return React.createElement('div', { className: 'seemless' });
+      } else {
+        return React.createElement(
+          'div',
+          { className: 'seemless' },
+          React.createElement(Login, { handleLogin: this.handleLogin })
+        );
+      }
     }
   }, {
     key: 'filterNavbar',
