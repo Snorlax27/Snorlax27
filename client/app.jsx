@@ -12,13 +12,18 @@ class App extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.filterComponents = this.filterComponents.bind(this);
-     this.rerender = this.rerender.bind(this);
+    this.rerender = this.rerender.bind(this);
   }
 
   handleLogin(user) {
-    this.setState({
-      userLoggedIn: true,
-    })
+    var scope = this;
+    $.ajax({
+      type: 'GET',
+      url: '/entries',
+      success: function(data) {
+        scope.setState({ entries: data, userLoggedIn: true })
+      }
+    });
   }
 
 
@@ -49,14 +54,6 @@ class App extends React.Component {
 //     // document.body.style.setBackground(url());
 //   }
 
-
-
-  handleLogin(user) {
-    this.setState({
-      userLoggedIn: true,
-    })
-  }
-
   componentDidMount() {
     var scope = this;
     $.ajax({
@@ -76,41 +73,13 @@ class App extends React.Component {
     });
   }
 
-
-  handleLogout() {
-    var scope = this;
-    $.ajax({
-      type: 'POST',
-      url: '/logout',
-      success: function(data) {
-        scope.setState({userLoggedIn: false});
-      }
-    })
-  }
-
-//   componentDidMount() {
-//     var scope = this;
-// // https://source.unsplash.com/random
-//     $.ajax({
-//       type: 'GET',
-//       url: 'https://pixabay.com/api/docs/',
-//       key: '7076402-4116e9d08cde36d3ab5e67074',
-//       category: 'nature',
-//       editors_choice: true,
-//       success: function(data) {
-//         scope.setState({backgroundUrl: ''});
-//       }
-//     });
-//     // document.body.style.setBackground(url());
-//   }
-
   icons() {
     return (
       <section>
         <div>
           <h2>Write your diary and let an AI analyze it for you.</h2>
         </div>
-          <div class="ionicon">
+          <div className="ionicon">
             <i className="ion-ios-glasses-outline icon-big"></i>
             <h3>Natural Language API</h3><br></br><br></br>
             <p>
@@ -162,18 +131,24 @@ class App extends React.Component {
   }
 
   seemlessBackground() {
-    return (
-      <div className="seemless">
-        <Login handleLogin={this.handleLogin}/>
-      </div>
-    )
+    if (this.state.userLoggedIn) {
+      return (
+        <div className="seemless"></div>
+      )
+    } else {
+      return (
+        <div className="seemless">
+          <Login handleLogin={this.handleLogin}/>
+        </div>
+      )
+    }
   }
 
   filterNavbar() {
     var scope = this;
     if (this.state.userLoggedIn) {
       return (
-        <nav className= "navbar navbar-default">
+        <nav className= "navbar navbar-inverse">
           <div className="container-fluid">
             <div className="navbar-header">
               <a className="navbar-brand" href="#">Emotisphere</a>
@@ -188,7 +163,7 @@ class App extends React.Component {
       )
     } else {
       return (
-        <nav className = "navbar navbar-default">
+        <nav className = "navbar navbar-inverse">
           <div className="container-fluid">
             <div className="navbar-header">
               <a className="navbar-brand" href="#">Emotisphere</a>
@@ -222,15 +197,7 @@ class App extends React.Component {
       return (
         <div>
           <Input rerender={this.rerender} />
-          <button className="btn btn-info" onClick={this.handleLogout}>Logout</button>
           <DiaryList list={this.state.entries} />
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <Login handleLogin={this.handleLogin}/>
-          <NewAccount />
         </div>
       )
     }

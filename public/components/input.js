@@ -41,6 +41,7 @@ var Input = function (_React$Component) {
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
+      var context = this;
       event.preventDefault();
       $.ajax({
         type: 'POST',
@@ -53,6 +54,8 @@ var Input = function (_React$Component) {
         success: function success() {
           console.log('line 37 input.jsx post success');
         }
+      }).then(function () {
+        context.props.rerender();
       });
     }
   }, {
@@ -62,23 +65,24 @@ var Input = function (_React$Component) {
         'form',
         { id: 'input', onSubmit: this.handleSubmit },
         React.createElement(
-          'h4',
+          'h2',
           null,
           React.createElement(
             'span',
             { id: 'enter' },
             'Write'
           ),
-          ' a diary entry:'
+          ' a diary entry'
         ),
+        React.createElement('br', null),
         'Title: ',
         React.createElement('input', { name: 'title', onChange: this.handleTitle }),
         React.createElement('br', null),
         React.createElement('textarea', { type: 'text', name: 'entry', onChange: this.handlePost }),
         React.createElement(
           'button',
-          { type: 'submit', className: 'btn btn-info', value: 'Submit', onClick: this.handleSubmit },
-          'FIN'
+          { type: 'submit', className: 'btn btn-primary', value: 'Submit', onClick: this.handleSubmit },
+          'Send'
         )
       );
     }

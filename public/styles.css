@@ -104,6 +104,7 @@ h1 {
   padding: 10px 30px;
   font-weight: 300;
   text-decoration: none;
+  color: black;
 }
 
 
@@ -119,6 +120,7 @@ img {
 
 button {
   margin-left:  100px;
+  color: black;
 }
 
 .divider {
@@ -130,6 +132,21 @@ navbar {
   position:  fixed;
 }
 
+.sticky {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(225, 225, 225, 0.97);
+}
+
+.navbar-image {
+  position: absolute;
+  top: 0px;
+  margin: 10px;
+  height: 33px;
+  width: auto;
+}
 /* .loginwrapper {
   float: left;
   position: relative;
@@ -142,11 +159,12 @@ navbar {
 
 
 #signin  {
+  color: black;
   border-width: 5px;
   border-style: solid;
   border-color: white;
-  width: 300px;
-  height: 100px;
+  width: 340px;
+  height: 320px;
   padding: 50px;
   margin-top: 5%;
   margin-left: 5%;
@@ -163,16 +181,17 @@ h3 {
 }
 
 #input {
-  color: darkorange;
+  color: black;
   margin-bottom: 10px;
 }
 
 textarea {
   display: inline-block;
+  position: relative;
   background-image: url('https://i.pinimg.com/564x/6f/a6/61/6fa6616ba2cdc63d1f4f34ae06006bd0.jpg');
   height: 470px;
   width: 470px;
-  background-size: 100%;
+  background-size: 120%;
   background-position: center;
   background-color: lightblue;
   resize: none;
@@ -202,11 +221,8 @@ h2 {
   text-align: center;
 }
 
-h3 {
-  display: block;
-}
-
 .ionicon p {
+  padding-top: 15px;
   margin-bottom: 10px;
   position: relative;
   text-align: center;
@@ -215,6 +231,8 @@ h3 {
   margin-left: 50%;
   transform:  translate(-50%, -50%);
   font-size: 16px;
+  border-top: solid;
+  border-color: lightblue;
 }
 
 /*button {
@@ -229,7 +247,8 @@ h3 {
 }*/
 
 #enter {
-  color: darkblue;
+  color: orange;
+  font-weight: bold;
   font-size: 17.7;
 }
 
@@ -273,5 +292,6 @@ font-family: 'Noto Serif', serif; */
     vertical-align: middle;
     margin-top: -5px;
 }
+
 
 

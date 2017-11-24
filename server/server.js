@@ -53,13 +53,14 @@ var addAccount = function(user, password) {
 var createSession = function(req, res, newUser) {
   return req.session.regenerate(function() {
     req.session.user = newUser;
+    res.send('true');
+    res.end()
   })
 }
 
 
 //HANDLE LOGIN
 app.post('/login', function(req, res) {
-
   db.User.findOne({
     username: req.body.username
   }, function(error, user) {
@@ -68,8 +69,6 @@ app.post('/login', function(req, res) {
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
         createSession(req, res, user.username);
-        res.send('true');
-        res.end();
       } else {
         console.log('Wrong password');
         res.send();
@@ -95,6 +94,7 @@ app.get('/entries', function(req, res) {
 
 //HANDLE DIARY POSTS
 app.post('/entries', function(req, res) {
+  console.log('POST REQ SESSION USER', req.session.user);
   addDiaryPost(res, req, req.body.title, req.body.text);
 });
 

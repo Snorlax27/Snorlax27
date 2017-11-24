@@ -34,8 +34,13 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'handleLogin',
     value: function handleLogin(user) {
-      this.setState({
-        userLoggedIn: true
+      var scope = this;
+      $.ajax({
+        type: 'GET',
+        url: '/entries',
+        success: function success(data) {
+          scope.setState({ entries: data, userLoggedIn: true });
+        }
       });
     }
   }, {
@@ -67,14 +72,6 @@ var App = function (_React$Component) {
     //     // document.body.style.setBackground(url());
     //   }
 
-
-  }, {
-    key: 'handleLogin',
-    value: function handleLogin(user) {
-      this.setState({
-        userLoggedIn: true
-      });
-    }
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
@@ -96,35 +93,6 @@ var App = function (_React$Component) {
       });
     }
   }, {
-    key: 'handleLogout',
-    value: function handleLogout() {
-      var scope = this;
-      $.ajax({
-        type: 'POST',
-        url: '/logout',
-        success: function success(data) {
-          scope.setState({ userLoggedIn: false });
-        }
-      });
-    }
-
-    //   componentDidMount() {
-    //     var scope = this;
-    // // https://source.unsplash.com/random
-    //     $.ajax({
-    //       type: 'GET',
-    //       url: 'https://pixabay.com/api/docs/',
-    //       key: '7076402-4116e9d08cde36d3ab5e67074',
-    //       category: 'nature',
-    //       editors_choice: true,
-    //       success: function(data) {
-    //         scope.setState({backgroundUrl: ''});
-    //       }
-    //     });
-    //     // document.body.style.setBackground(url());
-    //   }
-
-  }, {
     key: 'icons',
     value: function icons() {
       return React.createElement(
@@ -141,7 +109,7 @@ var App = function (_React$Component) {
         ),
         React.createElement(
           'div',
-          { 'class': 'ionicon' },
+          { className: 'ionicon' },
           React.createElement('i', { className: 'ion-ios-glasses-outline icon-big' }),
           React.createElement(
             'h3',
@@ -261,11 +229,15 @@ var App = function (_React$Component) {
   }, {
     key: 'seemlessBackground',
     value: function seemlessBackground() {
-      return React.createElement(
-        'div',
-        { className: 'seemless' },
-        React.createElement(Login, { handleLogin: this.handleLogin })
-      );
+      if (this.state.userLoggedIn) {
+        return React.createElement('div', { className: 'seemless' });
+      } else {
+        return React.createElement(
+          'div',
+          { className: 'seemless' },
+          React.createElement(Login, { handleLogin: this.handleLogin })
+        );
+      }
     }
   }, {
     key: 'filterNavbar',
@@ -274,7 +246,7 @@ var App = function (_React$Component) {
       if (this.state.userLoggedIn) {
         return React.createElement(
           'nav',
-          { className: 'navbar navbar-default' },
+          { className: 'navbar navbar-inverse' },
           React.createElement(
             'div',
             { className: 'container-fluid' },
@@ -319,7 +291,7 @@ var App = function (_React$Component) {
       } else {
         return React.createElement(
           'nav',
-          { className: 'navbar navbar-default' },
+          { className: 'navbar navbar-inverse' },
           React.createElement(
             'div',
             { className: 'container-fluid' },
@@ -381,19 +353,7 @@ var App = function (_React$Component) {
           'div',
           null,
           React.createElement(Input, { rerender: this.rerender }),
-          React.createElement(
-            'button',
-            { className: 'btn btn-info', onClick: this.handleLogout },
-            'Logout'
-          ),
           React.createElement(DiaryList, { list: this.state.entries })
-        );
-      } else {
-        return React.createElement(
-          'div',
-          null,
-          React.createElement(Login, { handleLogin: this.handleLogin }),
-          React.createElement(NewAccount, null)
         );
       }
       this.handleLogin = this.handleLogin.bind(this);

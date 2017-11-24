@@ -23,6 +23,7 @@ var Login = function (_React$Component) {
     _this.handleUsername = _this.handleUsername.bind(_this);
     _this.handlePassword = _this.handlePassword.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleCreate = _this.handleCreate.bind(_this);
     return _this;
   }
 
@@ -43,6 +44,22 @@ var Login = function (_React$Component) {
           if (data === 'true') {
             scope.props.handleLogin(scope.state.username);
           }
+        }
+      });
+    }
+  }, {
+    key: "handleCreate",
+    value: function handleCreate(event) {
+      event.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: '/newAccount',
+        data: {
+          username: this.state.username,
+          password: this.state.password
+        },
+        success: function success() {
+          console.log('line 23 input.jsx post success');
         }
       });
     }
@@ -69,10 +86,17 @@ var Login = function (_React$Component) {
           React.createElement("input", { id: "input", type: "text", onChange: this.handleUsername }),
           "Enter a password: ",
           React.createElement("input", { id: "input", type: "text", onChange: this.handlePassword }),
+          React.createElement("br", null),
           React.createElement(
             "button",
-            { id: "submit", type: "submit", onClick: this.handleSubmit },
+            { id: "submit", className: "btn btn-success", type: "submit", onClick: this.handleSubmit },
             "Login"
+          ),
+          React.createElement("div", { className: "space" }),
+          React.createElement(
+            "button",
+            { id: "submit", className: "btn btn-danger", type: "submit", onClick: this.handleCreate },
+            "Create"
           )
         )
       );
