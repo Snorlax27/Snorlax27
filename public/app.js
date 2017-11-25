@@ -251,27 +251,9 @@ var App = function (_React$Component) {
                 React.createElement(
                   'a',
                   { href: '#' },
-                  'Motivation'
-                )
-              ),
-              React.createElement(
-                'li',
-                null,
-                React.createElement(
-                  'a',
-                  { href: '#' },
-                  'About Us'
-                )
-              ),
-              React.createElement(
-                'li',
-                null,
-                React.createElement(
-                  'a',
-                  { href: '#' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Mike, Yahzi, Benji, and Dan.'
+                  'by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.'
                 )
               )
             ),
@@ -308,27 +290,9 @@ var App = function (_React$Component) {
                 React.createElement(
                   'a',
                   { href: '#' },
-                  'Motivation'
-                )
-              ),
-              React.createElement(
-                'li',
-                null,
-                React.createElement(
-                  'a',
-                  { href: '#' },
-                  'About Us'
-                )
-              ),
-              React.createElement(
-                'li',
-                null,
-                React.createElement(
-                  'a',
-                  { href: '#' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Mike, Yahzi, Benji, and Dan.'
+                  'by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.'
                 )
               )
             )

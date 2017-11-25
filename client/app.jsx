@@ -140,9 +140,8 @@ class App extends React.Component {
               <a className="navbar-brand" href="#">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
-              <li><a href="#">Motivation</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Mike, Yahzi, Benji, and Dan.</a></li>
+
+              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
             </ul>
             <div id="space"></div>
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
@@ -157,9 +156,8 @@ class App extends React.Component {
               <a className="navbar-brand" href="#">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
-              <li><a href="#">Motivation</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Mike, Yahzi, Benji, and Dan.</a></li>
+
+              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
             </ul>
           </div>
         </nav>
