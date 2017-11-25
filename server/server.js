@@ -13,11 +13,7 @@ var textapi = new AYLIENTextAPI({
   application_key: "deb73f8e34c8cb3a933c133c1e9c27f6"
 });
 
-//natural language API
-// const language = require('@google-cloud/language');
-// const client = new language.LanguageServiceClient();
-
-var port = 8080;
+var port = process.env.PORT || 8080;
 app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser());
 
