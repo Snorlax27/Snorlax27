@@ -86,7 +86,6 @@ var Login = function (_React$Component) {
           React.createElement("input", { id: "input", type: "text", onChange: this.handleUsername }),
           "Enter a password: ",
           React.createElement("input", { id: "input", type: "text", onChange: this.handlePassword }),
-          React.createElement("br", null),
           React.createElement(
             "button",
             { id: "submit", className: "btn btn-success", type: "submit", onClick: this.handleSubmit },

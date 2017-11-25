@@ -12,6 +12,8 @@ html {
 }
 
 
+body { padding-bottom: 50px; }
+
 progress{
   background-color:red;
   color:red;
@@ -61,6 +63,10 @@ header {
   margin-right: 50px;
   text-decoration: none;
   margin-top: 35px;
+}
+
+.ion-android-favorite {
+  display: inline-block;
 }
 
 .main-nav li a:link,
@@ -128,6 +134,10 @@ button {
   display: inline-block;
 }
 
+.navbar-btn {
+  float: right;
+}
+
 navbar {
   position:  fixed;
 }
@@ -157,14 +167,13 @@ navbar {
   margin: 5px;
 } */
 
-
 #signin  {
   color: black;
   border-width: 5px;
   border-style: solid;
   border-color: white;
-  width: 340px;
-  height: 320px;
+  width: 310px;
+  height: 310px;
   padding: 50px;
   margin-top: 5%;
   margin-left: 5%;
@@ -186,11 +195,10 @@ h3 {
 }
 
 textarea {
-  display: inline-block;
   position: relative;
   background-image: url('https://i.pinimg.com/564x/6f/a6/61/6fa6616ba2cdc63d1f4f34ae06006bd0.jpg');
   height: 470px;
-  width: 470px;
+  width: 480px;
   background-size: 120%;
   background-position: center;
   background-color: lightblue;
@@ -210,11 +218,22 @@ input {
 form {
   color: white;
   font-weight: bold;
-  margin: 15%;
+  margin: 7%;
+}
+
+/* #hello {
+  margin-left: 30%;
+} */
+
+#text {
+  color: black;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 h2 {
   width: 100%;
+  padding-top: 3%;
   padding-left: 10%;
   padding-right: 10%;
   word-spacing: 2px;
@@ -234,6 +253,7 @@ h2 {
   border-top: solid;
   border-color: lightblue;
 }
+
 
 /*button {
   border-radius: 50%;
@@ -277,6 +297,12 @@ font-family: 'Noto Serif', serif; */
     display: block;
     color: #e67e22;
     margin-bottom: 10px;
+}
+
+.icon-medium {
+  display: inline-block;
+  color: red;
+  margin: 0 5px;
 }
 
 .icon-small {

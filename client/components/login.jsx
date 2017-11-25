@@ -57,8 +57,8 @@ class Login extends React.Component {
     return (
     <div className="loginwrapper" id='signin'>
       <form onSubmit={this.handleSubmit}>
-        Enter a username: <input id='input' type="text" onChange={this.handleUsername}/>
-        Enter a password: <input id='input' type="text" onChange={this.handlePassword}/><br></br>
+        Enter a username: <input id="input" type="text" onChange={this.handleUsername}/>
+        Enter a password: <input  id="input" type="text" onChange={this.handlePassword}/>
         <button id="submit" className="btn btn-success" type="submit" onClick={this.handleSubmit}>Login</button>
         <div className="space"></div>
         <button id="submit" className="btn btn-danger" type="submit" onClick={this.handleCreate}>Create</button>

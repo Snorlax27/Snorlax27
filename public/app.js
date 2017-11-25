@@ -32,6 +32,26 @@ var App = function (_React$Component) {
   }
 
   _createClass(App, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var scope = this;
+      $.ajax({
+        type: 'GET',
+        url: '/entries',
+        success: function success(data) {
+          scope.setState({ entries: data });
+        }
+      });
+
+      $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+
+        $('html, body').animate({
+          scrollTop: $($.attr(this, 'href')).offset().top
+        }, 700);
+      });
+    }
+  }, {
     key: 'handleLogin',
     value: function handleLogin(user) {
       var scope = this;
@@ -53,43 +73,6 @@ var App = function (_React$Component) {
         success: function success(data) {
           scope.setState({ userLoggedIn: false });
         }
-      });
-    }
-
-    //   componentDidMount() {
-    // // https://source.unsplash.com/random
-    //     $.ajax({
-    //       type: 'GET',
-    //       url: 'https://pixabay.com/api/docs/',
-    //       key: '7076402-4116e9d08cde36d3ab5e67074',
-    //       category: 'nature',
-    //       editors_choice: true,
-    //       success: function(data) {
-    //         console.log('DATTAAAAA app.jsx', data);
-    //         scope.setState({backgroundUrl: ''});
-    //       }
-    //     });
-    //     // document.body.style.setBackground(url());
-    //   }
-
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var scope = this;
-      $.ajax({
-        type: 'GET',
-        url: '/entries',
-        success: function success(data) {
-          scope.setState({ entries: data });
-        }
-      });
-
-      $(document).on('click', 'a[href^="#"]', function (event) {
-        event.preventDefault();
-
-        $('html, body').animate({
-          scrollTop: $($.attr(this, 'href')).offset().top
-        }, 700);
       });
     }
   }, {
@@ -246,7 +229,7 @@ var App = function (_React$Component) {
       if (this.state.userLoggedIn) {
         return React.createElement(
           'nav',
-          { className: 'navbar navbar-inverse' },
+          { className: 'navbar navbar-default navbar-fixed-bottom' },
           React.createElement(
             'div',
             { className: 'container-fluid' },
@@ -267,20 +250,14 @@ var App = function (_React$Component) {
                 null,
                 React.createElement(
                   'a',
-                  null,
-                  'Motivation'
-                )
-              ),
-              React.createElement(
-                'li',
-                null,
-                React.createElement(
-                  'a',
-                  null,
-                  'About Us'
+                  { href: '#' },
+                  'Made with',
+                  React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
+                  'by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.'
                 )
               )
             ),
+            React.createElement('div', { id: 'space' }),
             React.createElement(
               'button',
               { onClick: this.handleLogout, className: 'btn btn-danger navbar-btn' },
@@ -291,7 +268,7 @@ var App = function (_React$Component) {
       } else {
         return React.createElement(
           'nav',
-          { className: 'navbar navbar-inverse' },
+          { className: 'navbar navbar-default navbar-fixed-bottom' },
           React.createElement(
             'div',
             { className: 'container-fluid' },
@@ -312,17 +289,10 @@ var App = function (_React$Component) {
                 null,
                 React.createElement(
                   'a',
-                  null,
-                  'Motivation'
-                )
-              ),
-              React.createElement(
-                'li',
-                null,
-                React.createElement(
-                  'a',
-                  null,
-                  'About Us'
+                  { href: '#' },
+                  'Made with',
+                  React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
+                  'by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.'
                 )
               )
             )
