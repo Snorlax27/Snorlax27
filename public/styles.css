@@ -11,8 +11,9 @@ html {
   text-rendering:  optimizeLegibility;
 }
 
-
-body { padding-bottom: 50px; }
+body {
+  padding-bottom: 70px;
+}
 
 progress{
   background-color:red;
@@ -158,10 +159,8 @@ button {
 }
 
 iframe {
-  margin-top: 70px;
-  margin-bottom: 0px;
-  padding: 0px;
   border: none;
+  display: none;
 }
 
 .divider {

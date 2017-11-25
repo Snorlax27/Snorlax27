@@ -79,6 +79,7 @@ var Input = function (_React$Component) {
         React.createElement('input', { name: 'title', onChange: this.handleTitle }),
         React.createElement('br', null),
         React.createElement('textarea', { id: 'textarea', type: 'text', name: 'entry', onChange: this.handlePost }),
+        React.createElement('br', null),
         React.createElement(
           'button',
           { type: 'submit', className: 'btn btn-primary', value: 'Submit', onClick: this.handleSubmit },

@@ -78,9 +78,10 @@ class App extends React.Component {
   }
 
   headerRender() {
+    var scope = this;
     if (!this.state.userLoggedIn) {
       return(
-        <header>
+        <header id="top">
           <nav>
             <div className="row">
               <img src="https://lh3.googleusercontent.com/50zzav1vDtxxBM2qf2SB1VhVRcTrIJ2VTPRMrkWACX_fIbMG2LgjQa1VlPT8ARE02aM6ui_v1Pht1krItrtBLTT4G3mk01y51cBwk46lwfwoq8wvDJYo080wFRzP4qaGSR207eM2Yf9_isV03cVb4Rfeq2MMAq2mol1yMJXQjTTDPXxruSmZBDGmKdkA3k-b1afUY4923MKt7t0tnt7-WT8aA0fUH0_0Eq8Sebh1BONk3LJE74_0zSqkhT5mFSctgNWOlvgve6VaeqUXAR5YgeOa2nKhEa3sFPJ9ix5hXYHFg8AmtnzG7laNPgWr1-coAt37UU3fF6OcCSZcQPb77euBa3ZnSiJ5ArBOHY-9iQ-vaKiPIy3jEllaP7Aer3yMm0rLSvgbr2YdIAqUX0vhtrUcub3yOtRn-_QhbaoJXWGn8Q8I_8qvNQHiTZ51XWCPrLCF7NqdEQnEnz4O-qr1B23lq4LXHjLCalhKlYJ3rz80zXci3zCNhUHwe7e1foOslNAKSyc9D4qiuKZsNfBlF2PIyQYqODaHiEBzlG5h5JkWt0ayD2HD7R6oGX-YGjjS-K8n3Sm2CMAIjSk3pzFLdy13lEy_Ma0eLK97bEcKPw=s200-no"></img>
@@ -138,11 +139,11 @@ class App extends React.Component {
         <nav className= "navbar navbar-default navbar-fixed-bottom">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="#">Emotisphere</a>
+              <a className="navbar-brand" href="#top">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
             </ul>
             <div id="space"></div>
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
@@ -154,11 +155,11 @@ class App extends React.Component {
         <nav className = "navbar navbar-default navbar-fixed-bottom">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="#">Emotisphere</a>
+              <a className="navbar-brand" href="#top">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
             </ul>
           </div>
         </nav>
