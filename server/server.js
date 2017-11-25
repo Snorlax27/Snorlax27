@@ -99,17 +99,16 @@ app.post('/entries', function(req, res) {
 });
 
 var addDiaryPost = function(res, req, title, text) {
-  var emotionalState = textapi.sentiment({
+  textapi.sentiment({
     'text': text
   }, function(error, response) {
-    if (error) throw error;
     if (error === null) {
       console.log(response);
     }
     var newDiary = new db.Diary({
       title: title,
       text: text,
-      sentiment: emotionalState,
+      sentiment: response,
       username: req.session.user
     });
     newDiary.save(function(error) {
