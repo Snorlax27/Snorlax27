@@ -112,10 +112,11 @@ var App = function (_React$Component) {
   }, {
     key: 'headerRender',
     value: function headerRender() {
+      var scope = this;
       if (!this.state.userLoggedIn) {
         return React.createElement(
           'header',
-          null,
+          { id: 'top' },
           React.createElement(
             'nav',
             null,
@@ -251,7 +252,7 @@ var App = function (_React$Component) {
               { className: 'navbar-header' },
               React.createElement(
                 'a',
-                { className: 'navbar-brand', href: '#' },
+                { className: 'navbar-brand', href: '#top' },
                 'Emotisphere'
               )
             ),
@@ -263,7 +264,7 @@ var App = function (_React$Component) {
                 null,
                 React.createElement(
                   'a',
-                  { href: '#' },
+                  { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
                   'by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.'
@@ -290,7 +291,7 @@ var App = function (_React$Component) {
               { className: 'navbar-header' },
               React.createElement(
                 'a',
-                { className: 'navbar-brand', href: '#' },
+                { className: 'navbar-brand', href: '#top' },
                 'Emotisphere'
               )
             ),
@@ -302,7 +303,7 @@ var App = function (_React$Component) {
                 null,
                 React.createElement(
                   'a',
-                  { href: '#' },
+                  { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
                   'by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.'

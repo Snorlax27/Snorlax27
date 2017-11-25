@@ -48,17 +48,6 @@ class App extends React.Component {
     });
   }
 
-  handleLogin(user) {
-    var scope = this;
-    $.ajax({
-      type: 'GET',
-      url: '/entries',
-      success: function(data) {
-        scope.setState({ entries: data, userLoggedIn: true })
-      }
-    });
-  }
-
 
   handleLogout() {
     var scope = this;
@@ -89,9 +78,10 @@ class App extends React.Component {
   }
 
   headerRender() {
+    var scope = this;
     if (!this.state.userLoggedIn) {
       return(
-        <header>
+        <header id="top">
           <nav>
             <div className="row">
               <img src="https://lh3.googleusercontent.com/0xBvdPgDd3s5gaDcq-CNkgoQPtcT5lPxO_SMxyUcz0rAf61OLprSnA2hLMsU5YFTx4LoyaxEcWKJUmcRuJvQ5uDm3q3hiw8QQaMjesuWk-Q4Ow7UP2WAPt8NaIUFbAqvO24V7eux7XzFwiEU8C8NhALt-0Uy-bcKhUEHpJTjj3Wk13OH-cb-zQh0kCVv0Dwcjqyop5EAvu5Yk-TQJxBQ7ZG_BVM8n2wOVyL-Jf7gI6MqXOvhHwyzOwVveqpquNPitCWS3MfGl373LKwaxZHWPTllUYReyTeDvmtUJ1wX1fX3X64DocaNwn4YPfRZg2GiJSom6sD4fxXvAjinm4pWNktHckZjZo_oLj2a451ZnxEBsPfpKm2gmJIoGL7qgCNSuxxQNDDuNo3pE9Bvl-xQoEEHfyaeqDGV1BkzNcXqloCpYJnlnRNxgRQmZ8AEIkgJlpissyxy7LJshyHpvAD5oYK3q1hShq4SaXvUTAp09L6P6Yikj9ylNwNxH6pVtqDBiDfdygIa7gMh4pznA2qLuzz333WeByBGL0OAAnM_4twzyN_9OkpBLsG8GAtc1g=s200-no"></img>
@@ -149,11 +139,11 @@ class App extends React.Component {
         <nav className= "navbar navbar-default navbar-fixed-bottom">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="#">Emotisphere</a>
+              <a className="navbar-brand" href="#top">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
             </ul>
             <div id="space"></div>
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
@@ -165,11 +155,11 @@ class App extends React.Component {
         <nav className = "navbar navbar-default navbar-fixed-bottom">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="#">Emotisphere</a>
+              <a className="navbar-brand" href="#top">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
             </ul>
           </div>
         </nav>
