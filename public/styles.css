@@ -164,6 +164,7 @@ iframe {
   border: none;
 }
 
+
 .divider {
   width: 10px;
   display: inline-block;
@@ -233,9 +234,11 @@ h3 {
   margin-bottom: 10px;
 }
 
+
 .nav-container a {
   display: inline-block;
 }
+
 
 textarea {
   position: relative;
@@ -340,10 +343,12 @@ h4 {
 font-family: 'Volkhov', serif;
 font-family: 'Spectral SC', serif;
 font-family: 'Noto Serif', serif; */
+
 .ion-ios-musical-notes {
   font-size: 270%;
   padding-left: 3px;
 }
+
 .icon-big {
     font-size: 350%;
     display: block;
@@ -370,6 +375,5 @@ font-family: 'Noto Serif', serif; */
     vertical-align: middle;
     margin-top: -5px;
 }
-
 
 

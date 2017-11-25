@@ -48,6 +48,17 @@ class App extends React.Component {
     });
   }
 
+  handleLogin(user) {
+    var scope = this;
+    $.ajax({
+      type: 'GET',
+      url: '/entries',
+      success: function(data) {
+        scope.setState({ entries: data, userLoggedIn: true })
+      }
+    });
+  }
+
 
   handleLogout() {
     var scope = this;
