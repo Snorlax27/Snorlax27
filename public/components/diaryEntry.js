@@ -36,6 +36,7 @@ var DiaryEntry = function (_React$Component) {
     key: 'filterComponents',
     value: function filterComponents() {
       if (this.state.clicked) {
+        var postDate = new Date(this.props.item.time);
         return React.createElement(
           'div',
           null,
@@ -46,7 +47,11 @@ var DiaryEntry = function (_React$Component) {
             this.props.item.title
           ),
           this.props.item.text,
-          this.props.item.time
+          this.props.item.time,
+          '>',
+          React.createElement('br', null),
+          'post at: ',
+          postDate.toDateString()
         );
       } else {
         return React.createElement(
