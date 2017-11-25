@@ -34,6 +34,7 @@ class App extends React.Component {
           scrollTop: $($.attr(this, 'href')).offset().top
       }, 700);
     });
+
   }
 
   handleLogin(user) {
