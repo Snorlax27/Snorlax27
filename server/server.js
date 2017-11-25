@@ -18,7 +18,7 @@ var textapi = new AYLIENTextAPI({
 // const client = new language.LanguageServiceClient();
 
 var port = 8080;
-app.use(express.static(__dirname + '/../public'));
+// app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser());
 
 app.use(session({secret:"snorlax snore", resave:false, saveUninitialized:true}))
