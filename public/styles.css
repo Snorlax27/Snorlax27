@@ -157,6 +157,12 @@ button {
   color: black;
 }
 
+iframe {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
 .divider {
   width: 10px;
   display: inline-block;
