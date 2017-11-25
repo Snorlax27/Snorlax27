@@ -18,6 +18,11 @@ var textapi = new AYLIENTextAPI({
 // const client = new language.LanguageServiceClient();
 
 var port = 8080;
+
+app.get('/', function(req, res) {
+  res.send('Hello, world!')
+  res.end();
+})
 // app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser());
 
