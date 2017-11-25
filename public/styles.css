@@ -11,8 +11,9 @@ html {
   text-rendering:  optimizeLegibility;
 }
 
-
-body { padding-bottom: 50px; }
+body {
+  padding-bottom: 70px;
+}
 
 progress{
   background-color:red;
@@ -157,6 +158,11 @@ button {
   color: black;
 }
 
+iframe {
+  border: none;
+  display: none;
+}
+
 .divider {
   width: 10px;
   display: inline-block;
@@ -224,6 +230,10 @@ h3 {
 #input {
   color: black;
   margin-bottom: 10px;
+}
+
+.nav-container a {
+  display: inline-block;
 }
 
 textarea {
@@ -329,7 +339,10 @@ h4 {
 font-family: 'Volkhov', serif;
 font-family: 'Spectral SC', serif;
 font-family: 'Noto Serif', serif; */
-
+.ion-ios-musical-notes {
+  font-size: 270%;
+  padding-left: 3px;
+}
 .icon-big {
     font-size: 350%;
     display: block;

@@ -13,11 +13,7 @@ var textapi = new AYLIENTextAPI({
   application_key: "deb73f8e34c8cb3a933c133c1e9c27f6"
 });
 
-//natural language API
-// const language = require('@google-cloud/language');
-// const client = new language.LanguageServiceClient();
-
-var port = 8080;
+var port = process.env.PORT || 8080;
 app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser());
 
@@ -99,17 +95,16 @@ app.post('/entries', function(req, res) {
 });
 
 var addDiaryPost = function(res, req, title, text) {
-  var emotionalState = textapi.sentiment({
+  textapi.sentiment({
     'text': text
   }, function(error, response) {
-    if (error) throw error;
     if (error === null) {
       console.log(response);
     }
     var newDiary = new db.Diary({
       title: title,
       text: text,
-      sentiment: emotionalState,
+      sentiment: response,
       username: req.session.user
     });
     newDiary.save(function(error) {
