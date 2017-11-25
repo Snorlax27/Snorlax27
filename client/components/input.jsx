@@ -44,7 +44,7 @@ class Input extends React.Component {
       <form id="text" onSubmit={this.handleSubmit}>
         <h2 id="hello"><span id="enter">Write</span> a diary entry</h2><br></br>
         Title: <input name="title" onChange={this.handleTitle}></input><br></br>
-        <textarea type='text' name="entry" onChange={this.handlePost} />
+        <textarea id="textarea" type='text' name="entry" onChange={this.handlePost} />
         <button type="submit" className="btn btn-primary" value="Submit" onClick={this.handleSubmit}>Send</button>
       </form>
     )
