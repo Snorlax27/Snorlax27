@@ -42,6 +42,34 @@ header {
   background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=2250&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
 }
 
+.seemless2 {
+  height: 70vh;
+  margin: 0 auto;
+  background-attachment: fixed;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(0,0,0, 0.3), rgba(0,0,0, 0.3)), url("https://images.unsplash.com/photo-1507409613952-518459ac866e?auto=format&fit=crop&w=2250&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  -webkit-animation: fadein 2.7s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: fadein 2.7s; /* Firefox < 16 */
+    -ms-animation: fadein 2.7s; /* Internet Explorer */
+     -o-animation: fadein 2.7s; /* Opera < 12.1 */
+        animation: fadein 2.7s;
+}
+
+
+#success {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 10%;
+  color: white;
+}
+
+@keyframes fadein {
+  from { opacity:  0; }
+  to { opacity:  1; }
+}
+
 .logo {
   width: auto;
   float: left;
@@ -189,6 +217,10 @@ h3 {
   text-align: center;
 }
 
+#author {
+  color: white;
+}
+
 #input {
   color: black;
   margin-bottom: 10px;
@@ -196,10 +228,10 @@ h3 {
 
 textarea {
   position: relative;
-  background-image: url('https://i.pinimg.com/564x/6f/a6/61/6fa6616ba2cdc63d1f4f34ae06006bd0.jpg');
+  background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=2100&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
   height: 470px;
   width: 480px;
-  background-size: 120%;
+  background-size: 150%;
   background-position: center;
   background-color: lightblue;
   resize: none;
@@ -221,9 +253,16 @@ form {
   margin: 7%;
 }
 
-/* #hello {
-  margin-left: 30%;
-} */
+#hello {
+  border: solid;
+  border-width: 10px;
+  border-color: lightblue;
+  padding-bottom: 3%;
+}
+
+#textarea {
+  color: white;
+}
 
 #text {
   color: black;
@@ -234,8 +273,7 @@ form {
 h2 {
   width: 100%;
   padding-top: 3%;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-bottom: 3%;
   word-spacing: 2px;
   text-align: center;
 }
@@ -267,7 +305,7 @@ h2 {
 }*/
 
 #enter {
-  color: orange;
+  color: steelblue;
   font-weight: bold;
   font-size: 17.7;
 }

@@ -47,8 +47,6 @@ var DiaryEntry = function (_React$Component) {
             this.props.item.title
           ),
           this.props.item.text,
-          this.props.item.time,
-          '>',
           React.createElement('br', null),
           'post at: ',
           postDate.toDateString()

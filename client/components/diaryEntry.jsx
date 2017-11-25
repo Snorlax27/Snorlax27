@@ -23,7 +23,7 @@ class DiaryEntry extends React.Component {
         <div>
           <h5 onClick={this.changeState}>Title: {this.props.item.title}</h5>
           {this.props.item.text}
-          {this.props.item.time}><br/>
+          <br/>
           post at: {postDate.toDateString()}
         </div>
       )
