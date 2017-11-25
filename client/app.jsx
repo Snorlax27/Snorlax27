@@ -12,49 +12,7 @@ class App extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.filterComponents = this.filterComponents.bind(this);
-     this.rerender = this.rerender.bind(this);
-  }
-
-  handleLogin(user) {
-    this.setState({
-      userLoggedIn: true,
-    })
-  }
-
-
-  handleLogout() {
-    var scope = this;
-    $.ajax({
-      type: 'POST',
-      url: '/logout',
-      success: function(data) {
-        scope.setState({userLoggedIn: false});
-      }
-    })
-  }
-
-//   componentDidMount() {
-// // https://source.unsplash.com/random
-//     $.ajax({
-//       type: 'GET',
-//       url: 'https://pixabay.com/api/docs/',
-//       key: '7076402-4116e9d08cde36d3ab5e67074',
-//       category: 'nature',
-//       editors_choice: true,
-//       success: function(data) {
-//         console.log('DATTAAAAA app.jsx', data);
-//         scope.setState({backgroundUrl: ''});
-//       }
-//     });
-//     // document.body.style.setBackground(url());
-//   }
-
-
-
-  handleLogin(user) {
-    this.setState({
-      userLoggedIn: true,
-    })
+    this.rerender = this.rerender.bind(this);
   }
 
   componentDidMount() {
@@ -67,12 +25,25 @@ class App extends React.Component {
       }
     });
 
+
+
     $(document).on('click', 'a[href^="#"]', function (event) {
       event.preventDefault();
 
       $('html, body').animate({
           scrollTop: $($.attr(this, 'href')).offset().top
       }, 700);
+    });
+  }
+
+  handleLogin(user) {
+    var scope = this;
+    $.ajax({
+      type: 'GET',
+      url: '/entries',
+      success: function(data) {
+        scope.setState({ entries: data, userLoggedIn: true })
+      }
     });
   }
 
@@ -88,29 +59,13 @@ class App extends React.Component {
     })
   }
 
-//   componentDidMount() {
-//     var scope = this;
-// // https://source.unsplash.com/random
-//     $.ajax({
-//       type: 'GET',
-//       url: 'https://pixabay.com/api/docs/',
-//       key: '7076402-4116e9d08cde36d3ab5e67074',
-//       category: 'nature',
-//       editors_choice: true,
-//       success: function(data) {
-//         scope.setState({backgroundUrl: ''});
-//       }
-//     });
-//     // document.body.style.setBackground(url());
-//   }
-
   icons() {
     return (
       <section>
         <div>
           <h2>Write your diary and let an AI analyze it for you.</h2>
         </div>
-          <div class="ionicon">
+          <div className="ionicon">
             <i className="ion-ios-glasses-outline icon-big"></i>
             <h3>Natural Language API</h3><br></br><br></br>
             <p>
@@ -162,40 +117,47 @@ class App extends React.Component {
   }
 
   seemlessBackground() {
-    return (
-      <div className="seemless">
-        <Login handleLogin={this.handleLogin}/>
-      </div>
-    )
+    if (this.state.userLoggedIn) {
+      return (
+        <div className="seemless2"><h2 id="success">Every great dream begins with a dreamer. Always remember, you have within you the strength, patience, and the passion to reach for the stars to change the world.</h2><h3 id="author">Harriet Tubman</h3></div>
+      )
+    } else {
+      return (
+        <div className="seemless">
+          <Login handleLogin={this.handleLogin}/>
+        </div>
+      )
+    }
   }
 
   filterNavbar() {
     var scope = this;
     if (this.state.userLoggedIn) {
       return (
-        <nav className= "navbar navbar-default">
+        <nav className= "navbar navbar-default navbar-fixed-bottom">
           <div className="container-fluid">
             <div className="navbar-header">
               <a className="navbar-brand" href="#">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
-              <li><a>Motivation</a></li>
-              <li><a>About Us</a></li>
+
+              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
             </ul>
+            <div id="space"></div>
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
           </div>
         </nav>
       )
     } else {
       return (
-        <nav className = "navbar navbar-default">
+        <nav className = "navbar navbar-default navbar-fixed-bottom">
           <div className="container-fluid">
             <div className="navbar-header">
               <a className="navbar-brand" href="#">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
-              <li><a>Motivation</a></li>
-              <li><a>About Us</a></li>
+
+              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.</a></li>
             </ul>
           </div>
         </nav>
@@ -214,13 +176,6 @@ class App extends React.Component {
       error: function(err) {
         console.log('rerender error', err);
       }
-    }, function() {
-      console.log('rerendering');
-      this.filterComponents();
-    }).then(function() {
-      console.log('rerendering NON CALLBACK');
-      this.filterComponents();
-
     })
   }
 
@@ -229,15 +184,7 @@ class App extends React.Component {
       return (
         <div>
           <Input rerender={this.rerender} />
-          <button className="btn btn-info" onClick={this.handleLogout}>Logout</button>
           <DiaryList list={this.state.entries} />
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <Login handleLogin={this.handleLogin}/>
-          <NewAccount />
         </div>
       )
     }

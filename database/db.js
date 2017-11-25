@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var mongoClient = require('mongodb').MongoClient;
-mongoose.connect('mongodb://localhost/diaries', {useMongoClient: true}); //TODO: update test once working
+mongoose.connect('mongodb://admin:admin@ds163699.mlab.com:63699/testdiary'); //TODO: update test once working
 
 
 // https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose

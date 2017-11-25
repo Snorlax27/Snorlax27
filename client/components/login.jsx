@@ -8,6 +8,7 @@ class Login extends React.Component {
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
   }
 
   handleSubmit(event) {
@@ -29,6 +30,21 @@ class Login extends React.Component {
     });
   }
 
+  handleCreate(event) {
+    event.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/newAccount',
+      data: {
+        username: this.state.username,
+        password: this.state.password
+      },
+      success: function() {
+        console.log('line 23 input.jsx post success')
+      }
+    });
+  }
+
   handleUsername(e) {
     this.setState({username: e.target.value})
   }
@@ -41,9 +57,11 @@ class Login extends React.Component {
     return (
     <div className="loginwrapper" id='signin'>
       <form onSubmit={this.handleSubmit}>
-        Enter a username: <input id='input' type="text" onChange={this.handleUsername}/>
-        Enter a password: <input id='input' type="text" onChange={this.handlePassword}/>
-        <button id="submit" type="submit" onClick={this.handleSubmit}>Login</button>
+        Enter a username: <input id="input" type="text" onChange={this.handleUsername}/>
+        Enter a password: <input  id="input" type="text" onChange={this.handlePassword}/>
+        <button id="submit" className="btn btn-success" type="submit" onClick={this.handleSubmit}>Login</button>
+        <div className="space"></div>
+        <button id="submit" className="btn btn-danger" type="submit" onClick={this.handleCreate}>Create</button>
       </form>
     </div>
     )
