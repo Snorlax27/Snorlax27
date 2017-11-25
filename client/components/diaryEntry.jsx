@@ -18,10 +18,12 @@ class DiaryEntry extends React.Component {
 
   filterComponents() {
     if (this.state.clicked) {
+      var postDate = new Date(this.props.item.time);
       return (
         <div>
           <h5 onClick={this.changeState}>Title: {this.props.item.title}</h5>
-          {this.props.item.text}
+          {this.props.item.text}<br/>
+          post at: {postDate.toDateString()}
         </div>
       )
     } else {
