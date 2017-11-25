@@ -42,6 +42,34 @@ header {
   background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=2250&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
 }
 
+.seemless2 {
+  height: 70vh;
+  margin: 0 auto;
+  background-attachment: fixed;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(0,0,0, 0.3), rgba(0,0,0, 0.3)), url("https://images.unsplash.com/photo-1507409613952-518459ac866e?auto=format&fit=crop&w=2250&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  -webkit-animation: fadein 2.7s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: fadein 2.7s; /* Firefox < 16 */
+    -ms-animation: fadein 2.7s; /* Internet Explorer */
+     -o-animation: fadein 2.7s; /* Opera < 12.1 */
+        animation: fadein 2.7s;
+}
+
+
+#success {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 10%;
+  color: white;
+}
+
+@keyframes fadein {
+  from { opacity:  0; }
+  to { opacity:  1; }
+}
+
 .logo {
   width: auto;
   float: left;
@@ -187,6 +215,10 @@ i {
 h3 {
   display: block;
   text-align: center;
+}
+
+#author {
+  color: white;
 }
 
 #input {

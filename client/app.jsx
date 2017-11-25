@@ -119,7 +119,7 @@ class App extends React.Component {
   seemlessBackground() {
     if (this.state.userLoggedIn) {
       return (
-        <div className="seemless"></div>
+        <div className="seemless2"><h2 id="success">Every great dream begins with a dreamer. Always remember, you have within you the strength, patience, and the passion to reach for the stars to change the world.</h2><h3 id="author">Harriet Tubman</h3></div>
       )
     } else {
       return (

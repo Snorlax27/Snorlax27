@@ -213,7 +213,20 @@ var App = function (_React$Component) {
     key: 'seemlessBackground',
     value: function seemlessBackground() {
       if (this.state.userLoggedIn) {
-        return React.createElement('div', { className: 'seemless' });
+        return React.createElement(
+          'div',
+          { className: 'seemless2' },
+          React.createElement(
+            'h2',
+            { id: 'success' },
+            'Every great dream begins with a dreamer. Always remember, you have within you the strength, patience, and the passion to reach for the stars to change the world.'
+          ),
+          React.createElement(
+            'h3',
+            { id: 'author' },
+            'Harriet Tubman'
+          )
+        );
       } else {
         return React.createElement(
           'div',
