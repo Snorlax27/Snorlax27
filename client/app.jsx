@@ -142,11 +142,10 @@ class App extends React.Component {
             <ul className="nav navbar-nav">
               <li><a href="#">Motivation</a></li>
               <li><a href="#">About Us</a></li>
-              <li><i className="ion-android-favorite icon-medium"></i></li>
-
+              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Mike, Yahzi, Benji, and Dan.</a></li>
             </ul>
             <div id="space"></div>
-            <button onClick={this.handleLogout} className="btn btn-info navbar-btn">Logout</button>
+            <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
           </div>
         </nav>
       )
@@ -160,7 +159,7 @@ class App extends React.Component {
             <ul className="nav navbar-nav">
               <li><a href="#">Motivation</a></li>
               <li><a href="#">About Us</a></li>
-              <li><i className="ion-android-favorite icon-medium"></i></li>
+              <li><a href="#">Made with<i className="ion-android-favorite icon-medium"></i>by Mike, Yahzi, Benji, and Dan.</a></li>
             </ul>
           </div>
         </nav>

@@ -266,13 +266,19 @@ var App = function (_React$Component) {
               React.createElement(
                 'li',
                 null,
-                React.createElement('i', { className: 'ion-android-favorite icon-medium' })
+                React.createElement(
+                  'a',
+                  { href: '#' },
+                  'Made with',
+                  React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
+                  'by Mike, Yahzi, Benji, and Dan.'
+                )
               )
             ),
             React.createElement('div', { id: 'space' }),
             React.createElement(
               'button',
-              { onClick: this.handleLogout, className: 'btn btn-info navbar-btn' },
+              { onClick: this.handleLogout, className: 'btn btn-danger navbar-btn' },
               'Logout'
             )
           )
@@ -317,7 +323,13 @@ var App = function (_React$Component) {
               React.createElement(
                 'li',
                 null,
-                React.createElement('i', { className: 'ion-android-favorite icon-medium' })
+                React.createElement(
+                  'a',
+                  { href: '#' },
+                  'Made with',
+                  React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
+                  'by Mike, Yahzi, Benji, and Dan.'
+                )
               )
             )
           )
