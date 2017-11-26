@@ -5,7 +5,7 @@ var DiaryList = function DiaryList(_ref) {
   return React.createElement(
     "div",
     null,
-    list.map(function (item, key) {
+    list.map(function (item) {
       return React.createElement(DiaryEntry, { item: item });
     })
   );
