@@ -90,7 +90,9 @@ class App extends React.Component {
               </ul>
             </div>
             <div className="hero-text-box">
+
               <h1>Goodbye solitary.<br></br>Hello together.</h1>
+
               <a className="btn btn-info" href="#">I'm bored</a><div className="space"></div>
               <a className="btn btn-warning" href="#">Show me more</a>
             </div>

@@ -83,6 +83,13 @@ header {
   margin-top: 20px;
 }
 
+.pika {
+  margin-left: 10px;
+  display: inline-block;
+  width: 37px;
+  height: auto;
+}
+
 .main-nav {
   float: right;
 }
