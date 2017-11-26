@@ -1,7 +1,6 @@
 const DiaryList = ({list}) => (
-  <div>{list.map((item, key)=> {
-    return (
-        <DiaryEntry item={item} />
-    )})}
+  <div>{list.map((item)=> {
+    return (<DiaryEntry item={item} />)
+    })}
   </div>
 )
