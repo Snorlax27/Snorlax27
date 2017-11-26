@@ -267,7 +267,7 @@ var App = function (_React$Component) {
                   { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.'
+                  'by Awesome Mike, Sweet Yazhi, Lord Benji, and Super Dan.'
                 )
               )
             ),
@@ -306,7 +306,7 @@ var App = function (_React$Component) {
                   { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Awesome Mike, Sweet Yazhi, Lord Benji, and Crazy Dan.'
+                  'by Awesome Mike, Sweet Yazhi, Lord Benji, and  Super Dan.'
                 )
               )
             )
