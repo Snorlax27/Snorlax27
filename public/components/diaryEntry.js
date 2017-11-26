@@ -33,10 +33,33 @@ var DiaryEntry = function (_React$Component) {
       console.log('Line 12 DiaryEntry.jsx was run');
     }
   }, {
+    key: 'renderSentimentBar',
+    value: function renderSentimentBar(sentiment) {
+      if (!sentiment) {
+        return;
+      }
+      console.log('SENTIMENT BAR', sentiment);
+      var polarity = sentiment.polarity;
+      var barType;
+      if (polarity === 'neutral') {
+        barType = "progress-bar progress-bar-warning";
+      } else if (polarity === 'positive') {
+        barType = "progress-bar progress-bar-info";
+      } else {
+        barType = "progress-bar progress-bar-warning";
+      }
+      return React.createElement(
+        'div',
+        { className: 'progress' },
+        React.createElement('div', { className: 'progress-bar progress-bar-info', role: 'progressbar', 'aria-valuemin': '0', 'aria-valuenow': '50', 'aria-valuemax': '100', style: { width: 100 } })
+      );
+    }
+  }, {
     key: 'filterComponents',
     value: function filterComponents() {
       if (this.state.clicked) {
         var postDate = new Date(this.props.item.time);
+        console.log('THIS IS THE PROPS ITEM', this.props.item);
         return React.createElement(
           'div',
           null,
@@ -46,7 +69,18 @@ var DiaryEntry = function (_React$Component) {
             'Title: ',
             this.props.item.title
           ),
+          this.renderSentimentBar(this.props.item.sentiment),
+          'Entry: ',
           this.props.item.text,
+          ' ',
+          React.createElement('br', null),
+          'Date: ',
+          postDate.toDateString(),
+          ' ',
+          React.createElement('br', null),
+          'General Sentiment: ',
+          this.props.item.sentiment.polarity,
+          React.createElement('br', null),
           React.createElement('br', null),
           'post at: ',
           postDate.toDateString()
@@ -60,7 +94,8 @@ var DiaryEntry = function (_React$Component) {
             { onClick: this.changeState },
             'Title: ',
             this.props.item.title
-          )
+          ),
+          this.renderSentimentBar(this.props.item.sentiment)
         );
       }
     }

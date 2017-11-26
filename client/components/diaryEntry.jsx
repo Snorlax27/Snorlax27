@@ -15,14 +15,39 @@ class DiaryEntry extends React.Component {
     console.log('Line 12 DiaryEntry.jsx was run');
   }
 
+  renderSentimentBar(sentiment) {
+    if (!sentiment) {
+      return;
+    }
+    console.log('SENTIMENT BAR', sentiment)
+    var polarity = sentiment.polarity;
+    var barType;
+    if (polarity === 'neutral') {
+      barType = "progress-bar progress-bar-warning";
+    } else if (polarity === 'positive') {
+      barType = "progress-bar progress-bar-info";
+    } else {
+      barType = "progress-bar progress-bar-warning";
+    }
+    return (
+      <div className="progress">
+        <div className={barType} role="progressbar" aria-valuemin="0" aria-valuenow={sentiment.polarity_confidence * 100} aria-valuemax="100" style={{width:50%}}>
+        </div>
+      </div>
+    )
+  }
 
   filterComponents() {
     if (this.state.clicked) {
       var postDate = new Date(this.props.item.time);
+      console.log('THIS IS THE PROPS ITEM', this.props.item);
       return (
         <div>
           <h5 onClick={this.changeState}>Title: {this.props.item.title}</h5>
-          {this.props.item.text}
+          {this.renderSentimentBar(this.props.item.sentiment)}
+          Entry: {this.props.item.text} <br/>
+          Date: {postDate.toDateString()} <br/>
+          General Sentiment: {this.props.item.sentiment.polarity}<br/>
           <br/>
           post at: {postDate.toDateString()}
         </div>
@@ -31,6 +56,7 @@ class DiaryEntry extends React.Component {
       return (
         <div>
           <h5 onClick={this.changeState}>Title: {this.props.item.title}</h5>
+          {this.renderSentimentBar(this.props.item.sentiment)}
         </div>
       )
     }
