@@ -252,7 +252,7 @@ h3 {
 textarea {
   position: relative;
   background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=2100&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
-  height: 500px;
+  height: 570px;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -288,6 +288,13 @@ form {
   color: white;
 }
 
+.entryInfo {
+  width: 30%;
+  margin-left: 35%;
+  margin-right: 35%;
+  font-size: 25px;
+}
+
 #text {
   color: black;
   margin-left: 25%;
@@ -300,6 +307,23 @@ h2 {
   padding-bottom: 3%;
   word-spacing: 2px;
   text-align: center;
+}
+/*
+use border-radius, try to find pixel conversion
+Navy #001f3f.
+OLIVE #3D9970.
+*/
+
+.title {
+  margin-left: 25%;
+  margin-right: 25%;
+  border: solid;
+  border-width: 10px;
+  width: 50%;
+  border-color: #3D9970;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  word-spacing: 2px;
 }
 
 .ionicon p {
