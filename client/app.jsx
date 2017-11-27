@@ -107,7 +107,7 @@ class App extends React.Component {
               </ul>
             </div>
             <div className="hero-text-box">
-              <h1>Goodbye solitary.<br></br>Hello together.</h1>
+              <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
               <a className="btn btn-info" href="#">I'm bored</a><div className="space"></div>
               <a className="btn btn-warning" href="#">Show me more</a>
             </div>
@@ -142,7 +142,7 @@ class App extends React.Component {
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Super Dan.</a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.</a></li>
             </ul>
             <div id="space"></div>
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
@@ -158,7 +158,7 @@ class App extends React.Component {
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and  Super Dan.</a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.</a></li>
             </ul>
           </div>
         </nav>

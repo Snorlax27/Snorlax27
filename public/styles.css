@@ -105,7 +105,9 @@ header {
   margin-right: 50px;
   text-decoration: none;
   margin-top: 35px;
+  font-size: 17px;
 }
+
 
 .ion-android-favorite {
   display: inline-block;
@@ -324,11 +326,11 @@ OLIVE #3D9970.
   margin-left: 25%;
   margin-right: 25%;
   border: solid;
-  border-width: 10px;
+  border-width: 6px;
   width: 50%;
   border-color: #3D9970;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
   word-spacing: 2px;
 }
 

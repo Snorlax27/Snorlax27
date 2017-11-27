@@ -189,7 +189,7 @@ var App = function (_React$Component) {
               { className: 'hero-text-box' },
               React.createElement(
                 'h1',
-                null,
+                { id: 'h1-header' },
                 'Goodbye solitary.',
                 React.createElement('br', null),
                 'Hello together.'
@@ -267,7 +267,7 @@ var App = function (_React$Component) {
                   { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Awesome Mike, Sweet Yazhi, Lord Benji, and Super Dan.'
+                  'by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.'
                 )
               )
             ),
@@ -306,7 +306,7 @@ var App = function (_React$Component) {
                   { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Awesome Mike, Sweet Yazhi, Lord Benji, and  Super Dan.'
+                  'by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.'
                 )
               )
             )
