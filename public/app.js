@@ -206,7 +206,7 @@ var App = function (_React$Component) {
               React.createElement(
                 'button',
                 { id: 'audio', onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
-                'FAV'
+                'DAN FAV'
               )
             )
           )
@@ -243,7 +243,7 @@ var App = function (_React$Component) {
               React.createElement(
                 'button',
                 { id: 'audio', onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
-                'FAV'
+                'DAN FAV'
               )
             )
           )

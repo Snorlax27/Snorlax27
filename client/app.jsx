@@ -128,7 +128,7 @@ class App extends React.Component {
 
               <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
               <button id="audio" onClick={this.playJazz} className="btn btn-warning">Jazz</button><div className="space"></div>
-              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">FAV</button>
+              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">DAN FAV</button>
             </div>
           </nav>
         </header>
@@ -145,7 +145,7 @@ class App extends React.Component {
             <div className="hero-text-box">
               <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
               <button id="audio" onClick={this.playJazz} className="btn btn-warning">Jazz</button><div className="space"></div>
-              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">FAV</button>
+              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">DAN FAV</button>
             </div>
           </nav>
         </header>
