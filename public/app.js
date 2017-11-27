@@ -190,7 +190,7 @@ var App = function (_React$Component) {
               React.createElement(
                 'button',
                 { id: 'audio', onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
-                '\uD55C\uAD6D\uB178\uB798'
+                'FAV'
               )
             )
           )
@@ -220,14 +220,14 @@ var App = function (_React$Component) {
               ),
               React.createElement(
                 'button',
-                { onClick: this.playJazz, className: 'btn btn-warning' },
+                { id: 'audio', onClick: this.playJazz, className: 'btn btn-warning' },
                 'Jazz'
               ),
               React.createElement('div', { className: 'space' }),
               React.createElement(
                 'button',
-                { onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
-                '\uD55C\uAD6D\uB178\uB798'
+                { id: 'audio', onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
+                'FAV'
               )
             )
           )
@@ -291,7 +291,7 @@ var App = function (_React$Component) {
                   { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.'
+                  'by Snorlax27 // Dan, Benji, Yazhi, Mike '
                 )
               )
             ),
@@ -330,7 +330,7 @@ var App = function (_React$Component) {
                   { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.'
+                  'by Snorlax27 // Dan, Benji, Yazhi, Mike '
                 )
               )
             )
