@@ -43,7 +43,7 @@ class Input extends React.Component {
     return(
       <form id="text" onSubmit={this.handleSubmit}>
         <h2 id="hello"><span id="enter">Write</span> a diary entry</h2><br></br>
-        Title: <input name="title" onChange={this.handleTitle}></input><br></br>
+        <input className="form-control" placeholder="Enter title of your super awesome diary entry" name="title" onChange={this.handleTitle}></input><br></br>
         <textarea id="textarea" type='text' name="entry" onChange={this.handlePost} /><br></br>
         <button type="submit" className="btn btn-primary" value="Submit" onClick={this.handleSubmit}>Send</button>
       </form>

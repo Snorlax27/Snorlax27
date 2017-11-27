@@ -75,8 +75,7 @@ var Input = function (_React$Component) {
           ' a diary entry'
         ),
         React.createElement('br', null),
-        'Title: ',
-        React.createElement('input', { name: 'title', onChange: this.handleTitle }),
+        React.createElement('input', { className: 'form-control', placeholder: 'Enter title of your super awesome diary entry', name: 'title', onChange: this.handleTitle }),
         React.createElement('br', null),
         React.createElement('textarea', { id: 'textarea', type: 'text', name: 'entry', onChange: this.handlePost }),
         React.createElement('br', null),

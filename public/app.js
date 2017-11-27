@@ -104,7 +104,7 @@ var App = function (_React$Component) {
           React.createElement(
             'p',
             null,
-            'Aylien TextAPI  will analyze the sentiment of your text (from negative to positive) - so you get a better understanding of your daily feelings!'
+            'Aylien TextAPI will analyze the sentiment of your text (from negative to positive) - so you get a better understanding of your daily feelings!'
           )
         )
       );
@@ -152,7 +152,7 @@ var App = function (_React$Component) {
               { className: 'hero-text-box' },
               React.createElement(
                 'h1',
-                null,
+                { id: 'h1-header' },
                 'Goodbye solitary.',
                 React.createElement('br', null),
                 'Hello together.'
@@ -174,7 +174,7 @@ var App = function (_React$Component) {
       } else {
         return React.createElement(
           'header',
-          null,
+          { id: 'top' },
           React.createElement(
             'nav',
             null,
