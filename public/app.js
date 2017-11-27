@@ -143,7 +143,7 @@ var App = function (_React$Component) {
     key: 'randomNameOrder',
     value: function randomNameOrder() {
       var result = [];
-      var names = ['Super Dan', 'Lord Benji', 'Awesome Mike', 'Sweet Yahzi'];
+      var names = ['Super Dan', 'Lord Benji', 'Awesome Mike', 'Sweet Yazhi'];
       for (var i = 3; i >= 0; i--) {
         var random = Math.floor(Math.random() * i);
         if (i === 0) {
