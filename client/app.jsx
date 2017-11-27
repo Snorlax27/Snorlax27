@@ -113,7 +113,7 @@ class App extends React.Component {
 
               <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
               <button id="audio" onClick={this.playJazz} className="btn btn-warning">Jazz</button><div className="space"></div>
-              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">한국노래</button>
+              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">FAV</button>
             </div>
           </nav>
         </header>
@@ -129,8 +129,8 @@ class App extends React.Component {
             </div>
             <div className="hero-text-box">
               <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
-              <button onClick={this.playJazz} className="btn btn-warning">Jazz</button><div className="space"></div>
-              <button onClick={this.playKPOP} className="btn btn-info" href="#">한국노래</button>
+              <button id="audio" onClick={this.playJazz} className="btn btn-warning">Jazz</button><div className="space"></div>
+              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">FAV</button>
             </div>
           </nav>
         </header>
@@ -163,7 +163,7 @@ class App extends React.Component {
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.</a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Snorlax27 // Dan, Benji, Yazhi, Mike </a></li>
             </ul>
             <div id="space"></div>
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
@@ -179,7 +179,7 @@ class App extends React.Component {
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.</a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Snorlax27 // Dan, Benji, Yazhi, Mike </a></li>
             </ul>
           </div>
         </nav>
