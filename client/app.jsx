@@ -79,6 +79,21 @@ class App extends React.Component {
     })
   }
 
+  randomNameOrder() {
+    var result = [];
+    var names = ['Dan', 'Benji', 'Mike', 'Yahzi'];
+    for (var i = 3; i >= 0; i--) {
+      var random = Math.floor(Math.random() * i);
+      if (i === 0) {
+        result.push('& ' + names[random]);
+      } else {
+        result.push(names[random]);
+      }
+      names.splice(random, 1);
+    }
+    return result.join(', ');
+  }
+
   icons() {
     return (
       <section>
@@ -154,6 +169,7 @@ class App extends React.Component {
 
   filterNavbar() {
     var scope = this;
+    var message = scope.randomNameOrder();
     if (this.state.userLoggedIn) {
       return (
         <nav className= "navbar navbar-default navbar-fixed-bottom">
@@ -163,7 +179,7 @@ class App extends React.Component {
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Snorlax27 // Dan, Benji, Yazhi, Mike </a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Snorlax27 @ California, Maryland, and Toronto // {message} (random order)</a></li>
             </ul>
             <div id="space"></div>
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
@@ -179,7 +195,7 @@ class App extends React.Component {
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Snorlax27 // Dan, Benji, Yazhi, Mike </a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Snorlax27 @ California, Maryland, and Toronto // {message} (random order)</a></li>
             </ul>
           </div>
         </nav>

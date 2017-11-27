@@ -100,6 +100,22 @@ var App = function (_React$Component) {
       });
     }
   }, {
+    key: 'randomNameOrder',
+    value: function randomNameOrder() {
+      var result = [];
+      var names = ['Dan', 'Benji', 'Mike', 'Yahzi'];
+      for (var i = 3; i >= 0; i--) {
+        var random = Math.floor(Math.random() * i);
+        if (i === 0) {
+          result.push('& ' + names[random]);
+        } else {
+          result.push(names[random]);
+        }
+        names.splice(random, 1);
+      }
+      return result.join(', ');
+    }
+  }, {
     key: 'icons',
     value: function icons() {
       return React.createElement(
@@ -264,6 +280,7 @@ var App = function (_React$Component) {
     key: 'filterNavbar',
     value: function filterNavbar() {
       var scope = this;
+      var message = scope.randomNameOrder();
       if (this.state.userLoggedIn) {
         return React.createElement(
           'nav',
@@ -291,7 +308,9 @@ var App = function (_React$Component) {
                   { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Snorlax27 // Dan, Benji, Yazhi, Mike '
+                  'by Snorlax27 @ California, Maryland, and Toronto // ',
+                  message,
+                  ' (random order)'
                 )
               )
             ),
@@ -330,7 +349,9 @@ var App = function (_React$Component) {
                   { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Snorlax27 // Dan, Benji, Yazhi, Mike '
+                  'by Snorlax27 @ California, Maryland, and Toronto // ',
+                  message,
+                  ' (random order)'
                 )
               )
             )
