@@ -42,11 +42,11 @@ var DiaryEntry = function (_React$Component) {
       var polarity = sentiment.polarity;
       var barType;
       if (polarity === 'neutral') {
-        barType = "progress-bar progress-bar-warning";
+        barType = "progress-bar progress-bar-warning progress-bar-striped active";
       } else if (polarity === 'positive') {
-        barType = "progress-bar progress-bar-info";
+        barType = "progress-bar progress-bar-info progress-bar-striped active";
       } else {
-        barType = "progress-bar progress-bar-danger";
+        barType = "progress-bar progress-bar-danger progress-bar-striped active";
       }
       return React.createElement(
         'div',
