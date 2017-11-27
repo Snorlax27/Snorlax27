@@ -8,8 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _MuiThemeProvider;
-
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -26,23 +24,42 @@ var App = function (_React$Component) {
       backgroundUrl: ''
     };
     _this.handleLogin = _this.handleLogin.bind(_this);
-    _this.render = _this.render.bind(_this);
     _this.handleLogout = _this.handleLogout.bind(_this);
+    _this.componentDidMount = _this.componentDidMount.bind(_this);
+    _this.filterComponents = _this.filterComponents.bind(_this);
+    _this.rerender = _this.rerender.bind(_this);
     return _this;
   }
 
   _createClass(App, [{
-    key: 'handleLogin',
-    value: function handleLogin(user) {
-      this.setState({
-        userLoggedIn: true
-      });
+    key: 'componentDidMount',
+    value: function componentDidMount() {
       var scope = this;
       $.ajax({
         type: 'GET',
         url: '/entries',
         success: function success(data) {
           scope.setState({ entries: data });
+        }
+      });
+
+      $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+
+        $('html, body').animate({
+          scrollTop: $($.attr(this, 'href')).offset().top
+        }, 700);
+      });
+    }
+  }, {
+    key: 'handleLogin',
+    value: function handleLogin(user) {
+      var scope = this;
+      $.ajax({
+        type: 'GET',
+        url: '/entries',
+        success: function success(data) {
+          scope.setState({ entries: data, userLoggedIn: true });
         }
       });
     }
@@ -58,24 +75,260 @@ var App = function (_React$Component) {
         }
       });
     }
-
-    //   componentDidMount() {
-    // // https://source.unsplash.com/random
-    //     $.ajax({
-    //       type: 'GET',
-    //       url: 'https://pixabay.com/api/docs/',
-    //       key: '7076402-4116e9d08cde36d3ab5e67074',
-    //       category: 'nature',
-    //       editors_choice: true,
-    //       success: function(data) {
-    //         console.log('DATTAAAAA app.jsx', data);
-    //         scope.setState({backgroundUrl: ''});
-    //       }
-    //     });
-    //     // document.body.style.setBackground(url());
-    //   }
-
-
+  }, {
+    key: 'icons',
+    value: function icons() {
+      return React.createElement(
+        'section',
+        null,
+        React.createElement(
+          'div',
+          null,
+          React.createElement(
+            'h2',
+            null,
+            'Write your diary and let an AI analyze it for you.'
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'ionicon' },
+          React.createElement('i', { className: 'ion-ios-glasses-outline icon-big' }),
+          React.createElement(
+            'h3',
+            null,
+            'Natural Language API'
+          ),
+          React.createElement('br', null),
+          React.createElement('br', null),
+          React.createElement(
+            'p',
+            null,
+            'Aylien TextAPI will analyze the sentiment of your text (from negative to positive) - so you get a better understanding of your daily feelings!'
+          )
+        )
+      );
+    }
+  }, {
+    key: 'headerRender',
+    value: function headerRender() {
+      var scope = this;
+      if (!this.state.userLoggedIn) {
+        return React.createElement(
+          'header',
+          { id: 'top' },
+          React.createElement(
+            'nav',
+            null,
+            React.createElement(
+              'div',
+              { className: 'row' },
+              React.createElement('img', { src: 'https://lh3.googleusercontent.com/0xBvdPgDd3s5gaDcq-CNkgoQPtcT5lPxO_SMxyUcz0rAf61OLprSnA2hLMsU5YFTx4LoyaxEcWKJUmcRuJvQ5uDm3q3hiw8QQaMjesuWk-Q4Ow7UP2WAPt8NaIUFbAqvO24V7eux7XzFwiEU8C8NhALt-0Uy-bcKhUEHpJTjj3Wk13OH-cb-zQh0kCVv0Dwcjqyop5EAvu5Yk-TQJxBQ7ZG_BVM8n2wOVyL-Jf7gI6MqXOvhHwyzOwVveqpquNPitCWS3MfGl373LKwaxZHWPTllUYReyTeDvmtUJ1wX1fX3X64DocaNwn4YPfRZg2GiJSom6sD4fxXvAjinm4pWNktHckZjZo_oLj2a451ZnxEBsPfpKm2gmJIoGL7qgCNSuxxQNDDuNo3pE9Bvl-xQoEEHfyaeqDGV1BkzNcXqloCpYJnlnRNxgRQmZ8AEIkgJlpissyxy7LJshyHpvAD5oYK3q1hShq4SaXvUTAp09L6P6Yikj9ylNwNxH6pVtqDBiDfdygIa7gMh4pznA2qLuzz333WeByBGL0OAAnM_4twzyN_9OkpBLsG8GAtc1g=s200-no' }),
+              React.createElement(
+                'ul',
+                { className: 'main-nav' },
+                React.createElement(
+                  'li',
+                  null,
+                  React.createElement(
+                    'a',
+                    { href: '#signin' },
+                    'Sign In'
+                  )
+                ),
+                React.createElement(
+                  'li',
+                  null,
+                  React.createElement(
+                    'a',
+                    { href: '#signin' },
+                    'Create Account'
+                  )
+                )
+              )
+            ),
+            React.createElement(
+              'div',
+              { className: 'hero-text-box' },
+              React.createElement(
+                'h1',
+                { id: 'h1-header' },
+                'Goodbye solitary.',
+                React.createElement('br', null),
+                'Hello together.'
+              ),
+              React.createElement(
+                'a',
+                { className: 'btn btn-info', href: '#' },
+                'I\'m bored'
+              ),
+              React.createElement('div', { className: 'space' }),
+              React.createElement(
+                'a',
+                { className: 'btn btn-warning', href: '#' },
+                'Show me more'
+              )
+            )
+          )
+        );
+      } else {
+        return React.createElement(
+          'header',
+          { id: 'top' },
+          React.createElement(
+            'nav',
+            null,
+            React.createElement(
+              'div',
+              { className: 'row' },
+              React.createElement('img', { src: 'https://lh3.googleusercontent.com/0xBvdPgDd3s5gaDcq-CNkgoQPtcT5lPxO_SMxyUcz0rAf61OLprSnA2hLMsU5YFTx4LoyaxEcWKJUmcRuJvQ5uDm3q3hiw8QQaMjesuWk-Q4Ow7UP2WAPt8NaIUFbAqvO24V7eux7XzFwiEU8C8NhALt-0Uy-bcKhUEHpJTjj3Wk13OH-cb-zQh0kCVv0Dwcjqyop5EAvu5Yk-TQJxBQ7ZG_BVM8n2wOVyL-Jf7gI6MqXOvhHwyzOwVveqpquNPitCWS3MfGl373LKwaxZHWPTllUYReyTeDvmtUJ1wX1fX3X64DocaNwn4YPfRZg2GiJSom6sD4fxXvAjinm4pWNktHckZjZo_oLj2a451ZnxEBsPfpKm2gmJIoGL7qgCNSuxxQNDDuNo3pE9Bvl-xQoEEHfyaeqDGV1BkzNcXqloCpYJnlnRNxgRQmZ8AEIkgJlpissyxy7LJshyHpvAD5oYK3q1hShq4SaXvUTAp09L6P6Yikj9ylNwNxH6pVtqDBiDfdygIa7gMh4pznA2qLuzz333WeByBGL0OAAnM_4twzyN_9OkpBLsG8GAtc1g=s200-no' }),
+              React.createElement('ul', { className: 'main-nav' })
+            ),
+            React.createElement(
+              'div',
+              { className: 'hero-text-box' },
+              React.createElement(
+                'h1',
+                { id: 'h1-header' },
+                'Goodbye solitary.',
+                React.createElement('br', null),
+                'Hello together.'
+              ),
+              React.createElement(
+                'a',
+                { className: 'btn btn-info', href: '#' },
+                'I\'m bored'
+              ),
+              React.createElement('div', { className: 'space' }),
+              React.createElement(
+                'a',
+                { className: 'btn btn-warning', href: '#' },
+                'Show me more'
+              )
+            )
+          )
+        );
+      }
+    }
+  }, {
+    key: 'seemlessBackground',
+    value: function seemlessBackground() {
+      if (this.state.userLoggedIn) {
+        return React.createElement(
+          'div',
+          { className: 'seemless2' },
+          React.createElement(
+            'h2',
+            { id: 'success' },
+            'Every great dream begins with a dreamer. Always remember, you have within you the strength, patience, and the passion to reach for the stars to change the world.'
+          ),
+          React.createElement(
+            'h3',
+            { id: 'author' },
+            'Harriet Tubman'
+          )
+        );
+      } else {
+        return React.createElement(
+          'div',
+          { className: 'seemless' },
+          React.createElement(Login, { handleLogin: this.handleLogin })
+        );
+      }
+    }
+  }, {
+    key: 'filterNavbar',
+    value: function filterNavbar() {
+      var scope = this;
+      if (this.state.userLoggedIn) {
+        return React.createElement(
+          'nav',
+          { className: 'navbar navbar-default navbar-fixed-bottom' },
+          React.createElement(
+            'div',
+            { className: 'container-fluid' },
+            React.createElement(
+              'div',
+              { className: 'navbar-header' },
+              React.createElement(
+                'a',
+                { className: 'navbar-brand', href: '#top' },
+                'Emotisphere'
+              )
+            ),
+            React.createElement(
+              'ul',
+              { className: 'nav navbar-nav' },
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  'a',
+                  { href: '#top' },
+                  'Made with',
+                  React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
+                  'by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.'
+                )
+              )
+            ),
+            React.createElement('div', { id: 'space' }),
+            React.createElement(
+              'button',
+              { onClick: this.handleLogout, className: 'btn btn-danger navbar-btn' },
+              'Logout'
+            )
+          )
+        );
+      } else {
+        return React.createElement(
+          'nav',
+          { className: 'navbar navbar-default navbar-fixed-bottom' },
+          React.createElement(
+            'div',
+            { className: 'container-fluid' },
+            React.createElement(
+              'div',
+              { className: 'navbar-header' },
+              React.createElement(
+                'a',
+                { className: 'navbar-brand', href: '#top' },
+                'Emotisphere'
+              )
+            ),
+            React.createElement(
+              'ul',
+              { className: 'nav navbar-nav' },
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  'a',
+                  { href: '#top' },
+                  'Made with',
+                  React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
+                  'by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.'
+                )
+              )
+            )
+          )
+        );
+      }
+    }
+  }, {
+    key: 'rerender',
+    value: function rerender() {
+      var scope = this;
+      $.ajax({
+        type: 'GET',
+        url: '/entries',
+        success: function success(data) {
+          scope.setState({ entries: data });
+        },
+        error: function error(err) {
+          console.log('rerender error', err);
+        }
+      });
+    }
   }, {
     key: 'filterComponents',
     value: function filterComponents() {
@@ -83,27 +336,25 @@ var App = function (_React$Component) {
         return React.createElement(
           'div',
           null,
-          React.createElement(Input, null),
-          React.createElement(
-            'button',
-            { 'class': 'btn btn-info', onClick: this.handleLogout },
-            'Logout'
-          ),
+          React.createElement(Input, { rerender: this.rerender }),
           React.createElement(DiaryList, { list: this.state.entries })
         );
-      } else {
-        return React.createElement(
-          'div',
-          null,
-          React.createElement(Login, { handleLogin: this.handleLogin }),
-          React.createElement(NewAccount, null)
-        );
       }
+      this.handleLogin = this.handleLogin.bind(this);
+      this.handleLogout = this.handleLogout.bind(this);
     }
   }, {
     key: 'render',
     value: function render() {
-      return this.filterComponents();
+      return React.createElement(
+        'div',
+        null,
+        this.headerRender(),
+        this.filterNavbar(),
+        this.icons(),
+        this.seemlessBackground(),
+        this.filterComponents()
+      );
     }
   }]);
 
@@ -117,5 +368,6 @@ var App = function (_React$Component) {
 //<Route path='/signup' component={Signup}/>
 //</Router>
 //----------------------------------------
+
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));

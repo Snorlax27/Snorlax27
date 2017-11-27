@@ -33,30 +33,84 @@ var DiaryEntry = function (_React$Component) {
       console.log('Line 12 DiaryEntry.jsx was run');
     }
   }, {
+    key: 'renderSentimentBar',
+    value: function renderSentimentBar(sentiment) {
+      if (!sentiment) {
+        return React.createElement('div', null);
+      }
+      console.log('SENTIMENT BAR', sentiment);
+      var polarity = sentiment.polarity;
+      var barType;
+      var message;
+      if (polarity === 'neutral') {
+        message = "Your mood seems indifferent. Are you a robot?";
+        barType = "progress-bar progress-bar-warning progress-bar-striped active";
+      } else if (polarity === 'positive') {
+        message = "Share your positive energy!";
+        barType = "progress-bar progress-bar-info progress-bar-striped active";
+      } else {
+        message = "Where did your smile go?";
+        barType = "progress-bar progress-bar-danger progress-bar-striped active";
+      }
+      return React.createElement(
+        'div',
+        { className: 'progress' },
+        React.createElement(
+          'div',
+          { className: barType, role: 'progressbar', 'aria-valuemin': '0', 'aria-valuenow': String(sentiment.polarity_confidence * 100), 'aria-valuemax': '100', style: { width: String(sentiment.polarity_confidence * 100) + '%' } },
+          '"',
+          message,
+          '"'
+        )
+      );
+    }
+  }, {
     key: 'filterComponents',
     value: function filterComponents() {
+      if (!this.props.item.title) {
+        this.props.item.title = "Title is not given.";
+      }
+
       if (this.state.clicked) {
+
+        var postDate = new Date(this.props.item.time);
+        console.log('THIS IS THE PROPS ITEM', this.props.item);
         return React.createElement(
           'div',
           null,
           React.createElement(
-            'h5',
-            { onClick: this.changeState },
-            'Title: ',
+            'h3',
+            { className: 'title', onClick: this.changeState },
             this.props.item.title
           ),
-          this.props.item.text
+          this.renderSentimentBar(this.props.item.sentiment),
+          React.createElement(
+            'div',
+            { className: 'entryInfo' },
+            'Entry: ',
+            this.props.item.text,
+            ' ',
+            React.createElement('br', null),
+            'Date: ',
+            postDate.toDateString(),
+            ' ',
+            React.createElement('br', null),
+            'General Sentiment: ',
+            this.props.item.sentiment.polarity,
+            React.createElement('br', null),
+            React.createElement('br', null)
+          )
         );
       } else {
         return React.createElement(
           'div',
           null,
           React.createElement(
-            'h5',
-            { onClick: this.changeState },
-            'Title: ',
+            'h3',
+            { className: 'title', onClick: this.changeState },
             this.props.item.title
-          )
+          ),
+          this.renderSentimentBar(this.props.item.sentiment)
         );
       }
     }

@@ -41,10 +41,8 @@ var Input = function (_React$Component) {
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
-      console.log('User submit diary, 25 input.jsx =', this.state.newestPost);
-
+      var context = this;
       event.preventDefault();
-
       $.ajax({
         type: 'POST',
         url: '/entries',
@@ -56,6 +54,8 @@ var Input = function (_React$Component) {
         success: function success() {
           console.log('line 37 input.jsx post success');
         }
+      }).then(function () {
+        context.props.rerender();
       });
     }
   }, {
@@ -63,25 +63,26 @@ var Input = function (_React$Component) {
     value: function render() {
       return React.createElement(
         'form',
-        { id: 'input', onSubmit: this.handleSubmit },
+        { id: 'text', onSubmit: this.handleSubmit },
         React.createElement(
-          'h4',
-          null,
+          'h2',
+          { id: 'hello' },
           React.createElement(
             'span',
             { id: 'enter' },
             'Write'
           ),
-          ' a diary entry:'
+          ' a diary entry'
         ),
-        'Title: ',
-        React.createElement('input', { name: 'title', onChange: this.handleTitle }),
         React.createElement('br', null),
-        React.createElement('textarea', { type: 'text', name: 'entry', value: this.state.value, onChange: this.handlePost }),
+        React.createElement('input', { className: 'form-control', placeholder: 'Enter title of your super awesome diary entry', name: 'title', onChange: this.handleTitle }),
+        React.createElement('br', null),
+        React.createElement('textarea', { id: 'textarea', type: 'text', name: 'entry', onChange: this.handlePost }),
+        React.createElement('br', null),
         React.createElement(
           'button',
-          { type: 'submit', 'class': 'btn btn-info', value: 'Submit', onClick: this.handleSubmit },
-          'FIN'
+          { type: 'submit', className: 'btn btn-primary', value: 'Submit', onClick: this.handleSubmit },
+          'Send'
         )
       );
     }
