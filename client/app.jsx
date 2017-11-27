@@ -6,7 +6,11 @@ class App extends React.Component {
       userLoggedIn: false,
       username: '',
       music1: false,
-      music2: false
+      music2: false,
+      music3: false,
+      music4: false,
+      music5: false,
+      name: true
     }
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
@@ -15,6 +19,9 @@ class App extends React.Component {
     this.rerender = this.rerender.bind(this);
     this.playJazz = this.playJazz.bind(this);
     this.playKPOP = this.playKPOP.bind(this);
+    this.playTotoro = this.playTotoro.bind(this);
+    this.playBeethoven = this.playBeethoven.bind(this);
+    this.playRick = this.playRick.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +41,36 @@ class App extends React.Component {
           scrollTop: $($.attr(this, 'href')).offset().top
       }, 700);
     });
+  }
+
+  playBeethoven() {
+    if (this.state.music4) {
+      $('#beethoven')[0].src = "//www.youtube.com/embed/6VE33eYgVzw?showinfo=0&controls=0";
+      this.state.music4 = false;
+    } else {
+      $('#beethoven')[0].src += "&autoplay=1";
+      this.state.music4 = true;
+    }
+  }
+
+  playRick() {
+    if (this.state.music5) {
+      $('#rick')[0].src = "//www.youtube.com/embed/dQw4w9WgXcQ?showinfo=0&controls=0";
+      this.state.music5 = false;
+    } else {
+      $('#rick')[0].src += "&autoplay=1";
+      this.state.music5 = true;
+    }
+  }
+
+  playTotoro() {
+    if (this.state.music3) {
+      $('#totoro')[0].src = "//www.youtube.com/embed/FJnrKIdIU1E?showinfo=0&controls=0";
+      this.state.music3 = false;
+    } else {
+      $('#totoro')[0].src += "&autoplay=1";
+      this.state.music3 = true;
+    }
   }
 
   playJazz() {
@@ -81,7 +118,7 @@ class App extends React.Component {
 
   randomNameOrder() {
     var result = [];
-    var names = ['Dan', 'Benji', 'Mike', 'Yahzi'];
+    var names = ['Super Dan', 'Lord Benji', 'Awesome Mike', 'Sweet Yahzi'];
     for (var i = 3; i >= 0; i--) {
       var random = Math.floor(Math.random() * i);
       if (i === 0) {
@@ -128,7 +165,10 @@ class App extends React.Component {
 
               <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
               <button id="audio" onClick={this.playJazz} className="btn btn-warning">Jazz</button><div className="space"></div>
-              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">DAN FAV</button>
+              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">DAN FAV</button><div className="space"></div>
+              <button id="audio" onClick={this.playBeethoven} className="btn btn-success" href="#">BEN FAV</button><div className="space"></div>
+              <button id="audio" onClick={this.playTotoro} className="btn btn-default" href="#">YAZ FAV</button><div className="space"></div>
+              <button id="audio" onClick={this.playRick} className="btn btn-primary" href="#">MIK FAV</button><div className="space"></div>
             </div>
           </nav>
         </header>
@@ -146,6 +186,9 @@ class App extends React.Component {
               <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
               <button id="audio" onClick={this.playJazz} className="btn btn-warning">Jazz</button><div className="space"></div>
               <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">DAN FAV</button>
+              <button id="audio" onClick={this.playBeethoven} className="btn btn-success" href="#">BEN FAV</button><div className="space"></div>
+              <button id="audio" onClick={this.playTotoro} className="btn btn-default" href="#">YAZ FAV</button><div className="space"></div>
+              <button id="audio" onClick={this.playRick} className="btn btn-primary" href="#">MIK FAV</button><div className="space"></div>
             </div>
           </nav>
         </header>

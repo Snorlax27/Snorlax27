@@ -21,7 +21,11 @@ var App = function (_React$Component) {
       userLoggedIn: false,
       username: '',
       music1: false,
-      music2: false
+      music2: false,
+      music3: false,
+      music4: false,
+      music5: false,
+      name: true
     };
     _this.handleLogin = _this.handleLogin.bind(_this);
     _this.handleLogout = _this.handleLogout.bind(_this);
@@ -30,6 +34,9 @@ var App = function (_React$Component) {
     _this.rerender = _this.rerender.bind(_this);
     _this.playJazz = _this.playJazz.bind(_this);
     _this.playKPOP = _this.playKPOP.bind(_this);
+    _this.playTotoro = _this.playTotoro.bind(_this);
+    _this.playBeethoven = _this.playBeethoven.bind(_this);
+    _this.playRick = _this.playRick.bind(_this);
     return _this;
   }
 
@@ -52,6 +59,39 @@ var App = function (_React$Component) {
           scrollTop: $($.attr(this, 'href')).offset().top
         }, 700);
       });
+    }
+  }, {
+    key: 'playBeethoven',
+    value: function playBeethoven() {
+      if (this.state.music4) {
+        $('#beethoven')[0].src = "//www.youtube.com/embed/6VE33eYgVzw?showinfo=0&controls=0";
+        this.state.music4 = false;
+      } else {
+        $('#beethoven')[0].src += "&autoplay=1";
+        this.state.music4 = true;
+      }
+    }
+  }, {
+    key: 'playRick',
+    value: function playRick() {
+      if (this.state.music5) {
+        $('#rick')[0].src = "//www.youtube.com/embed/dQw4w9WgXcQ?showinfo=0&controls=0";
+        this.state.music5 = false;
+      } else {
+        $('#rick')[0].src += "&autoplay=1";
+        this.state.music5 = true;
+      }
+    }
+  }, {
+    key: 'playTotoro',
+    value: function playTotoro() {
+      if (this.state.music3) {
+        $('#totoro')[0].src = "//www.youtube.com/embed/FJnrKIdIU1E?showinfo=0&controls=0";
+        this.state.music3 = false;
+      } else {
+        $('#totoro')[0].src += "&autoplay=1";
+        this.state.music3 = true;
+      }
     }
   }, {
     key: 'playJazz',
@@ -103,7 +143,7 @@ var App = function (_React$Component) {
     key: 'randomNameOrder',
     value: function randomNameOrder() {
       var result = [];
-      var names = ['Dan', 'Benji', 'Mike', 'Yahzi'];
+      var names = ['Super Dan', 'Lord Benji', 'Awesome Mike', 'Sweet Yahzi'];
       for (var i = 3; i >= 0; i--) {
         var random = Math.floor(Math.random() * i);
         if (i === 0) {
@@ -207,7 +247,26 @@ var App = function (_React$Component) {
                 'button',
                 { id: 'audio', onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
                 'DAN FAV'
-              )
+              ),
+              React.createElement('div', { className: 'space' }),
+              React.createElement(
+                'button',
+                { id: 'audio', onClick: this.playBeethoven, className: 'btn btn-success', href: '#' },
+                'BEN FAV'
+              ),
+              React.createElement('div', { className: 'space' }),
+              React.createElement(
+                'button',
+                { id: 'audio', onClick: this.playTotoro, className: 'btn btn-default', href: '#' },
+                'YAZ FAV'
+              ),
+              React.createElement('div', { className: 'space' }),
+              React.createElement(
+                'button',
+                { id: 'audio', onClick: this.playRick, className: 'btn btn-primary', href: '#' },
+                'MIK FAV'
+              ),
+              React.createElement('div', { className: 'space' })
             )
           )
         );
@@ -244,7 +303,25 @@ var App = function (_React$Component) {
                 'button',
                 { id: 'audio', onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
                 'DAN FAV'
-              )
+              ),
+              React.createElement(
+                'button',
+                { id: 'audio', onClick: this.playBeethoven, className: 'btn btn-success', href: '#' },
+                'BEN FAV'
+              ),
+              React.createElement('div', { className: 'space' }),
+              React.createElement(
+                'button',
+                { id: 'audio', onClick: this.playTotoro, className: 'btn btn-default', href: '#' },
+                'YAZ FAV'
+              ),
+              React.createElement('div', { className: 'space' }),
+              React.createElement(
+                'button',
+                { id: 'audio', onClick: this.playRick, className: 'btn btn-primary', href: '#' },
+                'MIK FAV'
+              ),
+              React.createElement('div', { className: 'space' })
             )
           )
         );
