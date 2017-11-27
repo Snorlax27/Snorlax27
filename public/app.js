@@ -304,6 +304,7 @@ var App = function (_React$Component) {
                 { id: 'audio', onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
                 'DAN FAV'
               ),
+              React.createElement('div', { className: 'space' }),
               React.createElement(
                 'button',
                 { id: 'audio', onClick: this.playBeethoven, className: 'btn btn-success', href: '#' },
