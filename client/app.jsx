@@ -26,7 +26,6 @@ class App extends React.Component {
     });
 
 
-
     $(document).on('click', 'a[href^="#"]', function (event) {
       event.preventDefault();
 
@@ -69,7 +68,7 @@ class App extends React.Component {
             <i className="ion-ios-glasses-outline icon-big"></i>
             <h3>Natural Language API</h3><br></br><br></br>
             <p>
-               Aylien TextAPI  will analyze the sentiment of your text (from negative to positive) - so you get a better understanding of your daily feelings!
+               Aylien TextAPI will analyze the sentiment of your text (from negative to positive) - so you get a better understanding of your daily feelings!
             </p>
           </div>
       </section>
@@ -91,8 +90,7 @@ class App extends React.Component {
             </div>
             <div className="hero-text-box">
 
-              <h1>Goodbye solitary.<br></br>Hello together.</h1>
-
+              <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
               <a className="btn btn-info" href="#">I'm bored</a><div className="space"></div>
               <a className="btn btn-warning" href="#">Show me more</a>
             </div>
@@ -101,7 +99,7 @@ class App extends React.Component {
       )
     } else {
       return (
-        <header>
+        <header id="top">
           <nav>
             <div className="row">
               <img src="https://lh3.googleusercontent.com/0xBvdPgDd3s5gaDcq-CNkgoQPtcT5lPxO_SMxyUcz0rAf61OLprSnA2hLMsU5YFTx4LoyaxEcWKJUmcRuJvQ5uDm3q3hiw8QQaMjesuWk-Q4Ow7UP2WAPt8NaIUFbAqvO24V7eux7XzFwiEU8C8NhALt-0Uy-bcKhUEHpJTjj3Wk13OH-cb-zQh0kCVv0Dwcjqyop5EAvu5Yk-TQJxBQ7ZG_BVM8n2wOVyL-Jf7gI6MqXOvhHwyzOwVveqpquNPitCWS3MfGl373LKwaxZHWPTllUYReyTeDvmtUJ1wX1fX3X64DocaNwn4YPfRZg2GiJSom6sD4fxXvAjinm4pWNktHckZjZo_oLj2a451ZnxEBsPfpKm2gmJIoGL7qgCNSuxxQNDDuNo3pE9Bvl-xQoEEHfyaeqDGV1BkzNcXqloCpYJnlnRNxgRQmZ8AEIkgJlpissyxy7LJshyHpvAD5oYK3q1hShq4SaXvUTAp09L6P6Yikj9ylNwNxH6pVtqDBiDfdygIa7gMh4pznA2qLuzz333WeByBGL0OAAnM_4twzyN_9OkpBLsG8GAtc1g=s200-no"></img>
@@ -109,7 +107,7 @@ class App extends React.Component {
               </ul>
             </div>
             <div className="hero-text-box">
-              <h1>Goodbye solitary.<br></br>Hello together.</h1>
+              <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
               <a className="btn btn-info" href="#">I'm bored</a><div className="space"></div>
               <a className="btn btn-warning" href="#">Show me more</a>
             </div>
@@ -144,7 +142,7 @@ class App extends React.Component {
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and Super Dan.</a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.</a></li>
             </ul>
             <div id="space"></div>
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
@@ -160,7 +158,7 @@ class App extends React.Component {
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Awesome Mike, Sweet Yazhi, Lord Benji, and  Super Dan.</a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Captain America Mike, Black Widow Yazhi, Thor Benji, and the Incredible Hulk Dan.</a></li>
             </ul>
           </div>
         </nav>

@@ -105,7 +105,9 @@ header {
   margin-right: 50px;
   text-decoration: none;
   margin-top: 35px;
+  font-size: 17px;
 }
+
 
 .ion-android-favorite {
   display: inline-block;
@@ -131,10 +133,15 @@ header {
 h1 {
   margin:  0;
   color:  #fff;
-  font-size:  200%;
+
   text-transform:  uppercase;
   letter-spacing: 1px;
   word-spacing:  3px;
+
+}
+
+#h1-header {
+  font-size: 2.5em;
 }
 
 .hero-text-box {
@@ -252,7 +259,7 @@ h3 {
 textarea {
   position: relative;
   background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=2100&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
-  height: 570px;
+  height: 550px;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -319,12 +326,16 @@ OLIVE #3D9970.
   margin-left: 25%;
   margin-right: 25%;
   border: solid;
-  border-width: 10px;
+  border-width: 6px;
   width: 50%;
   border-color: #3D9970;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
   word-spacing: 2px;
+}
+
+.ion-ios-glasses-outline {
+  margin-top: -22px;
 }
 
 .ionicon p {
