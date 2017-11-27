@@ -185,7 +185,7 @@ class App extends React.Component {
             <div className="hero-text-box">
               <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
               <button id="audio" onClick={this.playJazz} className="btn btn-warning">Jazz</button><div className="space"></div>
-              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">DAN FAV</button>
+              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">DAN FAV</button><div className="space"></div>
               <button id="audio" onClick={this.playBeethoven} className="btn btn-success" href="#">BEN FAV</button><div className="space"></div>
               <button id="audio" onClick={this.playTotoro} className="btn btn-default" href="#">YAZ FAV</button><div className="space"></div>
               <button id="audio" onClick={this.playRick} className="btn btn-primary" href="#">MIK FAV</button><div className="space"></div>
