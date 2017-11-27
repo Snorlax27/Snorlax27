@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  padding-bottom: 70px;
+  padding-bottom: 50px;
 }
 
 progress{
@@ -49,6 +49,12 @@ header {
   background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=2250&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
 }
 
+#youtube {
+  display: none;
+}
+
+@media screen and (min-width: 320px) { iframe { display:none; }}
+
 .seemless2 {
   height: 70vh;
   margin: 0 auto;
@@ -64,6 +70,9 @@ header {
         animation: fadein 2.7s;
 }
 
+#audio {
+  margin-top: -10px;
+}
 
 #success {
   padding-left: 3%;
@@ -180,7 +189,9 @@ button {
 
 iframe {
   border: none;
-  display: none;
+  margin: none;
+  padding: none;
+  width: 100%;
 }
 
 .divider {
@@ -190,6 +201,9 @@ iframe {
 
 .navbar-btn {
   float: right;
+}
+
+#wrap {
 }
 
 navbar {
