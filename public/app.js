@@ -206,7 +206,7 @@ var App = function (_React$Component) {
               React.createElement(
                 'button',
                 { id: 'audio', onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
-                'FAV'
+                'DAN FAV'
               )
             )
           )
@@ -243,7 +243,7 @@ var App = function (_React$Component) {
               React.createElement(
                 'button',
                 { id: 'audio', onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
-                'FAV'
+                'DAN FAV'
               )
             )
           )
@@ -309,8 +309,7 @@ var App = function (_React$Component) {
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
                   'by Snorlax27 @ California, Maryland, and Toronto // ',
-                  message,
-                  ' (random order)'
+                  message
                 )
               )
             ),
@@ -350,8 +349,7 @@ var App = function (_React$Component) {
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
                   'by Snorlax27 @ California, Maryland, and Toronto // ',
-                  message,
-                  ' (random order)'
+                  message
                 )
               )
             )
