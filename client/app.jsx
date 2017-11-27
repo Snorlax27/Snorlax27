@@ -3,16 +3,18 @@ class App extends React.Component {
     super(props);
     this.state = {
       entries: [],
-      newestPost: {},
       userLoggedIn: false,
       username: '',
-      backgroundUrl: ''
+      music1: false,
+      music2: false
     }
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.filterComponents = this.filterComponents.bind(this);
     this.rerender = this.rerender.bind(this);
+    this.playJazz = this.playJazz.bind(this);
+    this.playKPOP = this.playKPOP.bind(this);
   }
 
   componentDidMount() {
@@ -25,7 +27,6 @@ class App extends React.Component {
       }
     });
 
-
     $(document).on('click', 'a[href^="#"]', function (event) {
       event.preventDefault();
 
@@ -33,6 +34,26 @@ class App extends React.Component {
           scrollTop: $($.attr(this, 'href')).offset().top
       }, 700);
     });
+  }
+
+  playJazz() {
+    if (this.state.music1) {
+      $('#jazz')[0].src = "//www.youtube.com/embed/wKzMlkKNodA?showinfo=0&controls=0";
+      this.state.music1 = false;
+    } else {
+      $('#jazz')[0].src += "&autoplay=1";
+      this.state.music1 = true;
+    }
+  }
+
+  playKPOP() {
+    if (this.state.music2) {
+      $('#video')[0].src = "//www.youtube.com/embed/dh_EvwzKVoY?showinfo=0&controls=0";
+      this.state.music2 = false;
+    } else {
+      $('#video')[0].src += "&autoplay=1";
+      this.state.music2 = true;
+    }
   }
 
   handleLogin(user) {
@@ -91,8 +112,8 @@ class App extends React.Component {
             <div className="hero-text-box">
 
               <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
-              <a className="btn btn-info" href="#">I'm bored</a><div className="space"></div>
-              <a className="btn btn-warning" href="#">Show me more</a>
+              <button id="audio" onClick={this.playJazz} className="btn btn-warning">Jazz</button><div className="space"></div>
+              <button id="audio" onClick={this.playKPOP} className="btn btn-info" href="#">한국노래</button>
             </div>
           </nav>
         </header>
@@ -108,8 +129,8 @@ class App extends React.Component {
             </div>
             <div className="hero-text-box">
               <h1 id="h1-header">Goodbye solitary.<br></br>Hello together.</h1>
-              <a className="btn btn-info" href="#">I'm bored</a><div className="space"></div>
-              <a className="btn btn-warning" href="#">Show me more</a>
+              <button onClick={this.playJazz} className="btn btn-warning">Jazz</button><div className="space"></div>
+              <button onClick={this.playKPOP} className="btn btn-info" href="#">한국노래</button>
             </div>
           </nav>
         </header>

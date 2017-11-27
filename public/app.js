@@ -18,16 +18,18 @@ var App = function (_React$Component) {
 
     _this.state = {
       entries: [],
-      newestPost: {},
       userLoggedIn: false,
       username: '',
-      backgroundUrl: ''
+      music1: false,
+      music2: false
     };
     _this.handleLogin = _this.handleLogin.bind(_this);
     _this.handleLogout = _this.handleLogout.bind(_this);
     _this.componentDidMount = _this.componentDidMount.bind(_this);
     _this.filterComponents = _this.filterComponents.bind(_this);
     _this.rerender = _this.rerender.bind(_this);
+    _this.playJazz = _this.playJazz.bind(_this);
+    _this.playKPOP = _this.playKPOP.bind(_this);
     return _this;
   }
 
@@ -50,6 +52,28 @@ var App = function (_React$Component) {
           scrollTop: $($.attr(this, 'href')).offset().top
         }, 700);
       });
+    }
+  }, {
+    key: 'playJazz',
+    value: function playJazz() {
+      if (this.state.music1) {
+        $('#jazz')[0].src = "//www.youtube.com/embed/wKzMlkKNodA?showinfo=0&controls=0";
+        this.state.music1 = false;
+      } else {
+        $('#jazz')[0].src += "&autoplay=1";
+        this.state.music1 = true;
+      }
+    }
+  }, {
+    key: 'playKPOP',
+    value: function playKPOP() {
+      if (this.state.music2) {
+        $('#video')[0].src = "//www.youtube.com/embed/dh_EvwzKVoY?showinfo=0&controls=0";
+        this.state.music2 = false;
+      } else {
+        $('#video')[0].src += "&autoplay=1";
+        this.state.music2 = true;
+      }
     }
   }, {
     key: 'handleLogin',
@@ -158,15 +182,15 @@ var App = function (_React$Component) {
                 'Hello together.'
               ),
               React.createElement(
-                'a',
-                { className: 'btn btn-info', href: '#' },
-                'I\'m bored'
+                'button',
+                { id: 'audio', onClick: this.playJazz, className: 'btn btn-warning' },
+                'Jazz'
               ),
               React.createElement('div', { className: 'space' }),
               React.createElement(
-                'a',
-                { className: 'btn btn-warning', href: '#' },
-                'Show me more'
+                'button',
+                { id: 'audio', onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
+                '\uD55C\uAD6D\uB178\uB798'
               )
             )
           )
@@ -195,15 +219,15 @@ var App = function (_React$Component) {
                 'Hello together.'
               ),
               React.createElement(
-                'a',
-                { className: 'btn btn-info', href: '#' },
-                'I\'m bored'
+                'button',
+                { onClick: this.playJazz, className: 'btn btn-warning' },
+                'Jazz'
               ),
               React.createElement('div', { className: 'space' }),
               React.createElement(
-                'a',
-                { className: 'btn btn-warning', href: '#' },
-                'Show me more'
+                'button',
+                { onClick: this.playKPOP, className: 'btn btn-info', href: '#' },
+                '\uD55C\uAD6D\uB178\uB798'
               )
             )
           )
