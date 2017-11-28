@@ -8,18 +8,22 @@ var app = express();
 var request = require('request');
 var $ = require('jquery');
 var AYLIENTextAPI = require('aylien_textapi');
+
+//These are the api keys and login. They may expire and can be generated for free on Aylien's website :)
 var textapi = new AYLIENTextAPI({
   application_id: "3df60bff",
   application_key: "deb73f8e34c8cb3a933c133c1e9c27f6"
 });
 
+//Port is dynamic for deployment purposes
 var port = process.env.PORT || 8080;
 app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser());
 
+//the secret string can be changed to anything at all
 app.use(session({secret:"snorlax snore", resave:false, saveUninitialized:true}))
 
-
+//handles logouts
 app.post('/logout', function(req, res) {
   // console.log(currentUsername)
   req.session.destroy(function(err) {
@@ -29,8 +33,9 @@ app.post('/logout', function(req, res) {
   res.end();
 })
 
-//NEW ACOUNT:
+//handles new accounts:
 app.post('/newAccount', function(req, res) {
+  //calls helper function on line 43
   addAccount(req.body.username, req.body.password);
   res.status(200).end();
 });
@@ -46,6 +51,7 @@ var addAccount = function(user, password) {
   });
 }
 
+//creates session for logining in and retrieving user specific diaries
 var createSession = function(req, res, newUser) {
   return req.session.regenerate(function() {
     req.session.user = newUser;

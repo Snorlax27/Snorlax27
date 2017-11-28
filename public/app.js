@@ -435,6 +435,9 @@ var App = function (_React$Component) {
         );
       }
     }
+
+    //Display diary in list after post
+
   }, {
     key: 'rerender',
     value: function rerender() {
