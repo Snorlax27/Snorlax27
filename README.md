@@ -35,12 +35,12 @@ And access your localhost:8080 :D
 
 ## Contributors
 
-* **Dan Kwon** - [danielkwon7](https://github.com/danielkwon7)
-* **Benji Richards** - [thebkr7](https://github.com/thebkr7)
-* **Yazhi Karman** - [yazhik12](https://github.com/yazhik12)
-* **Mike Maclean** - [mrmaclean89](https://github.com/mrmaclean89)
+* **Dan Kwon** Software Engineer - [danielkwon7](https://github.com/danielkwon7)
+* **Benji Richards** Software Engineer - [thebkr7](https://github.com/thebkr7)
+* **Yazhi Karman** Software Engineer - [yazhik12](https://github.com/yazhik12)
+* **Mike Maclean** Software Engineer - [mrmaclean89](https://github.com/mrmaclean89)
 
 
 ## Acknowledgments
 
-* Thanks for Snorlax27!
+* Thanks Stack Overflow for always keeping us good company!
