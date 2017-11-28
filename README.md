@@ -6,23 +6,24 @@ This project was created by Snorlax27, a group created @ Hack Reactor by Dan, Be
 
 ## Getting Started
 
-To get started, either you can go to our deployed website https://emotisphere.herokuapp.com/ or run all the code in a localhost environment by running npm run build (babel) and npm run start (node). We are using one of our teammate's mlab database, but if at all that is down, feel free to set your own mongodb connection for your entries to be saved.
+To get started, either you can go to our deployed website https://emotisphere.herokuapp.com/ or use your localhost environment by running babel and node. We are using one of our teammate's mlab database, but if at all that is down, feel free to set your own mongodb connection for your entries to be saved.
 
-### Prerequisites for setting up your localhost
+### Setting up your localhost
 
 All the dependencies are built into our package json, but you might need to have your node and npx updated for babel and node to run properly.
 
 ```
+npm install
 npm install -g npx
 npm install -g node
-npm install
 ```
 
 Run these two commands in separate tabs:
 
 ```
-npm run build
 npm run start
+npm run build
+
 ```
 And access your localhost:8080 :D
 
