@@ -53,7 +53,7 @@ class DiaryEntry extends React.Component {
       console.log('THIS IS THE PROPS ITEM', this.props.item);
       return (
         <div>
-          <h3 className="title"onClick={this.changeState}>{this.props.item.title}</h3>
+          <h3 className="title" onClick={this.changeState}>{this.props.item.title}</h3>
           {this.renderSentimentBar(this.props.item.sentiment)}
           <div className="entryInfo">
           Entry: {this.props.item.text} <br/>

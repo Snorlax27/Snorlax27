@@ -1,0 +1,7 @@
+node_modules
+.gitignore
+.flooignore
+.floo
+config.js
+Todo
+npm-debug.js
