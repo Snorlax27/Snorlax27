@@ -227,7 +227,7 @@ class App extends React.Component {
             <button onClick={this.handleLogout} className="btn btn-danger navbar-btn">Logout</button>
           </div>
         </nav>
-      )
+      );
     } else {
       return (
         <nav className = "navbar navbar-default navbar-fixed-bottom">
@@ -236,12 +236,11 @@ class App extends React.Component {
               <a className="navbar-brand" href="#top">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
-
               <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Snorlax27 @ California, Maryland, and Toronto // {message}</a></li>
             </ul>
           </div>
         </nav>
-      )
+      );
     }
   }
 
@@ -257,7 +256,7 @@ class App extends React.Component {
       error: function(err) {
         console.log('rerender error', err);
       }
-    })
+    });
   }
 
   filterComponents() {
@@ -267,12 +266,11 @@ class App extends React.Component {
           <Input rerender={this.rerender} />
           <DiaryList list={this.state.entries} />
         </div>
-      )
+      );
     }
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
-
 
   render() {
     return(
