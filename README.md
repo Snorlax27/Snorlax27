@@ -1,6 +1,6 @@
 # Snorlax27
 
-# Project Title
+# Emotisphere
 
 This project was created by Snorlax27, a group created @ Hack Reactor by Dan, Benji, Yazhi, and Mike. Our project name is Emotisphere, and it is a diary that uses AI technology. We used the Aylien Text API to analyze the text of the user's diary entry, and displayed the analyzed sentiments according to their type (positive, negative, or neutral), and strength. Mike took the role of the product owner, and Yazhi, the scrum master, and Dan and Benji the role of engineers but the distinctions became unclear as we all made concerted efforts to make this fun project work.
 
