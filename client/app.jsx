@@ -117,7 +117,8 @@ class App extends React.Component {
 
   randomNameOrder() {
     var result = [];
-    var names = ['Super Dan', 'Lord Benji', 'Awesome Mike', 'Sweet Yazhi'];
+    var names = ['Dan', 'Benji', 'Mike', 'Yazhi'];
+
     for (var i = 3; i >= 0; i--) {
       var random = Math.floor(Math.random() * i);
       if (i === 0) {
@@ -220,7 +221,7 @@ class App extends React.Component {
             </div>
             <ul className="nav navbar-nav">
 
-              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Snorlax27 @ California, Maryland, and Toronto // {message}</a>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Snorlax27 @ California, Maryland, and Toronto</a>
               </li>
             </ul>
             <div id="space"></div>
@@ -236,7 +237,8 @@ class App extends React.Component {
               <a className="navbar-brand" href="#top">Emotisphere</a>
             </div>
             <ul className="nav navbar-nav">
-              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Snorlax27 @ California, Maryland, and Toronto // {message}</a></li>
+              <li><a href="#top">Made with<i className="ion-android-favorite icon-medium"></i>by Snorlax27 @ California, Maryland, and Toronto</a>
+              </li>
             </ul>
           </div>
         </nav>

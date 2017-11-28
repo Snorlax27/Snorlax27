@@ -143,7 +143,8 @@ var App = function (_React$Component) {
     key: 'randomNameOrder',
     value: function randomNameOrder() {
       var result = [];
-      var names = ['Super Dan', 'Lord Benji', 'Awesome Mike', 'Sweet Yazhi'];
+      var names = ['Dan', 'Benji', 'Mike', 'Yazhi'];
+
       for (var i = 3; i >= 0; i--) {
         var random = Math.floor(Math.random() * i);
         if (i === 0) {
@@ -386,8 +387,7 @@ var App = function (_React$Component) {
                   { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Snorlax27 @ California, Maryland, and Toronto // ',
-                  message
+                  'by Snorlax27 @ California, Maryland, and Toronto'
                 )
               )
             ),
@@ -426,8 +426,7 @@ var App = function (_React$Component) {
                   { href: '#top' },
                   'Made with',
                   React.createElement('i', { className: 'ion-android-favorite icon-medium' }),
-                  'by Snorlax27 @ California, Maryland, and Toronto // ',
-                  message
+                  'by Snorlax27 @ California, Maryland, and Toronto'
                 )
               )
             )
